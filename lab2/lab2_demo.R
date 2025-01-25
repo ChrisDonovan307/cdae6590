@@ -40,7 +40,7 @@ x <- 3
 #' Now take a look at the environment tab in the upper right. This is where we
 #' can see all the objects we have loaded into our environment.
 
-#' Let's try printing out our object now
+#' Let's try printing out our object now with the print function
 print(x)
 #' This simply prints the contents of our object to the console so we can see
 #' it. Note that we can also just the object itself without using print to the
@@ -149,8 +149,9 @@ df <- data.frame(
   strings = strings,
   factors = factors
 )
-class(df)
 df
+class(df)
+str(df)
 
 #' Take another look at the environment tab in the upper right. Note that our
 #' df is now saved under the data tab. It tells us how many observations and
@@ -198,7 +199,7 @@ ncol(df)
 
 
 
-# Functions ---------------------------------------------------------------
+# Functions and Packages --------------------------------------------------
 
 
 #' We use functions to perform actions on objects. You've already seen the in
@@ -209,10 +210,10 @@ mean(z)
 #' If we want to perform multiple functions on an object, we can do it one by
 #' one
 mean_of_z <- mean(z)
-mean_of_z
+print(mean_of_z)
 
 sqrt_of_mean_z <- sqrt(mean_of_z)
-sqrt_of_mean_z
+print(sqrt_of_mean_z)
 
 #' But it is much cleaner if we nest the functions together. Note here that when
 #' we nest functions, they are performed from the inside out. The mean of z is
@@ -228,7 +229,7 @@ mean(sqrt(z))
 install.packages('dplyr')
 
 #' You only need to install a package on your computer once. In fact, if it is
-#' already installed, and you try to install it again, it will throw an error!
+#' already installed, and you try to install it again, it may throw an error!
 #' More on avoiding this later. After installing it, you can use it every time
 #' you open RStudio. However, EACH time you open a session in RStudio, you will
 #' need to load the package.
@@ -250,18 +251,11 @@ sqrt(16)
 # Note that pipe operators work differently than nested functions. Here, we
 # perform the mean and sqrt functions on z and get the same result as before.
 # However, they are written in a more intuitive order. Either way is fine.
-z %>%
-    mean() %>%
-    sqrt()
+mean(sqrt(z))
+z %>% sqrt() %>% mean()
 
-#' Note that the two symbols for the pipe operator are almost, but not entirely
-#' identical. [%>%] is the original pipe from dplyr. Or rather, it is pulled
-#' from the magrittr package, but whatever, it is available to us when we load
-#' dplyr. [|>] is the base R pipe, which was introduced about 10 years later.
-#' They are almost identical, and you will likely see them both so I wanted to
-#' introduce them. But they are not the same! I won't get into the details here,
-#' but [%>%] has more capability, so I recommend using it even though the base R
-#' pipe is objectively cooler looking.
+sqrt(mean(z))
+z %>% mean() %>% sqrt()
 
 #' Finally, you might see functions like this:
 dplyr::glimpse(mtcars)
@@ -274,6 +268,20 @@ dplyr::glimpse(mtcars)
 #'  3. If we have a package installed, we can use [::] to run a function from it
 #'      without loading the package first.
 
+
+
+# Loading and Saving ------------------------------------------------------
+
+
+#' To check your current working directory, use the getwd function
+getwd()
+
+#' Note that this will be different for everyone, but as long as we opened the
+#' [.Rproj] file, our working directory should be in the folder that the
+#' project is in. This is called a relative file path.
+
+#' Let's try loading a dataset as a .csv file
+df <- read.csv('lab2/')
 
 
 # Regression --------------------------------------------------------------
