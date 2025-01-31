@@ -179,3 +179,8 @@ get_str(dat)
 # Save it
 readr::write_csv(dat, 'surveys/clean_survey.csv')
 saveRDS(dat, 'surveys/clean_survey.rds')
+
+# Save another version where we add a letters var value
+dat$letters <- ifelse(is.na(dat$letters), 5, dat$letters)
+readr::write_csv(dat, 'surveys/lab3_survey.csv')
+saveRDS(dat, 'surveys/lab3_survey.rds')
