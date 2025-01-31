@@ -1,14 +1,17 @@
 # Lab 3 Demo
-# 2025-01-25
+# Multiple Regression
+# 2025-01-31
 
 
+# Housekeeping ------------------------------------------------------------
 
-# Load Packages -----------------------------------------------------------
 
-
-# skimr has the skim function, which is a summary of a df
-install.packages('skimr')
+# skimr has the skim function, which is a summary of a df. Highly recommend!
+# install.packages('skimr')
 library(skimr)
+
+# Optionally turn off scientific notation - can make outputs easier to read
+options(scipen = 999)
 
 
 
@@ -16,12 +19,15 @@ library(skimr)
 
 
 # Load survey .rds file from GitHub
-github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/surveys/clean_survey.rds'
-download.file(github_url, 'clean_survey.rds', method = 'curl')
-df <- readRDS('clean_survey.rds')
+github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/surveys/lab3_survey.rds'
+download.file(github_url, 'lab3_survey.rds', method = 'curl')
+df <- readRDS('lab3_survey.rds')
 
 # Check the structure of the data
 str(df)
+
+# Observe a single column
+df$month_rent
 
 # View the data frame
 View(df)
@@ -35,36 +41,23 @@ skim(df)
 # One Predictor Regression ------------------------------------------------
 
 
-# Let's explore the relationship between monthly rent
-lm1 <- lm(income ~ age, data = df)
+## Let's explore the relationship between income and education (numeric)
+lm1 <- lm(income ~ educ_num, data = df)
 summary(lm1)
 # What does this mean?
-# Estimate (Beta)
-# Std. Error
-# t value
-# Pr(>|t|): a brief detour on p-values
-# R^2
+#  Estimate (Beta)
+#  Std. Error
+#  t value
+#  Pr(>|t|)
+#  R^2
 
-# Note - if you don't want scientific notation, you can turn it off:
-options(scipen = 999)
-summary(lm1)
 
-# Remember that we are assuming causation - it is not implied by the model
-# What happens if we reverse regression?
-lm2 <- lm(age ~ income, data = df)
+## Remember that we are assuming causation causation and its direction. What
+# happens if we reverse the regression? Now we look at age as a function of
+# income.
+lm2 <- lm(educ_num ~ income, data = df)
 summary(lm2)
-# Same t, p, R^2, and F values
-
-# Calculate betas manually
-(var_both <- var(df$age, df$income, use = 'pairwise.complete.obs'))
-(var_age <- var(df$age[!is.na(df$income)]))
-(var_income <- var(df$income, use = 'complete.obs'))
-
-# Beta for income ~ age:
-var_both / var_age
-
-# Beta for age ~ income:
-var_both / var_income
+# What do we see?
 
 # Causality is assumed by the researcher, not implied by the model
 
@@ -73,19 +66,57 @@ var_both / var_income
 # Multiple Regression -----------------------------------------------------
 
 
-# Let's add another variables to our regression
-lm_multi <- lm(income ~ age + educ_num, data = df)
+## Let's add another variable to our regression
+lm_multi <- lm(income ~ educ_num + age, data = df)
+summary(lm_multi)
 # How does this compare to our one-predictor regression?
+# Residual standard error?
+# Degrees of freedom?
+# R2 and Adjusted R2
+# F test degrees of freedom
 
-# Let's add another variable - live_years
-lm_multi2 <- lm(income ~ age + live_years + educ_num, data = df)
+
+## We can use an F test to compare two models. Let's compare our last multi
+# predictor model to our single predictor model from earlier
+anova(lm1, lm_multi)
+# Are the models significantly different?
+
+
+## Let's add another variable - the number of letters in the first name
+lm_multi2 <- lm(income ~ age + letters + educ_num, data = df)
 summary(lm_multi2)
 # How does this compare to our 2 predictor regression?
 
-# We can use an F test to compare two models. Let's compare our last multi
-# predictor model to our single predictor model from earlier
-anova(lm1, lm_multi2)
-# There is no significant difference between the models
+
+
+# Residual Plots ----------------------------------------------------------
+
+
+## View all four residual plots at once
+par(mfrow = c(2, 2))
+plot(lm_multi)
+par(mfrow = c(1, 1))
+
+# 1. Residuals vs Fitted
+#   Check for linearity of relationship
+# 2. QQ Residuals
+#   Distribution of residuals. If normal, they fall along the line
+# 3. Scale Location
+#   Like residuals vs fitted, but with root of standardized residuals
+#   Check for homoscedasticity
+# 4. Residuals vs Leverage
+#   Outliers with respect to independent variables. Not necessarily influential
+#   Cook's distance - changes to model when observation is removed from it
+
+
+## Other great tools
+install.packages('performance', dependencies = TRUE)
+library(performance)
+check_model(lm_multi)
+
+install.packages('DHARMa')
+library(DHARMa)
+DHARMa::testSimulatedResiduals(lm_multi)
 
 
 
@@ -112,7 +143,6 @@ library(VIF)
 # Plot each variable against income to observe relationship
 plot(df$age, df$income)
 plot(df$educ_num, df$income)
-plot(df$employ_full, df$income)
 
 # A better way to graph:
 ggplot2::ggplot(df, aes(x = educ_num, y = income)) +
@@ -182,4 +212,5 @@ cor(small_df, use = 'pairwise.complete.obs')
 # is overestimated because of collinearity
 DescTools::VIF(lm_multi)
 # 5 or greater is considered problematic
+
 
