@@ -7,7 +7,7 @@
 
 
 # skimr has the skim function, which is a summary of a df. Highly recommend!
-# install.packages('skimr')
+install.packages('skimr')
 library(skimr)
 
 # Optionally turn off scientific notation - can make outputs easier to read
@@ -23,14 +23,14 @@ github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/h
 download.file(github_url, 'lab3_survey.rds', method = 'curl')
 df <- readRDS('lab3_survey.rds')
 
+# View the data frame
+View(df)
+
 # Check the structure of the data
 str(df)
 
 # Observe a single column
 df$month_rent
-
-# View the data frame
-View(df)
 
 # Check overall summary of data with skimr package
 skim(df)
@@ -66,8 +66,9 @@ summary(lm2)
 # Multiple Regression -----------------------------------------------------
 
 
-## Let's add another variable to our regression
+## Let's add age to our regression model
 lm_multi <- lm(income ~ educ_num + age, data = df)
+summary(lm1)
 summary(lm_multi)
 # How does this compare to our one-predictor regression?
 # Residual standard error?
@@ -83,7 +84,8 @@ anova(lm1, lm_multi)
 
 
 ## Let's add another variable - the number of letters in the first name
-lm_multi2 <- lm(income ~ age + letters + educ_num, data = df)
+lm_multi2 <- lm(income ~ educ_num + age + letters, data = df)
+summary(lm_multi)
 summary(lm_multi2)
 # How does this compare to our 2 predictor regression?
 
@@ -91,6 +93,9 @@ summary(lm_multi2)
 
 # Residual Plots ----------------------------------------------------------
 
+
+## View four residual plots one by one
+plot(lm_multi)
 
 ## View all four residual plots at once
 par(mfrow = c(2, 2))
@@ -120,7 +125,7 @@ DHARMa::testSimulatedResiduals(lm_multi)
 
 
 
-# Checking Assumptions ----------------------------------------------------
+# Extra - Checking Assumptions --------------------------------------------
 
 
 # Some packages that will help us check assumptions:

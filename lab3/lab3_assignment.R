@@ -20,6 +20,7 @@ df <- readRDS('lab3_survey.rds')
 # Run a multiple regression on the dataset using any variables you like as the
 # independent and dependent variables.
 
+
 # Use summary() to see the results of your regression.
 
 
@@ -29,15 +30,18 @@ df <- readRDS('lab3_survey.rds')
 # 2. Interpret the R^2 and adjusted R^2 for your model
 
 
-# 3. Use either base plots of the performance::model_check() function to
+# 3. Use either base plots or the performance::model_check() function to
 #   create residual plots. Does your model meet assumptions of:
-#     i. linear relationship?
-#     ii. normally distributed residuals?
-#     iii. uncorrelated (homoskedastic) residuals?
+#     i. normally distributed residuals?
+#     ii. uncorrelated (homoskedastic) residuals?
 
-# 4. Either add another variable to your regression or take one away. Save the
+
+# 4. Either add another variable to your regression OR take one away. Save the
 #   new model to a new object. What happened to the variance and R^2 of your
-#   model?
+#   model compared to the original model?
+
 
 # 5. Use an anova() to determine whether your new model is significantly
-# different from your old model. Interpret the results - which model is better?
+#   different from your old model. Interpret the results. Is one model better
+#   than the other? If so, which?
+
