@@ -24,24 +24,25 @@ df <- readRDS('lab3_survey.rds')
 # Use summary() to see the results of your regression.
 
 
-# 1. Interpret the estimate and p-value for any one of your predictor variables
+# 1. Interpret the results of your model. Pick out the important variables and
+#   values as you see fit to get a concise summary of the findings. This might
+#   include R2, p-values, test statistics - whatever tells the story of your
+#   model.
 
 
-# 2. Interpret the R^2 and adjusted R^2 for your model
-
-
-# 3. Use either base plots or the performance::model_check() function to
+# 2. Use either base plots or the performance::model_check() function to
 #   create residual plots. Does your model meet assumptions of:
 #     i. normally distributed residuals?
 #     ii. uncorrelated (homoskedastic) residuals?
+#     iii. is there anything else that is noteworthy about your residual plots?
 
 
-# 4. Either add another variable to your regression OR take one away. Save the
+# 3. Either add another variable to your regression OR take one away. Save the
 #   new model to a new object. What happened to the variance and R^2 of your
 #   model compared to the original model?
 
 
-# 5. Use an anova() to determine whether your new model is significantly
+# 4. Use an anova() to determine whether your new model is significantly
 #   different from your old model. Interpret the results. Is one model better
 #   than the other? If so, which?
 

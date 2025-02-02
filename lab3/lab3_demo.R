@@ -7,7 +7,7 @@
 
 
 # skimr has the skim function, which is a summary of a df. Highly recommend!
-install.packages('skimr')
+# install.packages('skimr')
 library(skimr)
 
 # Optionally turn off scientific notation - can make outputs easier to read
@@ -20,7 +20,7 @@ options(scipen = 999)
 
 # Load survey .rds file from GitHub
 github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/surveys/lab3_survey.rds'
-download.file(github_url, 'lab3_survey.rds', method = 'curl')
+download.file(github_url, 'lab3_survey.rds', method = 'auto')
 df <- readRDS('lab3_survey.rds')
 
 # View the data frame
@@ -176,7 +176,7 @@ GGally::ggpairs(small_df)
 par(mfrow = c(2, 2))
 plot(lm_multi)
 par(mfrow = c(1, 1))
-# A horizontal red line suggests homoscedastic errors
+# A horizontal red line suggests homoskedastic errors
 
 # We can also use the Breusch Pagan test, which we will get into later!
 lmtest::bptest(lm_multi)
