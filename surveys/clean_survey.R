@@ -144,10 +144,10 @@ dat <- dat %>%
     ),
     income = case_when(
       str_detect(income, '^Less') ~ 12500,
+      str_detect(income, '^25,000') ~ 37500,
       str_detect(income, '^50,000') ~ 75000,
       str_detect(income, '^100') ~ 125000,
       str_detect(income, '^150') ~ 175000,
-      str_detect(income, '^More') ~ 250000,
       str_detect(income, '^More') ~ 250000,
       .default = NA
     ),
@@ -176,11 +176,23 @@ dat <- dat %>%
              ))
 get_str(dat)
 
-# Save it
+
+
+# Save --------------------------------------------------------------------
+
+
+# Save as both csv and rds
 readr::write_csv(dat, 'surveys/clean_survey.csv')
 saveRDS(dat, 'surveys/clean_survey.rds')
 
-# Save another version where we add a letters var value
-dat$letters <- ifelse(is.na(dat$letters), 5, dat$letters)
-readr::write_csv(dat, 'surveys/lab3_survey.csv')
-saveRDS(dat, 'surveys/lab3_survey.rds')
+# Save another version where we add a letters var value for use in lab3
+# Note that there is an error in coding income leading to 16 NA values here
+# We are leaving it for posterity
+# dat$letters <- ifelse(is.na(dat$letters), 5, dat$letters)
+# readr::write_csv(dat, 'surveys/lab3_survey.csv')
+# saveRDS(dat, 'surveys/lab3_survey.rds')
+
+# Save a version for lab4
+readr::write_csv(dat, 'surveys/lab4_survey.csv')
+saveRDS(dat, 'surveys/lab4_survey.rds')
+
