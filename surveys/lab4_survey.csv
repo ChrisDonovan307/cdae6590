@@ -12,7 +12,7 @@ None of these,1750,own,3,Somewhat likely,Vermont,full time,Male,White.,75000,32,
 None of these,1750,rent,7,Somewhat likely,Vermont,full time,Male,White.,75000,39,1,1,Doctoral degree,5,1,0,0,0,0,1,0,0,0,0,0,0,5,5
 "Mahmood, Ali",2250,rent,2,Extremely unlikely,Vermont,full time,Male,Hispanic or Latino,75000,43,1,1,Doctoral degree,7,1,0,0,0,0,0,1,0,0,0,0,0,5,5
 None of these,3000,rent,1,Extremely likely,Vermont,full time,Female,White.,75000,32,2,2,Doctoral degree,4,1,0,0,0,0,1,0,0,0,0,0,1,5,5
-None of these,3000,own,0.5,Somewhat unlikely,Vermont,full time,Female,NA,75000,40,2,2,Doctoral degree,9,1,0,0,0,0,NA,NA,NA,NA,NA,NA,1,5,5
+None of these,3000,own,0.5,Somewhat unlikely,Vermont,full time,Female,NA,75000,40,2,2,Doctoral degree,9,1,0,0,0,0,0,0,0,0,0,0,1,5,5
 None of these,1750,own,5,Somewhat unlikely,Vermont,full time,Female,White.,250000,35,3,2,Doctoral degree,6,1,0,0,0,0,1,0,0,0,0,0,1,5,5
 None of these,1250,rent,1.5,Extremely unlikely,Vermont,full time,Male,"Hispanic or Latino ,White.",75000,46,1,1,Doctoral degree,7,1,0,0,0,0,1,1,0,0,0,0,0,5,5
 None of these,2250,own,0.5,Somewhat unlikely,Other US state,full time,Male,White.,175000,52,4,2,Doctoral degree,5,1,0,0,0,0,1,0,0,0,0,0,0,5,5
@@ -101,4 +101,4 @@ None of these,2250,own,22,Extremely likely,Vermont,full time,Female,White.,12500
 "Mahmood, Ali",875,rent,2,Extremely likely,Vermont,full time,Female,Asian.,37500,24,2,2,Bachelor’s degree,6,1,0,0,0,0,0,0,0,1,0,0,1,3,3
 None of these,250,own,22,Extremely unlikely,Vermont,full time,Male,White.,125000,62,3,2,Doctoral degree,6,1,0,0,0,0,1,0,0,0,0,0,0,5,5
 None of these,250,own,14,Extremely unlikely,Vermont,full time,Male,White.,75000,44,4,2,Doctoral degree,3,1,0,0,0,0,1,0,0,0,0,0,0,5,5
-NA,3000,own,9,Extremely likely,Vermont,full time,Male,NA,75000,50,2,2,Master’s degree,4,1,0,0,0,0,NA,NA,NA,NA,NA,NA,0,4,4
+NA,3000,own,9,Extremely likely,Vermont,full time,Male,NA,75000,50,2,2,Master’s degree,4,1,0,0,0,0,0,0,0,0,0,0,0,4,4

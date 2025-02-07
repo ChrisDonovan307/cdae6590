@@ -110,6 +110,9 @@ races <- dat$race %>%
   str_trim() %>%
   unique
 
+# Recode NA race ass race_na
+# races[is.na(races)] <- 'na'
+
 # Recode all of them at once
 dat <- dat %>%
   mutate(
@@ -124,6 +127,14 @@ dat <- dat %>%
         )
       )
     )
+  )
+get_str(dat)
+
+# Fix up the NAs for people who did not respond to race question
+dat <- dat %>%
+  mutate(
+    race_NA = ifelse(is.na(race), 1, 0),
+    across(starts_with('race_'), ~ ifelse(is.na(.x), 0, .x))
   )
 get_str(dat)
 

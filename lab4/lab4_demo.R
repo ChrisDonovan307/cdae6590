@@ -8,7 +8,7 @@
 
 # The pacman package (package manager) is really convenient.
 install.packages('pacman')
-pacman::p_load(dplyr, skimr)
+pacman::p_load(dplyr, skimr, ggplot2, broom)
 # Perks:
 #   Both installs and loads each package at the same time
 #   Can do it for multiple packages at once
@@ -73,4 +73,61 @@ df <- readRDS('lab4_survey.rds')
 # Note that this one is smaller and dirtier
 str(df)
 
-# Hypothesis testing, p value dive, t and f tests...
+# Multiple regression
+lm1 <- lm(income ~ educ_num + age, data = df)
+summary(lm1)
+# Given the data, what are the chances that education is significantly
+# associated with income?
+
+
+## Degrees of Freedom
+summary(lm1)
+# 2 and 99 DF - what does this mean?
+# T and F distributions
+
+
+## Confidence intervals
+# First get coefficients out of summary
+coefs_df <- tidy(lm1)
+coefs_df
+
+# Degrees of freedom
+df <- 99
+
+# Calculate CIs for educ_num manually
+alpha <- 0.05
+t_crit <- qt(1 - alpha/2, df)
+lower_bound <- coefs_df[2, 2] - t_crit * coefs_df[2, 3]
+upper_bound <- coefs_df[2, 2] + t_crit * coefs_df[2, 3]
+cis_manual <- c(lower_bound, upper_bound)
+print(cis_manual)
+
+# Calculate CIs automatically
+cis <- as.data.frame(confint(lm1))
+print(cis)
+
+
+
+# Extras ------------------------------------------------------------------
+
+
+## Plotting confidence intervals
+# Combine confidence intervals with betas
+(coefs <- tidy(lm1))
+plot_df <- bind_cols(coefs, cis) %>%
+  rename(lower_bound = `2.5 %`, upper_bound = `97.5 %`) %>%
+  filter(term != '(Intercept)')
+plot_df
+
+# Plot confidence intervals
+ggplot(plot_df, aes(x = term, y = estimate)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = lower_bound, ymax = upper_bound), width = 0.2) +
+  theme_minimal() +
+  labs(
+    title = "Confidence Intervals for 'income ~ educ_num + age'",
+    x = "Predictor",
+    y = "Estimate"
+  )
+
+
