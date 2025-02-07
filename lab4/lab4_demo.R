@@ -8,7 +8,12 @@
 
 # The pacman package (package manager) is really convenient.
 install.packages('pacman')
-pacman::p_load(dplyr, skimr, ggplot2, broom)
+pacman::p_load(
+  dplyr,
+  skimr,
+  ggplot2,
+  broom
+)
 # Perks:
 #   Both installs and loads each package at the same time
 #   Can do it for multiple packages at once
@@ -91,43 +96,90 @@ summary(lm1)
 coefs_df <- tidy(lm1)
 coefs_df
 
-# Degrees of freedom
-df <- 99
+# Set some values
+dof <- 99
+alpha <- 0.05
+critical_t <- qt(1 - alpha/2, dof)
 
 # Calculate CIs for educ_num manually
-alpha <- 0.05
-t_crit <- qt(1 - alpha/2, df)
-lower_bound <- coefs_df[2, 2] - t_crit * coefs_df[2, 3]
+lower_bound <- coefs_df[2, 'estimate'] - critical_t * coefs_df[2, 'std.error']
 upper_bound <- coefs_df[2, 2] + t_crit * coefs_df[2, 3]
-cis_manual <- c(lower_bound, upper_bound)
-print(cis_manual)
+print(lower_bound)
+print(upper_bound)
 
 # Calculate CIs automatically
 cis <- as.data.frame(confint(lm1))
 print(cis)
+# What does this mean?
+
+
+## Combine confidence intervals with betas
+# First get coefficients into a data frame
+(coefs <- broom::tidy(lm1))
+
+# Combine coefs df with cis df
+clean_df <- cbind(coefs, cis)
+clean_df <- dplyr::bind_cols(coefs, cis)
+
+# Rename columns
+clean_df <- rename(
+  clean_df,
+  ci.low = `2.5 %`,
+  ci.high = `97.5 %`
+)
+clean_df
 
 
 
 # Extras ------------------------------------------------------------------
 
 
-## Plotting confidence intervals
-# Combine confidence intervals with betas
-(coefs <- tidy(lm1))
-plot_df <- bind_cols(coefs, cis) %>%
-  rename(lower_bound = `2.5 %`, upper_bound = `97.5 %`) %>%
-  filter(term != '(Intercept)')
-plot_df
+## Making a scatterplot
+ggplot(df, aes(x = educ_num, y = income)) +
+  geom_point()
 
-# Plot confidence intervals
-ggplot(plot_df, aes(x = term, y = estimate)) +
-  geom_point(size = 2) +
-  geom_errorbar(aes(ymin = lower_bound, ymax = upper_bound), width = 0.2) +
-  theme_minimal() +
+# Add a clean theme and make points bigger
+ggplot(df, aes(x = educ_num, y = income)) +
+  geom_point(size = 3) +
+  theme_classic()
+
+# Points are stacked up - use a jitter and alpha to show them better
+ggplot(df, aes(x = educ_num, y = income)) +
+  geom_jitter(
+    size = 3,
+    alpha = 0.5,
+    width = 0.1,
+    height = 5000
+  ) +
+  theme_classic()
+
+# Add labels
+ggplot(df, aes(x = educ_num, y = income)) +
+  geom_jitter(
+    size = 3,
+    alpha = 0.4,
+    width = 0.1,
+    height = 5000
+  ) +
+  theme_classic() +
   labs(
-    title = "Confidence Intervals for 'income ~ educ_num + age'",
-    x = "Predictor",
-    y = "Estimate"
+    x = 'Education',
+    y = 'Income',
+    title = 'Scatter plot of income by education'
   )
 
 
+## Plotting confidence intervals
+# First, remove intercept, because we don't care about it
+plot_df <- filter(clean_df, term != '(Intercept)')
+
+# Plot using ggplot2 package and the geom_errorbar function
+ggplot(plot_df, aes(x = term, y = estimate)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = ci.low, ymax = ci.high), width = 0.2) +
+  theme_classic() +
+  labs(
+    title = "Confidence Intervals for 'income ~ educ_num + age'",
+    x = "Predictors",
+    y = "Estimates"
+  )
