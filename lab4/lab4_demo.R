@@ -7,7 +7,7 @@
 
 
 # The pacman package (package manager) is really convenient.
-install.packages('pacman')
+# install.packages('pacman')
 pacman::p_load(
   dplyr,
   skimr,
@@ -48,6 +48,7 @@ str(sum1)
 # Use extraction operator to pull out r.squared term
 sum1$r.squared
 sum2$r.squared
+# R^2 did go up, just by such a small amount that it was rounded off!
 
 
 ## Categorical variables and curious results
@@ -61,7 +62,9 @@ lab3_df %>%
   group_by(educ) %>%
   summarize(mean_income = mean(income, na.rm = TRUE))
 
-# Coding error in income! Also room for bias
+# I made a coding error in income! It is fixed in lab 4 survey and on
+# Note that the way we coded education could also leave room for bias. We did
+# not include a trade school degree.
 table(lab3_df$educ)
 table(lab3_df$income, useNA = 'always')
 
@@ -75,7 +78,6 @@ github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/h
 download.file(github_url, 'lab4_survey.rds', method = 'auto')
 df <- readRDS('lab4_survey.rds')
 
-# Note that this one is smaller and dirtier
 str(df)
 
 # Multiple regression
@@ -85,25 +87,21 @@ summary(lm1)
 # associated with income?
 
 
-## Degrees of Freedom
-summary(lm1)
-# 2 and 99 DF - what does this mean?
-# T and F distributions
-
-
 ## Confidence intervals
 # First get coefficients out of summary
 coefs_df <- tidy(lm1)
 coefs_df
 
-# Set some values
+# Set some variables for degrees of freedom, alpha (type 1 error), and
+# our critical t value based on student t distribution. We will use these to
+# calculate confidence intervals.
 dof <- 99
 alpha <- 0.05
 critical_t <- qt(1 - alpha/2, dof)
 
 # Calculate CIs for educ_num manually
 lower_bound <- coefs_df[2, 'estimate'] - critical_t * coefs_df[2, 'std.error']
-upper_bound <- coefs_df[2, 2] + t_crit * coefs_df[2, 3]
+upper_bound <- coefs_df[2, 2] + critical_t * coefs_df[2, 3]
 print(lower_bound)
 print(upper_bound)
 
@@ -117,17 +115,33 @@ print(cis)
 # First get coefficients into a data frame
 (coefs <- broom::tidy(lm1))
 
-# Combine coefs df with cis df
+# Combine coefs df with cis df by binding columns together
+# Check dimensions of each df:
+dim(coefs)
+dim(cis)
+# Both have 3 rows. Coefs has 5 columns, cis has 2 columns
+# So result will have 3 rows, 7 columns
+
+# Showing this two ways - first with base function, second with dplyr function
+# Either way, we just smush the columns together.
 clean_df <- cbind(coefs, cis)
 clean_df <- dplyr::bind_cols(coefs, cis)
+clean_df
 
-# Rename columns
-clean_df <- rename(
+# Check dimensions
+dim(clean_df)
+# 3 rows, 7 columns
+
+# Rename columns to get rid of weird characters. First argument is the data
+# frame. Then it goes new name = old name. So we are changing the '2.5 %' to
+# 'ci.low'
+clean_df <- dplyr::rename(
   clean_df,
   ci.low = `2.5 %`,
   ci.high = `97.5 %`
 )
 clean_df
+# This is a nice clean data frame ready to put into a table for a paper
 
 
 

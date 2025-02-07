@@ -27,7 +27,7 @@ df <- readRDS('lab4_survey.rds')
 # function:
 
 
-# 3. Combine the confidence intervals into your model output with bind_rows():
+# 3. Combine the confidence intervals into your model output with bind_cols():
 
 
 # 4. Interpret the confidence intervals and p value of any one predictor:

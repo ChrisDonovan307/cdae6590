@@ -77,7 +77,16 @@ dat <- dat %>%
     ) %>%
       as.factor(),
     live_years = as.numeric(live_years),
-    likely_move = as.factor(likely_move),
+    likely_move = factor(
+      likely_move,
+      levels = c(
+        'Extremely unlikely',
+        'Somewhat unlikely',
+        'Somewhat likely',
+        'Extremely likely'
+      ),
+      ordered = TRUE
+    ),
     employ_full = case_when(
       str_detect(employ, 'full') ~ 1,
       .default = 0
@@ -165,8 +174,8 @@ dat <- dat %>%
     across(c(age:hh_earn), as.numeric),
     educ_num = case_when(
       str_detect(educ, '^None') ~ 0,
-      str_detect(educ, '^Assoc') ~ 1,
-      str_detect(educ, '^High') ~ 2,
+      str_detect(educ, '^High') ~ 1,
+      str_detect(educ, '^Assoc') ~ 2,
       str_detect(educ, '^Bach') ~ 3,
       str_detect(educ, '^Master') ~ 4,
       str_detect(educ, '^Doct') ~ 5,
@@ -207,3 +216,5 @@ saveRDS(dat, 'surveys/clean_survey.rds')
 readr::write_csv(dat, 'surveys/lab4_survey.csv')
 saveRDS(dat, 'surveys/lab4_survey.rds')
 
+# Save the crosswalk as a csv
+readr::write_csv(crosswalk, 'surveys/crosswalk.csv')
