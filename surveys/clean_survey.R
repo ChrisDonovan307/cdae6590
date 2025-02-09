@@ -110,17 +110,21 @@ dat <- dat %>%
   )
 get_str(dat)
 
-# Recode race different this time
+
+# Try a new way to recode race, instead of one by one like employ
 # Get unique inputs for race
+unique(dat$race)
+
+# Remove periods and odd spaces
+dat$race <- dat$race %>%
+  str_remove_all('\\.') %>%
+  str_replace('o ,', 'o,')
+
+# Get unique list of individual races
 races <- dat$race %>%
   str_split(',') %>%
   unlist %>%
-  str_remove('\\.') %>%
-  str_trim() %>%
   unique
-
-# Recode NA race ass race_na
-# races[is.na(races)] <- 'na'
 
 # Recode all of them at once
 dat <- dat %>%

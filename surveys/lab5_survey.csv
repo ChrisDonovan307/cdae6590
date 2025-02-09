@@ -1,104 +1,104 @@
 student,month_rent,own,live_years,likely_move,where_live,employ,gender,race,income,age,hh,hh_earn,educ,letters
-None of these,1750,own,6,Somewhat likely,Vermont,full time,Female,White.,75000,41,6,2,Doctoral degree,3
-"Ale, Victoria A",1250,own,7,Somewhat likely,Vermont,full time,Female,White.,75000,44,4,2,Master’s degree,10
-None of these,2250,own,10,Extremely unlikely,Vermont,full time,Male,White.,125000,60,4,2,Doctoral degree,5
-None of these,3000,own,15,Extremely unlikely,Vermont,full time,Male,White.,125000,48,5,2,Doctoral degree,7
-None of these,1250,own,9,Extremely unlikely,Vermont,full time,Female,White.,75000,36,2,2,Master’s degree,8
-"Ale, Victoria A",1250,own,1,Extremely unlikely,Vermont,full time,Male,White.,175000,49,5,2,Doctoral degree,4
-"Greene, Liza A.",1250,own,15,Somewhat likely,Vermont,full time,Female,White.,75000,46,3,2,Master’s degree,5
-None of these,3000,own,1,Extremely unlikely,Vermont,full time,Male,White.,175000,34,4,2,Doctoral degree,6
-None of these,1750,own,3,Somewhat likely,Vermont,full time,Male,White.,75000,32,2,2,Doctoral degree,3
-"Grima, Liam A.",250,own,6,Somewhat unlikely,Vermont,retired,Male,White.,37500,66,1,1,Doctoral degree,3
-None of these,1750,rent,7,Somewhat likely,Vermont,full time,Male,White.,75000,39,1,1,Doctoral degree,5
+None of these,1750,own,6,Somewhat likely,Vermont,full time,Female,White,75000,41,6,2,Doctoral degree,3
+"Ale, Victoria A",1250,own,7,Somewhat likely,Vermont,full time,Female,White,75000,44,4,2,Master’s degree,10
+None of these,2250,own,10,Extremely unlikely,Vermont,full time,Male,White,125000,60,4,2,Doctoral degree,5
+None of these,3000,own,15,Extremely unlikely,Vermont,full time,Male,White,125000,48,5,2,Doctoral degree,7
+None of these,1250,own,9,Extremely unlikely,Vermont,full time,Female,White,75000,36,2,2,Master’s degree,8
+"Ale, Victoria A",1250,own,1,Extremely unlikely,Vermont,full time,Male,White,175000,49,5,2,Doctoral degree,4
+"Greene, Liza A.",1250,own,15,Somewhat likely,Vermont,full time,Female,White,75000,46,3,2,Master’s degree,5
+None of these,3000,own,1,Extremely unlikely,Vermont,full time,Male,White,175000,34,4,2,Doctoral degree,6
+None of these,1750,own,3,Somewhat likely,Vermont,full time,Male,White,75000,32,2,2,Doctoral degree,3
+"Grima, Liam A.",250,own,6,Somewhat unlikely,Vermont,retired,Male,White,37500,66,1,1,Doctoral degree,3
+None of these,1750,rent,7,Somewhat likely,Vermont,full time,Male,White,75000,39,1,1,Doctoral degree,5
 "Mahmood, Ali",2250,rent,2,Extremely unlikely,Vermont,full time,Male,Hispanic or Latino,75000,43,1,1,Doctoral degree,7
-None of these,3000,rent,1,Extremely likely,Vermont,full time,Female,White.,75000,32,2,2,Doctoral degree,4
+None of these,3000,rent,1,Extremely likely,Vermont,full time,Female,White,75000,32,2,2,Doctoral degree,4
 None of these,3000,own,0.5,Somewhat unlikely,Vermont,full time,Female,NA,75000,40,2,2,Doctoral degree,9
-None of these,1750,own,5,Somewhat unlikely,Vermont,full time,Female,White.,250000,35,3,2,Doctoral degree,6
-None of these,1250,rent,1.5,Extremely unlikely,Vermont,full time,Male,"Hispanic or Latino ,White.",75000,46,1,1,Doctoral degree,7
-None of these,2250,own,0.5,Somewhat unlikely,Other US state,full time,Male,White.,175000,52,4,2,Doctoral degree,5
-None of these,875,own,25,Extremely unlikely,Vermont,full time,Female,White.,75000,66,1,1,Master’s degree,5
-None of these,2250,own,5,Extremely unlikely,Vermont,full time,Female,White.,250000,40,4,2,Doctoral degree,5
-None of these,1250,own,5,Somewhat unlikely,Vermont,full time,Female,White.,75000,35,2,2,Master’s degree,3
-None of these,2250,own,10.5,Somewhat unlikely,Vermont,full time,Male,White.,125000,50,4,2,Doctoral degree,7
-None of these,1250,own,4,Somewhat likely,Vermont,full time,Male,White.,75000,51,3,1,Doctoral degree,7
-None of these,1250,own,9,Extremely unlikely,Vermont,full time,Male,White.,175000,45,4,2,Master’s degree,6
-None of these,250,own,20,Extremely unlikely,Vermont,full time,Female,White.,125000,56,3,2,Doctoral degree,5
-None of these,250,own,13,Extremely unlikely,Vermont,full time,Female,White.,250000,47,4,2,Doctoral degree,5
+None of these,1750,own,5,Somewhat unlikely,Vermont,full time,Female,White,250000,35,3,2,Doctoral degree,6
+None of these,1250,rent,1.5,Extremely unlikely,Vermont,full time,Male,"Hispanic or Latino,White",75000,46,1,1,Doctoral degree,7
+None of these,2250,own,0.5,Somewhat unlikely,Other US state,full time,Male,White,175000,52,4,2,Doctoral degree,5
+None of these,875,own,25,Extremely unlikely,Vermont,full time,Female,White,75000,66,1,1,Master’s degree,5
+None of these,2250,own,5,Extremely unlikely,Vermont,full time,Female,White,250000,40,4,2,Doctoral degree,5
+None of these,1250,own,5,Somewhat unlikely,Vermont,full time,Female,White,75000,35,2,2,Master’s degree,3
+None of these,2250,own,10.5,Somewhat unlikely,Vermont,full time,Male,White,125000,50,4,2,Doctoral degree,7
+None of these,1250,own,4,Somewhat likely,Vermont,full time,Male,White,75000,51,3,1,Doctoral degree,7
+None of these,1250,own,9,Extremely unlikely,Vermont,full time,Male,White,175000,45,4,2,Master’s degree,6
+None of these,250,own,20,Extremely unlikely,Vermont,full time,Female,White,125000,56,3,2,Doctoral degree,5
+None of these,250,own,13,Extremely unlikely,Vermont,full time,Female,White,250000,47,4,2,Doctoral degree,5
 None of these,1750,rent,2,Extremely likely,Vermont,full time,Female,Hispanic or Latino,125000,36,1,1,Doctoral degree,8
-None of these,3000,own,11,Somewhat unlikely,Vermont,full time,Male,White.,125000,68,4,2,Doctoral degree,8
-NA,625,own,6,Somewhat unlikely,Vermont,full time,Female,White.,75000,41,2,2,Doctoral degree,9
-"Greene, Liza A.",2250,rent,2,Extremely likely,Vermont,full time,Male,Black or African American.,125000,38,1,1,Doctoral degree,4
-None of these,2250,own,1,Extremely unlikely,Vermont,full time,Female,Asian.,75000,41,2,2,Doctoral degree,5
-"Greene, Liza A.",875,rent,0.5,Extremely likely,Vermont,student,Female,White.,37500,24,2,2,Bachelor’s degree,4
-"Greene, Liza A.",3000,own,5,Extremely unlikely,Other US state,full time,Male,White.,250000,59,2,1,Bachelor’s degree,7
-None of these,1750,rent,1,Extremely unlikely,Vermont,full time,Male,White.,75000,37,2,1,Doctoral degree,NA
-"Ale, Victoria A",1750,own,5,Extremely unlikely,Vermont,full time,Female,White.,75000,33,2,2,Master’s degree,5
-NA,1250,own,10,Extremely unlikely,Vermont,full time,Male,White.,75000,42,2,2,Master’s degree,5
-"Greene, Liza A.",3000,own,5,Somewhat likely,Other US state,not employed,Female,White.,250000,59,2,1,Bachelor’s degree,6
-None of these,NA,own,25,Extremely unlikely,Vermont,full time,Male,White.,NA,NA,2,2,Doctoral degree,4
-None of these,1750,own,1,Somewhat likely,Vermont,full time,Female,White.,75000,31,2,2,Master’s degree,5
-NA,3000,rent,0.5,Extremely likely,Other US state,full time,Male,White.,175000,48,4,2,Doctoral degree,5
-None of these,2250,own,22,Extremely likely,Vermont,full time,Female,White.,125000,58,1,1,Master’s degree,9
-"Brown, Griffin T.",3000,rent,0.3,Extremely likely,New York,full time,Male,White.,125000,27,2,2,Bachelor’s degree,6
-"Brown, Griffin T.",1250,rent,0.25,Extremely likely,Other US state,full time,Male,White.,125000,26,1,1,Master’s degree,5
-"Brown, Griffin T.",1750,rent,1,Extremely likely,Other US state,full time,Male,Asian.,75000,27,1,1,Master’s degree,6
-"Brown, Griffin T.",1250,rent,1,Extremely likely,Other US state,full time,Male,"American Indian or Alaska Native.,White.",37500,25,1,1,Bachelor’s degree,9
-"Brown, Griffin T.",1250,own,7,Extremely likely,New York,full time,Male,White.,125000,31,2,2,Bachelor’s degree,6
-"Grima, Liam A.",1750,rent,0.5,Somewhat unlikely,Vermont,student,Male,White.,37500,23,2,2,Bachelor’s degree,4
-"Brown, Griffin T.",1750,rent,1,Extremely likely,New York,full time,Female,White.,75000,30,1,1,Bachelor’s degree,5
-"Brown, Griffin T.",3000,rent,1,Somewhat likely,Massachusetts,full time,Male,White.,125000,27,2,2,Bachelor’s degree,4
+None of these,3000,own,11,Somewhat unlikely,Vermont,full time,Male,White,125000,68,4,2,Doctoral degree,8
+NA,625,own,6,Somewhat unlikely,Vermont,full time,Female,White,75000,41,2,2,Doctoral degree,9
+"Greene, Liza A.",2250,rent,2,Extremely likely,Vermont,full time,Male,Black or African American,125000,38,1,1,Doctoral degree,4
+None of these,2250,own,1,Extremely unlikely,Vermont,full time,Female,Asian,75000,41,2,2,Doctoral degree,5
+"Greene, Liza A.",875,rent,0.5,Extremely likely,Vermont,student,Female,White,37500,24,2,2,Bachelor’s degree,4
+"Greene, Liza A.",3000,own,5,Extremely unlikely,Other US state,full time,Male,White,250000,59,2,1,Bachelor’s degree,7
+None of these,1750,rent,1,Extremely unlikely,Vermont,full time,Male,White,75000,37,2,1,Doctoral degree,NA
+"Ale, Victoria A",1750,own,5,Extremely unlikely,Vermont,full time,Female,White,75000,33,2,2,Master’s degree,5
+NA,1250,own,10,Extremely unlikely,Vermont,full time,Male,White,75000,42,2,2,Master’s degree,5
+"Greene, Liza A.",3000,own,5,Somewhat likely,Other US state,not employed,Female,White,250000,59,2,1,Bachelor’s degree,6
+None of these,NA,own,25,Extremely unlikely,Vermont,full time,Male,White,NA,NA,2,2,Doctoral degree,4
+None of these,1750,own,1,Somewhat likely,Vermont,full time,Female,White,75000,31,2,2,Master’s degree,5
+NA,3000,rent,0.5,Extremely likely,Other US state,full time,Male,White,175000,48,4,2,Doctoral degree,5
+None of these,2250,own,22,Extremely likely,Vermont,full time,Female,White,125000,58,1,1,Master’s degree,9
+"Brown, Griffin T.",3000,rent,0.3,Extremely likely,New York,full time,Male,White,125000,27,2,2,Bachelor’s degree,6
+"Brown, Griffin T.",1250,rent,0.25,Extremely likely,Other US state,full time,Male,White,125000,26,1,1,Master’s degree,5
+"Brown, Griffin T.",1750,rent,1,Extremely likely,Other US state,full time,Male,Asian,75000,27,1,1,Master’s degree,6
+"Brown, Griffin T.",1250,rent,1,Extremely likely,Other US state,full time,Male,"American Indian or Alaska Native,White",37500,25,1,1,Bachelor’s degree,9
+"Brown, Griffin T.",1250,own,7,Extremely likely,New York,full time,Male,White,125000,31,2,2,Bachelor’s degree,6
+"Grima, Liam A.",1750,rent,0.5,Somewhat unlikely,Vermont,student,Male,White,37500,23,2,2,Bachelor’s degree,4
+"Brown, Griffin T.",1750,rent,1,Extremely likely,New York,full time,Female,White,75000,30,1,1,Bachelor’s degree,5
+"Brown, Griffin T.",3000,rent,1,Somewhat likely,Massachusetts,full time,Male,White,125000,27,2,2,Bachelor’s degree,4
 "Brown, Griffin T.",3000,rent,1,Extremely likely,New York,full time,Male,Hispanic or Latino,75000,27,2,2,Master’s degree,6
-"Brown, Griffin T.",625,own,23,Extremely likely,Other US state,full time,Male,"Black or African American.,Native Hawaiian or Pacific Islander.",75000,27,2,1,Bachelor’s degree,7
-"Brown, Griffin T.",250,own,8,Extremely likely,Other US state,full time,Male,White.,12500,26,5,4,Bachelor’s degree,7
-"Brown, Griffin T.",1750,rent,1,Extremely likely,Other US state,full time,Male,Black or African American.,37500,27,2,2,Bachelor’s degree,7
-"Greene, Liza A.",875,rent,2,Extremely likely,Other US state,full time,Female,White.,37500,24,4,4,Bachelor’s degree,6
-"Greene, Liza A.",875,res,2,Extremely likely,Other US state,full time,Female,White.,37500,24,4,4,Bachelor’s degree,4
-"Greene, Liza A.",875,rent,1.75,Extremely likely,Other US state,full time,Female,White.,75000,25,4,4,Bachelor’s degree,8
-"Grima, Liam A.",1750,rent,1,Somewhat likely,Vermont,student,Female,Asian.,12500,22,2,1,Bachelor’s degree,5
-"Greene, Liza A.",1750,own,1,Extremely unlikely,Vermont,full time,Female,White.,250000,37,2,2,Doctoral degree,4
-"Grima, Liam A.",3000,own,3,Extremely unlikely,New York,full time,Female,Asian.,75000,57,4,3,High school degree,7
-"Greene, Liza A.",1250,rent,1,Extremely likely,New York,student,Female,White.,75000,24,3,2,Bachelor’s degree,4
-"Ale, Victoria A",1250,rent,0.5,Extremely likely,Vermont,"part time,student",Female,White.,12500,20,1,2,High school degree,6
-"Greene, Liza A.",625,rent,1,Somewhat likely,Other US state,full time,Male,White.,75000,27,4,4,Bachelor’s degree,4
-"Anderson, Avery G.",875,rent,1,Extremely unlikely,Vermont,"part time,student",Female,White.,12500,21,3,3,Bachelor’s degree,5
-"Anderson, Avery G.",1250,rent,6,Somewhat likely,Other US state,full time,Female,White.,37500,26,3,3,Master’s degree,4
-"Anderson, Avery G.",250,own,18,Extremely unlikely,Other US state,retired,Male,White.,250000,53,3,3,Bachelor’s degree,8
-"Anderson, Avery G.",1250,rent,2,Somewhat likely,Vermont,full time,Female,White.,37500,33,2,2,Bachelor’s degree,4
-"Anderson, Avery G.",1750,rent,2,Extremely likely,Other US state,"part time,student",Female,White.,12500,21,1,0,Bachelor’s degree,4
-"Anderson, Avery G.",1250,rent,1,Extremely likely,Vermont,student,Female,White.,12500,22,3,3,Bachelor’s degree,4
-"Anderson, Avery G.",250,rent,4,Extremely likely,Other US state,full time,Male,White.,12500,21,5,5,High school degree,6
-"Anderson, Avery G.",875,rent,1,Extremely likely,Vermont,full time,Male,White.,12500,22,2,1,Bachelor’s degree,6
-"Ale, Victoria A",250,own,2,Extremely unlikely,Other US state,retired,Female,White.,75000,58,2,1,Bachelor’s degree,5
-"Ale, Victoria A",1250,own,2,Somewhat unlikely,Other US state,full time,Female,White.,37500,21,3,3,High school degree,7
-"Anderson, Avery G.",1250,rent,1,Extremely unlikely,Vermont,"part time,student",Male,White.,12500,22,6,5,High school degree,4
-"Anderson, Avery G.",875,rent,0.7,Extremely likely,Vermont,part time,Female,White.,12500,21,4,2,High school degree,6
-"Ale, Victoria A",1250,rent,0,Extremely likely,Other US state,"part time,student",Female,White.,12500,18,4,4,High school degree,6
-"Mahmood, Ali",1250,rent,2,Somewhat unlikely,Outside of US,full time,Female,Asian.,75000,32,2,2,Master’s degree,3
-"Mahmood, Ali",875,rent,2,Somewhat likely,Vermont,full time,Male,Asian.,75000,31,3,2,Master’s degree,8
-"Mahmood, Ali",875,rent,1,Somewhat likely,Vermont,student,Male,Asian.,37500,31,2,1,Master’s degree,8
-"Mahmood, Ali",250,rent,5,Extremely likely,Outside of US,not employed,Female,Asian.,12500,25,6,4,Bachelor’s degree,6
-"Mahmood, Ali",250,rent,1,Somewhat unlikely,Outside of US,student,Female,Asian.,12500,23,3,3,Bachelor’s degree,5
-"Mahmood, Ali",250,rent,12,Extremely unlikely,Outside of US,student,Female,Asian.,12500,22,4,3,Bachelor’s degree,5
-"Mahmood, Ali",875,rent,3,Somewhat likely,Vermont,"full time,student",Female,White.,37500,30,3,3,Master’s degree,6
-"Mahmood, Ali",625,rent,1,Somewhat likely,Vermont,full time,Male,White.,12500,26,2,2,Associates degree,7
-"Mahmood, Ali",1750,rent,1,Somewhat unlikely,Vermont,full time,Female,Asian.,37500,28,3,2,Bachelor’s degree,9
-"Mahmood, Ali",1250,rent,1,Extremely likely,Outside of US,not employed,Male,Asian.,12500,55,2,1,Bachelor’s degree,7
-"Mahmood, Ali",1250,rent,4,Somewhat unlikely,Outside of US,not employed,Male,Asian.,75000,40,3,1,Doctoral degree,5
-"Mahmood, Ali",1250,rent,3,Extremely likely,Outside of US,full time,Male,Asian.,75000,30,2,2,Master’s degree,8
-"Mahmood, Ali",1750,rent,3,Somewhat likely,Outside of US,full time,Male,Asian.,75000,34,4,1,Bachelor’s degree,5
-"Mahmood, Ali",1250,own,26,Somewhat likely,Vermont,full time,Male,Asian.,75000,58,3,3,None of the above,3
-"Mahmood, Ali",250,res,23,Extremely likely,Outside of US,full time,Male,Asian.,12500,27,5,80,Bachelor’s degree,8
-"Mahmood, Ali",1750,rent,2,Extremely likely,Vermont,full time,Male,Asian.,75000,24,2,2,Bachelor’s degree,10
-"Grima, Liam A.",1250,rent,1,Somewhat unlikely,Other US state,full time,Female,White.,75000,61,2,2,High school degree,4
-"Grima, Liam A.",250,own,2.5,Extremely unlikely,Other US state,retired,Female,White.,250000,65,2,1,Associates degree,7
-"Grima, Liam A.",250,own,2.5,Extremely unlikely,Other US state,full time,Male,White.,250000,66,2,1,High school degree,7
-"Mahmood, Ali",625,rent,1,Somewhat unlikely,Outside of US,full time,Female,Asian.,37500,26,2,1,Doctoral degree,6
-"Mahmood, Ali",875,rent,2,Extremely likely,Vermont,student,Female,Asian.,12500,22,5,2,Bachelor’s degree,4
-"Grima, Liam A.",2250,own,25,Somewhat likely,New York,full time,Female,White.,175000,60,4,4,Associates degree,5
-"Grima, Liam A.",1250,rent,1,Extremely likely,Other US state,retired,Male,White.,37500,67,2,2,High school degree,7
-"Grima, Liam A.",3000,rent,3,Extremely unlikely,Other US state,full time,Female,White.,75000,39,1,1,Associates degree,7
-"Anderson, Avery G.",875,rent,1,Extremely likely,Vermont,part time,Female,White.,12500,21,3,3,High school degree,8
-"Mahmood, Ali",875,rent,2,Extremely likely,Vermont,full time,Female,Asian.,37500,24,2,2,Bachelor’s degree,6
-None of these,250,own,22,Extremely unlikely,Vermont,full time,Male,White.,125000,62,3,2,Doctoral degree,6
-None of these,250,own,14,Extremely unlikely,Vermont,full time,Male,White.,75000,44,4,2,Doctoral degree,3
+"Brown, Griffin T.",625,own,23,Extremely likely,Other US state,full time,Male,"Black or African American,Native Hawaiian or Pacific Islander",75000,27,2,1,Bachelor’s degree,7
+"Brown, Griffin T.",250,own,8,Extremely likely,Other US state,full time,Male,White,12500,26,5,4,Bachelor’s degree,7
+"Brown, Griffin T.",1750,rent,1,Extremely likely,Other US state,full time,Male,Black or African American,37500,27,2,2,Bachelor’s degree,7
+"Greene, Liza A.",875,rent,2,Extremely likely,Other US state,full time,Female,White,37500,24,4,4,Bachelor’s degree,6
+"Greene, Liza A.",875,res,2,Extremely likely,Other US state,full time,Female,White,37500,24,4,4,Bachelor’s degree,4
+"Greene, Liza A.",875,rent,1.75,Extremely likely,Other US state,full time,Female,White,75000,25,4,4,Bachelor’s degree,8
+"Grima, Liam A.",1750,rent,1,Somewhat likely,Vermont,student,Female,Asian,12500,22,2,1,Bachelor’s degree,5
+"Greene, Liza A.",1750,own,1,Extremely unlikely,Vermont,full time,Female,White,250000,37,2,2,Doctoral degree,4
+"Grima, Liam A.",3000,own,3,Extremely unlikely,New York,full time,Female,Asian,75000,57,4,3,High school degree,7
+"Greene, Liza A.",1250,rent,1,Extremely likely,New York,student,Female,White,75000,24,3,2,Bachelor’s degree,4
+"Ale, Victoria A",1250,rent,0.5,Extremely likely,Vermont,"part time,student",Female,White,12500,20,1,2,High school degree,6
+"Greene, Liza A.",625,rent,1,Somewhat likely,Other US state,full time,Male,White,75000,27,4,4,Bachelor’s degree,4
+"Anderson, Avery G.",875,rent,1,Extremely unlikely,Vermont,"part time,student",Female,White,12500,21,3,3,Bachelor’s degree,5
+"Anderson, Avery G.",1250,rent,6,Somewhat likely,Other US state,full time,Female,White,37500,26,3,3,Master’s degree,4
+"Anderson, Avery G.",250,own,18,Extremely unlikely,Other US state,retired,Male,White,250000,53,3,3,Bachelor’s degree,8
+"Anderson, Avery G.",1250,rent,2,Somewhat likely,Vermont,full time,Female,White,37500,33,2,2,Bachelor’s degree,4
+"Anderson, Avery G.",1750,rent,2,Extremely likely,Other US state,"part time,student",Female,White,12500,21,1,0,Bachelor’s degree,4
+"Anderson, Avery G.",1250,rent,1,Extremely likely,Vermont,student,Female,White,12500,22,3,3,Bachelor’s degree,4
+"Anderson, Avery G.",250,rent,4,Extremely likely,Other US state,full time,Male,White,12500,21,5,5,High school degree,6
+"Anderson, Avery G.",875,rent,1,Extremely likely,Vermont,full time,Male,White,12500,22,2,1,Bachelor’s degree,6
+"Ale, Victoria A",250,own,2,Extremely unlikely,Other US state,retired,Female,White,75000,58,2,1,Bachelor’s degree,5
+"Ale, Victoria A",1250,own,2,Somewhat unlikely,Other US state,full time,Female,White,37500,21,3,3,High school degree,7
+"Anderson, Avery G.",1250,rent,1,Extremely unlikely,Vermont,"part time,student",Male,White,12500,22,6,5,High school degree,4
+"Anderson, Avery G.",875,rent,0.7,Extremely likely,Vermont,part time,Female,White,12500,21,4,2,High school degree,6
+"Ale, Victoria A",1250,rent,0,Extremely likely,Other US state,"part time,student",Female,White,12500,18,4,4,High school degree,6
+"Mahmood, Ali",1250,rent,2,Somewhat unlikely,Outside of US,full time,Female,Asian,75000,32,2,2,Master’s degree,3
+"Mahmood, Ali",875,rent,2,Somewhat likely,Vermont,full time,Male,Asian,75000,31,3,2,Master’s degree,8
+"Mahmood, Ali",875,rent,1,Somewhat likely,Vermont,student,Male,Asian,37500,31,2,1,Master’s degree,8
+"Mahmood, Ali",250,rent,5,Extremely likely,Outside of US,not employed,Female,Asian,12500,25,6,4,Bachelor’s degree,6
+"Mahmood, Ali",250,rent,1,Somewhat unlikely,Outside of US,student,Female,Asian,12500,23,3,3,Bachelor’s degree,5
+"Mahmood, Ali",250,rent,12,Extremely unlikely,Outside of US,student,Female,Asian,12500,22,4,3,Bachelor’s degree,5
+"Mahmood, Ali",875,rent,3,Somewhat likely,Vermont,"full time,student",Female,White,37500,30,3,3,Master’s degree,6
+"Mahmood, Ali",625,rent,1,Somewhat likely,Vermont,full time,Male,White,12500,26,2,2,Associates degree,7
+"Mahmood, Ali",1750,rent,1,Somewhat unlikely,Vermont,full time,Female,Asian,37500,28,3,2,Bachelor’s degree,9
+"Mahmood, Ali",1250,rent,1,Extremely likely,Outside of US,not employed,Male,Asian,12500,55,2,1,Bachelor’s degree,7
+"Mahmood, Ali",1250,rent,4,Somewhat unlikely,Outside of US,not employed,Male,Asian,75000,40,3,1,Doctoral degree,5
+"Mahmood, Ali",1250,rent,3,Extremely likely,Outside of US,full time,Male,Asian,75000,30,2,2,Master’s degree,8
+"Mahmood, Ali",1750,rent,3,Somewhat likely,Outside of US,full time,Male,Asian,75000,34,4,1,Bachelor’s degree,5
+"Mahmood, Ali",1250,own,26,Somewhat likely,Vermont,full time,Male,Asian,75000,58,3,3,None of the above,3
+"Mahmood, Ali",250,res,23,Extremely likely,Outside of US,full time,Male,Asian,12500,27,5,80,Bachelor’s degree,8
+"Mahmood, Ali",1750,rent,2,Extremely likely,Vermont,full time,Male,Asian,75000,24,2,2,Bachelor’s degree,10
+"Grima, Liam A.",1250,rent,1,Somewhat unlikely,Other US state,full time,Female,White,75000,61,2,2,High school degree,4
+"Grima, Liam A.",250,own,2.5,Extremely unlikely,Other US state,retired,Female,White,250000,65,2,1,Associates degree,7
+"Grima, Liam A.",250,own,2.5,Extremely unlikely,Other US state,full time,Male,White,250000,66,2,1,High school degree,7
+"Mahmood, Ali",625,rent,1,Somewhat unlikely,Outside of US,full time,Female,Asian,37500,26,2,1,Doctoral degree,6
+"Mahmood, Ali",875,rent,2,Extremely likely,Vermont,student,Female,Asian,12500,22,5,2,Bachelor’s degree,4
+"Grima, Liam A.",2250,own,25,Somewhat likely,New York,full time,Female,White,175000,60,4,4,Associates degree,5
+"Grima, Liam A.",1250,rent,1,Extremely likely,Other US state,retired,Male,White,37500,67,2,2,High school degree,7
+"Grima, Liam A.",3000,rent,3,Extremely unlikely,Other US state,full time,Female,White,75000,39,1,1,Associates degree,7
+"Anderson, Avery G.",875,rent,1,Extremely likely,Vermont,part time,Female,White,12500,21,3,3,High school degree,8
+"Mahmood, Ali",875,rent,2,Extremely likely,Vermont,full time,Female,Asian,37500,24,2,2,Bachelor’s degree,6
+None of these,250,own,22,Extremely unlikely,Vermont,full time,Male,White,125000,62,3,2,Doctoral degree,6
+None of these,250,own,14,Extremely unlikely,Vermont,full time,Male,White,75000,44,4,2,Doctoral degree,3
 NA,3000,own,9,Extremely likely,Vermont,full time,Male,NA,75000,50,2,2,Master’s degree,4
