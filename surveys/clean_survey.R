@@ -218,3 +218,9 @@ saveRDS(dat, 'surveys/lab4_survey.rds')
 
 # Save the crosswalk as a csv
 readr::write_csv(crosswalk, 'surveys/crosswalk.csv')
+
+# Save a version without dummy variables for lab5
+lab5_survey <- dat %>%
+  select(-c(employ_full:last_col()))
+readr::write_csv(lab5_survey, 'surveys/lab5_survey.csv')
+saveRDS(lab5_survey, 'surveys/lab5_survey.rds')
