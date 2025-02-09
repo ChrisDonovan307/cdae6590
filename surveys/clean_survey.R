@@ -200,6 +200,10 @@ dat <- dat %>%
              ))
 get_str(dat)
 
+# Replace curly apostrophes with regular apostrophes in education
+dat <- dat %>%
+  mutate(educ = gsub("\u2019", "'", educ))
+
 
 
 # Save --------------------------------------------------------------------
