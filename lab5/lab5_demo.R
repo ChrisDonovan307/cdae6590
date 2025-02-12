@@ -10,7 +10,8 @@
 # install.packages('pacman')
 pacman::p_load(
   dplyr,
-  fastDummies
+  fastDummies,
+  ggplot2
 )
 
 # Load lab5 survey.
@@ -96,7 +97,7 @@ str(test_df)
 
 # Create columns with fastDummies
 test_df <- dummy_cols(test_df, select_columns = 'employ')
-get_str(test_df)
+str(test_df)
 # Same thing! Note that column names are hinky though
 
 # Check documentation for function
@@ -114,39 +115,54 @@ summary(lm3)
 
 
 
-# Ordinal Variables -------------------------------------------------------
+# Grouping Categorical Variables ------------------------------------------
 
 
-# Here we will compare education as a numeric, categorical, and binary
-
-# Create a numeric version of education from 0 to 5
-df$educ_numeric <- case_when(
-  df$educ == 'None of the above' ~ 0,
-  df$educ == 'High school degree' ~ 1,
-  df$educ == 'Associates degree' ~ 2,
-  df$educ == "Bachelor's degree" ~ 3,
-  df$educ == "Master's degree" ~ 4,
-  df$educ == "Doctoral degree" ~ 5
-)
-str(df)
+# Here we will compare education as:
+#   categorical with all 6 options
+#   categorical with 3 options (none or high school, bachelors, higher degree)
+#   categorical with 2 options
 
 # Create categorical version of education with 'None of the above' as reference
 df$educ_categorical <- factor(df$educ)
 df$educ_categorical <- relevel(df$educ_categorical, ref = 'None of the above')
 
-# Create binary for whether or not they have a bachelor's degree
-df$educ_binary <- ifelse(
-  df$educ %in% c("Doctoral degree", "Master's degree", "Bachelor's degree"),
-  1,
-  0
+# Create a version where 0 = none/high school, 1 = bachelor, 2 = higher degree
+df$educ_grouped <- dplyr::case_when(
+  df$educ %in% c('None of the above', 'High school degree') ~ 'up to HS',
+  df$educ %in% c('Associates degree', "Bachelor's degree") ~ 'up to Bachelor',
+  df$educ %in% c("Master's degree", "Doctoral degree") ~ 'higher',
+  .default = NA
 )
 str(df)
 
-# Compare regressions against income
-lm_numeric <- lm(income ~ educ_numeric, data = df)
+# Create binary for whether or not they have a bachelor's degree
+df$educ_binary <- ifelse(
+  df$educ %in% c("Doctoral degree", "Master's degree", "Bachelor's degree"),
+  'bachelor',
+  'no bachelor'
+)
+str(df)
+
+# Test out categorical options
 lm_categorical <- lm(income ~ educ_categorical, data = df)
+lm_grouped <- lm(income ~ educ_grouped, data = df)
 lm_binary <- lm(income ~ educ_binary, data = df)
-summary(lm_numeric)
-summary(lm_categorical)
-summary(lm_binary)
-# What happens as we move from numeric to categorical to binary?
+(sum_cat <- summary(lm_categorical))
+(sum_grouped <- summary(lm_grouped))
+(sum_binary <- summary(lm_binary))
+
+# Graph adjusted R2
+graph_df <- data.frame(
+  model = factor(
+    c('categorical', 'grouped', 'binary'),
+    levels = c('categorical', 'grouped', 'binary')),
+  adjusted_R2 = c(
+    sum_cat$r.squared,
+    sum_grouped$r.squared,
+    sum_binary$r.squared
+  )
+)
+ggplot(graph_df, aes(x = model, y = adjusted_R2)) +
+  geom_col(fill = 'grey', color = 'black') +
+  theme_classic()
