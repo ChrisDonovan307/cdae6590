@@ -14,7 +14,7 @@ pacman::p_load(
   ggplot2
 )
 
-# Load lab5 survey.
+# Load lab5 survey
 github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/surveys/lab5_survey.rds'
 con <- gzcon(url(github_url, 'rb'))
 df <- readRDS(con)
@@ -27,7 +27,8 @@ str(df)
 
 
 
-# Recode Gender -----------------------------------------------------------
+# Recoding Variables ------------------------------------------------------
+## Recode Gender ----------------------------------------------------------
 
 
 # First let's just see how the gender variable looks
@@ -62,7 +63,7 @@ summary(lm2)
 
 
 
-# Recode Employ -----------------------------------------------------------
+## Recode Employ ----------------------------------------------------------
 
 
 # Again, check how the uncoded employ variable looks
@@ -96,7 +97,7 @@ test_df <- df[, !grepl('employ_', names(df))]
 str(test_df)
 
 # Create columns with fastDummies
-test_df <- dummy_cols(test_df, select_columns = 'employ')
+test_df <- fastDummies::dummy_cols(test_df, select_columns = 'employ')
 str(test_df)
 # Same thing! Note that column names are hinky though
 
@@ -106,12 +107,25 @@ str(test_df)
 
 
 
-# Interactions ------------------------------------------------------------
+## Interactions -----------------------------------------------------------
 
 
 # Adding an interaction with the * term
 lm3 <- lm(income ~ age + gender_female * employ_full, data = df)
 summary(lm3)
+
+# Make another model without the interaction
+lm4 <- lm(income ~ age + gender_female + employ_full, data = df)
+summary(lm4)
+
+# Compare the two models
+anova(lm3, lm4)
+# Was the interaction important?
+
+# What about interactions between categorical variables?
+lm5 <- lm(income ~ gender_female * own, data = df)
+summary(lm5)
+# How to interpret each interaction term?
 
 
 
@@ -120,49 +134,103 @@ summary(lm3)
 
 # Here we will compare education as:
 #   categorical with all 6 options
-#   categorical with 3 options (none or high school, bachelors, higher degree)
+#   categorical with 3 options (NoneHS, Assoc_bach, Master_PhD)
 #   categorical with 2 options
+
+# Check unique responses for education
+unique(df$educ)
 
 # Create categorical version of education with 'None of the above' as reference
 df$educ_categorical <- factor(df$educ)
 df$educ_categorical <- relevel(df$educ_categorical, ref = 'None of the above')
 
-# Create a version where 0 = none/high school, 1 = bachelor, 2 = higher degree
+## Create a grouped version where 0 = none/high school, 1 = bachelor, 2 = higher
+# degree. First try it with ifelse statements. Note that I do not recommend
+# doing it like this!
+df$educ_grouped_hard <- ifelse(
+  df$educ %in% c('None of the above', 'High school degree'),
+  'None_HS',
+  df$educ
+)
+df$educ_grouped_hard <- ifelse(
+  df$educ_grouped_hard %in% c('Associates degree', "Bachelor's degree"),
+  'Assoc_Bach',
+  df$educ_grouped_hard
+)
+df$educ_grouped_hard <- ifelse(
+  df$educ_grouped_hard %in% c("Master's degree", "Doctoral degree"),
+  'Master_PhD',
+  df$educ_grouped_hard
+)
+get_table(df$educ_grouped_hard)
+
+# A much better way is with dplyr::case_when
 df$educ_grouped <- dplyr::case_when(
-  df$educ %in% c('None of the above', 'High school degree') ~ 'up to HS',
-  df$educ %in% c('Associates degree', "Bachelor's degree") ~ 'up to Bachelor',
-  df$educ %in% c("Master's degree", "Doctoral degree") ~ 'higher',
+  df$educ %in% c('None of the above', 'High school degree') ~ 'None_HS',
+  df$educ %in% c('Associates degree', "Bachelor's degree") ~ 'Assoc_Bach',
+  df$educ %in% c("Master's degree", "Doctoral degree") ~ 'Master_PhD',
   .default = NA
 )
+
+# Make educ_grouped a factor and set the reference group to None_HS
+df$educ_grouped <- factor(df$educ_grouped)
+df$educ_grouped <- relevel(df$educ_grouped, ref = 'None_HS')
+get_table(df$educ_grouped)
 str(df)
 
-# Create binary for whether or not they have a bachelor's degree
+
+## Create binary for whether or not they have a bachelor's degree
 df$educ_binary <- ifelse(
   df$educ %in% c("Doctoral degree", "Master's degree", "Bachelor's degree"),
-  'bachelor',
-  'no bachelor'
+  'Bach_Master_PhD',
+  'None_HS'
 )
+
+# Make educ_binary a factor and set the reference level to None_HS
+df$educ_binary <- factor(df$educ_binary)
+df$educ_binary <- relevel(df$educ_binary, ref = 'None_HS')
 str(df)
 
-# Test out categorical options
+
+
+## Regressions -----------------------------------------------------------
+
+
+# Run a model with each version of the education variable that we coded
 lm_categorical <- lm(income ~ educ_categorical, data = df)
 lm_grouped <- lm(income ~ educ_grouped, data = df)
 lm_binary <- lm(income ~ educ_binary, data = df)
-(sum_cat <- summary(lm_categorical))
+
+# Check summary outputs, also save them as objects
+(sum_categorical <- summary(lm_categorical))
 (sum_grouped <- summary(lm_grouped))
 (sum_binary <- summary(lm_binary))
+# What changes when we do this?
 
-# Graph adjusted R2
+
+
+## Extra - Graph Adj R2 ---------------------------------------------------
+
+
+# Make a df for our adj R2
 graph_df <- data.frame(
   model = factor(
-    c('categorical', 'grouped', 'binary'),
-    levels = c('categorical', 'grouped', 'binary')),
+    c('Categorical', 'Grouped', 'Binary'),
+    levels = c('Categorical', 'Grouped', 'Binary')),
   adjusted_R2 = c(
-    sum_cat$r.squared,
+    sum_categorical$r.squared,
     sum_grouped$r.squared,
     sum_binary$r.squared
   )
 )
+
+# Graph adj R2
 ggplot(graph_df, aes(x = model, y = adjusted_R2)) +
   geom_col(fill = 'grey', color = 'black') +
+  labs(
+    x = 'Model',
+    y = 'Adjusted R2',
+    title = 'Adjusted R2 under different groupings of education'
+  ) +
   theme_classic()
+
