@@ -33,7 +33,9 @@ table(df$where_live)
 # in several ways, but the easiest will be fastDummies::dummy_cols()
 
 
-# 2. Now, recode where_live again, but instead of making multiple dummy
+# 2. (Making this optional, because we did not go over dplyr::case_when() in the
+# lab. See code at line 164 of the lab5_demo script to see how it is used if you
+# want to try it, but it won't be graded.) Now, recode where_live again, but instead of making multiple dummy
 # variables, turn it into a single categorical variable with three possible
 # options: 1 means the person lives in Vermont, 2 means the person lives in any
 # other US state, and 3 means the person lives outside of the US. This can be
