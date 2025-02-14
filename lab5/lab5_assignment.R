@@ -1,5 +1,4 @@
 # Lab 5 Assignment
-# 2025-02-14
 
 
 # Housekeeping ------------------------------------------------------------
@@ -18,41 +17,51 @@ con <- gzcon(url(github_url, 'rb'))
 df <- readRDS(con)
 close(con)
 
-# Use any method you like to explore your df:
+# Use any method you like to explore your df if you wish:
 
 
 
-# Recode Dummies ----------------------------------------------------------
+# Recode Variables --------------------------------------------------------
 
 
-# Recode where_live variable as dummies
-# First check out what it looks like
+## Recode where_live
+# First check out the where_live variable
 class(df$where_live)
-unique(df$where_live)
 table(df$where_live)
 
-# Recode into three categories: Vermont, Any US state other than Vermont,
-# and outside of US
-
-# Run a regression with gender dummy and where_live dummies
-# interpret?
+# 1. First, recode where_live into a dummy variable for each category. You
+# can do this manually with ifelse() or dplyr::case_when(), but the easiest way
+# will be with fastDummies::dummy_cols().
 
 
+## Recode own
+# Great! We're not actually using the where_live variable though. Let's check
+# out the 'own' variable now.
+class(df$own)
+table(df$own)
+# Remember that 'res' means they live in the residence halls on campus. There
+# are only 2 people in this category, so it might make sense to lump them with
+# the renters.
 
-# Test --------------------------------------------------------------------
+# 2. Recode the 'own' variable as a binary dummy variable and call it
+# own_binary. A 1 should be people who own their home, and a 0 should be people
+# who either rent or live in the residence halls.
 
 
-get_str(df)
-get_str(df$where_live)
-get_table(df$where_live)
-df$gender_female <- ifelse(df$gender == 'Female', 1, 0)
-df$where_grouped <- dplyr::case_when(
-  df$where_live == 'Vermont' ~ 'VT',
-  df$where_live == 'Outside of US' ~ 'Outside US',
-  .default = 'Other US state'
-) %>%
-  as.factor()
 
-# Regression
-lm1 <- lm(income ~ gender_female * where_grouped, data = df)
+# Regression --------------------------------------------------------------
+
+
+# 3. Run the given regression. Remember that live_years is how many years a
+# person has lived in their current residence. If you hit an error, make sure
+# that you recoded the 'own' variable and called it 'own_binary' (or change
+# own_binary in the formula to whatever you named your variable).
+lm1 <- lm(live_years ~ income + age * own_binary, data = df)
 summary(lm1)
+
+# Interpret the important results from the model. For the interaction term,
+# explain in real words what it means, and why it might be significant. For
+# example, why might the effect of age on live_years (the number of years they
+# have lived in their current residence) be different for people who own a home
+# than people who rent?
+

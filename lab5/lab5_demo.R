@@ -58,7 +58,6 @@ summary(lm1)
 # Now with gender dummy
 lm2 <- lm(income ~ gender_female + age, data = df)
 summary(lm2)
-# How to interpret betas for continuous and dummy variables together?
 # Note that R codes binary categorical variables as dummies automatically
 
 
@@ -129,7 +128,8 @@ summary(lm5)
 
 
 
-# Grouping Categorical Variables ------------------------------------------
+# Extras ------------------------------------------------------------------
+## Grouping Categorical Variables -----------------------------------------
 
 
 # Here we will compare education as:
@@ -162,7 +162,7 @@ df$educ_grouped_hard <- ifelse(
   'Master_PhD',
   df$educ_grouped_hard
 )
-get_table(df$educ_grouped_hard)
+table(df$educ_grouped_hard)
 
 # A much better way is with dplyr::case_when
 df$educ_grouped <- dplyr::case_when(
@@ -175,7 +175,7 @@ df$educ_grouped <- dplyr::case_when(
 # Make educ_grouped a factor and set the reference group to None_HS
 df$educ_grouped <- factor(df$educ_grouped)
 df$educ_grouped <- relevel(df$educ_grouped, ref = 'None_HS')
-get_table(df$educ_grouped)
+table(df$educ_grouped)
 str(df)
 
 
@@ -192,10 +192,7 @@ df$educ_binary <- relevel(df$educ_binary, ref = 'None_HS')
 str(df)
 
 
-
-## Regressions -----------------------------------------------------------
-
-
+## Regressions
 # Run a model with each version of the education variable that we coded
 lm_categorical <- lm(income ~ educ_categorical, data = df)
 lm_grouped <- lm(income ~ educ_grouped, data = df)
@@ -209,28 +206,85 @@ lm_binary <- lm(income ~ educ_binary, data = df)
 
 
 
-## Extra - Graph Adj R2 ---------------------------------------------------
+## Chow Test ---------------------------------------------------------------
 
 
-# Make a df for our adj R2
-graph_df <- data.frame(
-  model = factor(
-    c('Categorical', 'Grouped', 'Binary'),
-    levels = c('Categorical', 'Grouped', 'Binary')),
-  adjusted_R2 = c(
-    sum_categorical$r.squared,
-    sum_grouped$r.squared,
-    sum_binary$r.squared
-  )
-)
+pacman::p_load(strucchange)
 
-# Graph adj R2
-ggplot(graph_df, aes(x = model, y = adjusted_R2)) +
-  geom_col(fill = 'grey', color = 'black') +
-  labs(
-    x = 'Model',
-    y = 'Adjusted R2',
-    title = 'Adjusted R2 under different groupings of education'
+## Graph age by income and regression line
+df %>%
+  ggplot(aes(x = age, y = income)) +
+  geom_jitter() +
+  geom_smooth(
+    method = 'lm',
+    color = 'red',
+    se = FALSE,
+    lwd = 2
   ) +
-  theme_classic()
+  theme_classic() +
+  labs(
+    x = 'Age',
+    y = 'Income',
+    title = 'Regression line for "income ~ age"'
+  )
+
+# Try another with a locally estimated regression line
+df %>%
+  ggplot(aes(x = age, y = income)) +
+  geom_jitter() +
+  geom_smooth(
+    method = 'lm',
+    color = 'red',
+    se = FALSE,
+    lwd = 2
+  ) +
+  geom_smooth(lwd = 2) +
+  theme_classic() +
+  labs(
+    x = 'Age',
+    y = 'Income',
+    title = 'Regression and loess lines for "income ~ age"'
+  )
+# Notice the break around 30
+
+
+## Try Chow test. Assign break point at 30
+sctest(income ~ age, data = df, type = "Chow", point = 30)
+
+
+## Graph the different plots
+# First a model for those under 30
+df_under30 <- df[df$age < 30, ]
+lm_under30 <- lm(income ~ age, data = df_under30)
+
+# And then a model for those 30 or older
+df_30plus <- df[df$age >= 30, ]
+lm_30plus <- lm(income ~ age, data = df_30plus)
+
+# Plot them both
+df %>%
+  ggplot(aes(x = age, y = income)) +
+  geom_jitter() +
+  geom_smooth(
+    color = 'blue',
+    lwd = 1.5
+  ) +
+  geom_abline(
+    intercept = coef(lm_under30)[1],
+    slope = coef(lm_under30)[2],
+    color = 'red',
+    lwd = 2
+  ) +
+  geom_abline(
+    intercept = coef(lm_30plus)[1],
+    slope = coef(lm_30plus)[2],
+    color = 'darkgreen',
+    lwd = 2
+  ) +
+  theme_classic() +
+  labs(
+    x = 'Age',
+    y = 'Income',
+    title = 'Regression line for "income ~ age"'
+  )
 
