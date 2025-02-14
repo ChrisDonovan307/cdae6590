@@ -41,7 +41,6 @@ table(df$gender)
 # ($) operator. We do this with the ifelse() function. The == is a comparison
 # operator. Note that it is different than a single =.
 ?ifelse
-?'=='
 df$gender_female <- ifelse(df$gender == 'Female', 1, 0)
 
 # Explore our new variable. What will the class be?
@@ -71,8 +70,6 @@ unique(df$employ)
 table(df$employ)
 # Note that this is a 'pick all that apply', so some responses are combinations
 
-# Save our data with a new name
-
 # Make dummy for full time employment
 df$employ_full <- ifelse(df$employ == 'full time', 1, 0)
 table(df$employ_full)
@@ -89,11 +86,13 @@ str(df)
 
 
 ## A better way to recode variables
-# If you find anything tedious in R, there is probably a better way to do it.
-# Here we can use fastDummies package to make our variables for us.
-# First let's remove the columns we just created (anything with employ_)
+# It is best practice to never copy and paste the same thing more than twice.
+# Here we can use fastDummies package to make our variables for us. First let's
+# remove the columns we just created (anything with employ_)
 test_df <- df[, !grepl('employ_', names(df))]
 str(test_df)
+# Don't worry about this code - we are just removing the columns we made and
+# assigning the df to a new name to play around with.
 
 # Create columns with fastDummies
 test_df <- fastDummies::dummy_cols(test_df, select_columns = 'employ')
@@ -118,6 +117,7 @@ anova(lm3, lm4)
 # Was the interaction important?
 
 # What about interactions between categorical variables?
+table(df$own)
 lm5 <- lm(income ~ gender_female * own, data = df)
 summary(lm5)
 # How to interpret each interaction term?
@@ -128,13 +128,13 @@ summary(lm5)
 ## Grouping Categorical Variables -----------------------------------------
 
 
-# Here we will compare education as:
-#   categorical with all 6 options
-#   categorical with 3 options (NoneHS, Assoc_bach, Master_PhD)
-#   categorical with 2 options
-
 # Check unique responses for education
 unique(df$educ)
+
+# Here we will compare education as:
+#   categorical with all 6 options
+#   categorical with 3 options (None/HS, Assoc/Bach, Master/PhD)
+#   categorical with 2 options (None/HS/Assoc, Bach/Master/PhD)
 
 # Create categorical version of education with 'None of the above' as reference
 df$educ_categorical <- factor(df$educ)
@@ -205,12 +205,13 @@ lm_binary <- lm(income ~ educ_binary, data = df)
 ## Chow Test ---------------------------------------------------------------
 
 
+# Load package that has a Chow test function
 pacman::p_load(strucchange)
 
 ## Graph age by income and regression line
 df %>%
   ggplot(aes(x = age, y = income)) +
-  geom_jitter() +
+  geom_jitter(size = 2) +
   geom_smooth(
     method = 'lm',
     color = 'red',
@@ -227,7 +228,7 @@ df %>%
 # Try another with a locally estimated regression line
 df %>%
   ggplot(aes(x = age, y = income)) +
-  geom_jitter() +
+  geom_jitter(size = 2) +
   geom_smooth(
     method = 'lm',
     color = 'red',
@@ -260,7 +261,7 @@ lm_30plus <- lm(income ~ age, data = df_30plus)
 # Plot them both
 df %>%
   ggplot(aes(x = age, y = income)) +
-  geom_jitter() +
+  geom_jitter(size = 2) +
   geom_smooth(
     color = 'blue',
     lwd = 1.5

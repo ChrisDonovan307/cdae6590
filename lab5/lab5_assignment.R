@@ -24,7 +24,7 @@ close(con)
 # Recode Variables --------------------------------------------------------
 
 
-## Recode where_live
+## Recode where_live variable
 # First check out the where_live variable
 class(df$where_live)
 table(df$where_live)
@@ -35,11 +35,13 @@ table(df$where_live)
 
 # 2. Now, recode where_live again, but instead of making multiple dummy
 # variables, turn it into a single categorical variable with three possible
-# options: 1 means the person lives in Vermont, 2 means the person lives in
-# any other US state, and 3 means the person lives outside of the US.
+# options: 1 means the person lives in Vermont, 2 means the person lives in any
+# other US state, and 3 means the person lives outside of the US. This can be
+# done using a series of ifelse() statements, but dplyr::case_when() is usually
+# a better choice.
 
 
-## Recode own
+## Recode own variable
 # Great! We're not actually using the where_live variable in our regression
 # though. Let's check out the own variable instead:
 class(df$own)
@@ -66,7 +68,6 @@ summary(lm1)
 
 # Interpret the important results from the model. For the interaction term,
 # explain in real words what it means, and why it might be significant. For
-# example, why might the effect of age on live_years (the number of years they
-# have lived in their current residence) be different for people who own a home
-# than people who rent?
+# example, why might the effect of age on live_years be different for people who
+# own a home compared to those who rent?
 
