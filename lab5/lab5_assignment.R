@@ -29,21 +29,26 @@ close(con)
 class(df$where_live)
 table(df$where_live)
 
-# 1. First, recode where_live into a dummy variable for each category. You
-# can do this manually with ifelse() or dplyr::case_when(), but the easiest way
-# will be with fastDummies::dummy_cols().
+# 1. Recode where_live into a dummy variable for each category. You can do this
+# in several ways, but the easiest will be fastDummies::dummy_cols()
+
+
+# 2. Now, recode where_live again, but instead of making multiple dummy
+# variables, turn it into a single categorical variable with three possible
+# options: 1 means the person lives in Vermont, 2 means the person lives in
+# any other US state, and 3 means the person lives outside of the US.
 
 
 ## Recode own
-# Great! We're not actually using the where_live variable though. Let's check
-# out the 'own' variable now.
+# Great! We're not actually using the where_live variable in our regression
+# though. Let's check out the own variable instead:
 class(df$own)
 table(df$own)
 # Remember that 'res' means they live in the residence halls on campus. There
 # are only 2 people in this category, so it might make sense to lump them with
 # the renters.
 
-# 2. Recode the 'own' variable as a binary dummy variable and call it
+# 3. Recode the 'own' variable as a binary dummy variable and call it
 # own_binary. A 1 should be people who own their home, and a 0 should be people
 # who either rent or live in the residence halls.
 
@@ -52,7 +57,7 @@ table(df$own)
 # Regression --------------------------------------------------------------
 
 
-# 3. Run the given regression. Remember that live_years is how many years a
+# 4. Run the given regression. Remember that live_years is how many years a
 # person has lived in their current residence. If you hit an error, make sure
 # that you recoded the 'own' variable and called it 'own_binary' (or change
 # own_binary in the formula to whatever you named your variable).

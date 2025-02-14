@@ -100,10 +100,6 @@ test_df <- fastDummies::dummy_cols(test_df, select_columns = 'employ')
 str(test_df)
 # Same thing! Note that column names are hinky though
 
-# Check documentation for function
-?dummy_cols()
-# Why remove_first_dummy?
-
 
 
 ## Interactions -----------------------------------------------------------
