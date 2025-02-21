@@ -1,26 +1,52 @@
 # Lab 6 Demo
 
 
+
+# Lab 5 Assignment Recap --------------------------------------------------
+
+
+pacman::p_load(
+  fastDummies,
+  dplyr
+)
+
+github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/surveys/lab5_survey.rds'
+con <- gzcon(url(github_url, 'rb'))
+lab5_df <- readRDS(con)
+close(con)
+
+str(lab5_df)
+lab5_df$own_binary <- ifelse(lab5_df$own == 'own', 1, 0)
+
+lab5_lm <- lm(live_years ~ income + age * own_binary, data = lab5_df)
+summary(lab5_lm)
+
+# CTRL/CMD + SHIFT + F10 to restart
+
+
+
 # Housekeeping ------------------------------------------------------------
 
 
 # Explore available datasets:
 data()
+data(iris)
 str(iris)
-str(uspop)
 
 pacman::p_load(
   AER,
-  dplyr,
   lmtest,
   sandwich,
+  dplyr,
   ggplot2
 )
 
 # Packages often come with more datasets. Applied Econometrics in R (AER) comes
 # with a heap of datasets. Use data()
-data('CPSSW8')
+data()
+data(CPSSW8)
 str(CPSSW8)
+?CPSSW8
 
 # But we will work with a modified version I have modified and downsampled
 github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/datasets/CPSSW8_mod.rds'
@@ -64,10 +90,12 @@ df %>%
 lm <- lm(earnings ~ education + age, data = df)
 summary(lm)
 
-# Check residuals plots
+# Check residuals with base plots
 par(mfrow = c(2, 2))
 plot(lm)
 par(mfrow = c(1, 1))
+
+# Check with performance package
 performance::check_model(lm)
 
 
@@ -92,7 +120,7 @@ lmtest::bptest(earnings ~ education * age + I(education^2) + I(age^2), data = df
 
 
 # vcovHC gives heteroskedasticity-consistent variance-covariance matrix
-(vcov <- vcovHC(lm, type = 'HC'))
+(vcov <- sandwich::vcovHC(lm, type = 'HC'))
 # Off-diagonals are covariances.
 
 # To get robust SEs, we want to sqrt of diagonals
