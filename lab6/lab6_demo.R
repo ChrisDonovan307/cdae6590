@@ -4,15 +4,21 @@
 # Housekeeping ------------------------------------------------------------
 
 
+# Explore available datasets:
+data()
+str(iris)
+str(uspop)
+
 pacman::p_load(
   AER,
   dplyr,
   lmtest,
-  sandwich
+  sandwich,
+  ggplot2
 )
 
-# Working with a dataset from the AER package. Use data() to load it into the
-# environment
+# Packages often come with more datasets. Applied Econometrics in R (AER) comes
+# with a heap of datasets. Use data()
 data('CPSSW8')
 str(CPSSW8)
 
@@ -31,17 +37,24 @@ str(df)
 
 
 # Show earnings ~ education with regression line
-plot(
-  x = df$education,
-  y = df$earnings,
-  xlab = "Years of Education",
-  ylab = "Hourly Earnings"
-)
-abline(
-  lm(earnings ~ education, data = df),
-  col = 'blue',
-  lwd = 2
-)
+df %>%
+  ggplot(aes(x = education, y = earnings)) +
+  geom_jitter(
+    size = 2,
+    alpha = 0.5,
+    width = 0.25
+  ) +
+  theme_classic() +
+  geom_smooth(
+    method = 'lm',
+    se = FALSE,
+    lwd = 2
+  ) +
+  labs(
+    x = 'Years of Education',
+    y = 'Hourly Wages',
+    title = 'Hourly Wages as a Function of Education'
+  )
 
 
 
@@ -88,7 +101,7 @@ sqrt(diag(vcov))
 # Or get a df of coefficients with robust SEs automatically.
 lmtest::coeftest(lm, vcov. = vcov)
 
-# And for the F test
+# And a robust version of the F-test
 waldtest(lm, vcov = vcov)
 
 # Compare them all
@@ -108,9 +121,19 @@ hist(df$earnings)
 df$earnings_log <- log(df$earnings)
 hist(df$earnings_log)
 
+# Test for normality
+shapiro.test(df$earnings_log)
+# Note that these tests are considered overpowered
+
 # Try running another lm with earnings_log
+lm2 <- lm(log(earnings) ~ education + age, data = df)
 lm2 <- lm(earnings_log ~ education + age, data = df)
+summary(lm2)
+# 1 unit change in education leads to 9.7% change in earnings
+
+# Check residuals
 performance::check_model(lm2)
+# What a beaut
 
 # Test new lm for heteroskedasticity
 lmtest::bptest(lm2)
@@ -119,8 +142,7 @@ lmtest::bptest(
   data = df
 )
 
-
-## Warning: non-linear transformations change relationships between variables
+# Warning: non-linear transformations change relationships between variables
 cor(df$earnings, df$education)
 cor(df$earnings_log, df$education)
 
@@ -142,9 +164,6 @@ lmtest::bptest(lm_wls)
 
 # Check residuals of weighted model
 performance::check_model(lm_wls)
-
-# Compare to original model
-performance::check_model(lm)
 
 
 

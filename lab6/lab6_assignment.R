@@ -23,7 +23,9 @@ close(con)
 # determine whether the residuals are heteroskedastic.
 
 
-# 2. Use each of the following methods of adjusting for heteroskedasticity.
+# 2. Use each of the following methods to adjust or account for
+# heteroskedasticity. For parts b and c, check to see whether the new model
+# is heteroskedastic or homoskedastic, and explain how you know.
 #   a. Robust standard errors
 #   b. Transformation of the dependent variable
 #   c. Weighted least squares, using the inverse of population as weights
