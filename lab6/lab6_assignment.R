@@ -28,4 +28,3 @@ close(con)
 # is heteroskedastic or homoskedastic, and explain how you know.
 #   a. Robust standard errors
 #   b. Transformation of the dependent variable
-#   c. Weighted least squares, using the inverse of population as weights

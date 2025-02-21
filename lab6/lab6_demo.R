@@ -153,7 +153,7 @@ hist(df$earnings_log)
 shapiro.test(df$earnings_log)
 # Note that these tests are considered overpowered
 
-# Try running another lm with earnings_log
+# Try running another lm with earnings_log (either way works)
 lm2 <- lm(log(earnings) ~ education + age, data = df)
 lm2 <- lm(earnings_log ~ education + age, data = df)
 summary(lm2)
@@ -176,6 +176,7 @@ cor(df$earnings_log, df$education)
 
 
 
+# Extras ------------------------------------------------------------------
 ## WLS ---------------------------------------------------------------------
 
 
@@ -195,7 +196,7 @@ performance::check_model(lm_wls)
 
 
 
-# Extras - FGLS ----------------------------------------------------------
+## FGLS --------------------------------------------------------------------
 
 
 # Steps:
