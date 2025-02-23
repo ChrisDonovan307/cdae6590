@@ -12,14 +12,6 @@ output:
     theme: readable
 ---
 
-Use `CTRL/CMD + Shift + k` to preview your markdown.
-
-Above is the YAML (Yet Another Markup Language) header. It is a human-readable data serialization language. It sets some options for your markdown and gives you a nicely formatted preamble. It is currently set to some of my preferred settings, but feel free to play around with this and make it your own.
-
-We have it set here to output as html, but you can just as easily produce PDF or Word documents. There are a bunch of built-in themes that you can explore [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). I quite like the readable theme. 
-
-Below is a `code chunk`. You will notice that this one does not appear in the rendered document - this is because it is the `setup` chunk, and it has the option `include=FALSE` set. We use this to set options for chunk behavior, as well as loading packages and such.
-
 ```{r setup, include=FALSE}
 # Set echo = TRUE for all code chunks in the document
 knitr::opts_chunk$set(echo = TRUE)
@@ -31,13 +23,17 @@ pacman::p_load(
   snakecase,    # change between text styles
   knitr,        # various markdown things
   sjPlot,       # regressions as html output
-  reactable,    # interactive tables
+  DT,           # interactive tables
+  reactable,    # more interactive tables
   gapminder,    # example dataset
   ggplot2,      # graphing
   plotly        # interactive plots
 )
 
 # I won't get into the 'here' package, but you will eventually want to figure out how to use it if you make a lot of markdowns!
+
+# Set options
+options(scipen = 999)
 
 # Load dataset
 github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/datasets/fsci_data.rds'
@@ -46,19 +42,68 @@ fsci <- readRDS(con)
 close(con)
 ```
 
-# A Section Header
+# Introduction
+
+Use `CTRL/CMD + Shift + k` to preview your markdown. Hit the `Visual` button, or use `CTRL/CMD + Shift + F4` to switch to visual mode, which will let you edit the formatted version in real time.
+
+At the top of the `.Rmd` file (not shown in rendered result) is the YAML (Yet Another Markup Language) header. It is a human-readable data serialization language. It sets some options for your markdown and gives you a nicely formatted preamble. It is currently set to some of my preferred settings, but feel free to play around with this and make it your own.
+
+We have it set here to output as html, but you can just as easily produce PDF or Word documents. There are a bunch of built-in themes that you can explore [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). I quite like the readable theme.
+
+Below the YAML header in the `.Rmd` document you will find the first `code chunk`. You will notice that this one does not appear in the rendered document - this is because it is the `setup` chunk, and it has the option `include=FALSE` set. We use this to set options for chunk behavior, as well as loading packages and data and such.
+
+# Syntax
 
 The `#` above makes a header. A single `#` is the largest header, and extra `#`s are smaller headers.
 
 ## Smaller Header
 
-This header is automatically numbered because of the YAML settings and the the double `#`. 
+This header is automatically numbered because of the YAML settings and the the double `#`.
+
+### Even Smaller Header
+
+This is three `#`s.
+
+#### Super Tiny Header
+
+This is four `#`s. Note that it does not show up in the table of contents because we only asked it to keep track of the first three levels.
+
+## More Syntax
+
+Use a single asterisk to *make font italic*.
+
+Use double asterisks to **make font bold**.
+
+Note that you need a blank line between paragraphs to split up text. Starting on a new line is not enough.
+
+To make bullet points, use `-`:
+
+-   A thing
+-   Another thing
+    -   Sub thing
+
+To make numbered lists, use `n.`:
+
+1.  First thing
+2.  Second thing
+    -   Sub thing
+
+To `put code in-line`, use back ticks (\`\`)
+
+```
+For multiple lines of verbatim code, use triple back ticks.
+x + 1 = y
+```
+
+> To make block quotes, use `>` at the start of the line. Use these to emphasize a point.
 
 # Code Chunks
 
-Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. If we want to run code, but not show it, we can use `echo = FALSE` in the chunk options.
+Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. After the `r` comes the chunk name. This is not required, but is convenient if we hit an error because it will tell us where the problem was.
 
-```{r echo=FALSE}
+If we want to run code, but not show it, we can use `echo=FALSE` in the chunk options.
+
+```{r echo_demo, echo=FALSE}
 df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
 ```
 
@@ -69,11 +114,13 @@ lm <- lm(normvalue ~ year + FSCI_region, data = df)
 summary(lm)
 ```
 
-This shows our code and output, but it is not terribly clean looking.
+This shows our code and output, but it is not very nice to look at.
 
-# Clean Regression Outputs
+# Regression Outputs
 
-To get a cleaner regression output, we can convert our regression output to a data frame, then use `knitr::kable()` to create a nice looking table. 
+## Kable
+
+To get a cleaner regression output, we can convert our regression output to a data frame, then use `knitr::kable()` to create a nice looking table.
 
 ```{r clean_output}
 lm_df <- broom::tidy(lm)
@@ -84,34 +131,50 @@ Extra steps to get the column names capitalized and the numbers rounded:
 
 ```{r cleaner_output}
 lm_df_cleaner <- lm_df %>% 
-  mutate(across(where(is.numeric), ~ round(.x, 3))) %>% 
+  dplyr::mutate(across(where(is.numeric), ~ round(.x, 3))) %>% 
   setNames(c(snakecase::to_title_case(names(.))))
 knitr::kable(lm_df_cleaner)
 ```
 
-For a very clean plot with less work, try the `sjPlot` package:
+## sjPlot
 
-```{r fig.align='center'}
+For a very clean regresion table with less work, try the `sjPlot` package:
+
+```{r sjPlot}
 sjPlot::tab_model(
   lm, 
   p.style = 'stars', 
   digits = 2,
-  show.se = TRUE
+  show.se = TRUE,
+  robust = TRUE,
+  show.reflvl = TRUE
 )
 ```
 
-Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples. 
+Note that this function takes the lm model object itself, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
 
-# Interactive Table
+# Interactive Tables
 
 We've already seen how to make tables above. For static tables, `knitr::kable()` is a good choice. The `kableExtra` package is also a great extension to knitr, giving you tons of options for customization. See the [docs for examples](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
 
-For interactive tables, the `DT` package is a great option, but my personal favorite is `reactable`. The [documentation](https://glin.github.io/reactable/index.html) is excellent, so check it out if you're interested.
+For interactive tables, there are a couple of different options.
 
-Note that we are setting `echo=FALSE` here, so the code chunk will not show up. 
+## DT Table
 
-```{r reactable_table, echo=FALSE}
+The `DT` package is a classic choices for interacitve tables. Note that we are setting `echo=FALSE` here, so the code chunk will not show up.
+
+```{r DT_table, echo=FALSE}
 data(gapminder)
+DT::datatable(gapminder)
+```
+
+This takes almost no code, and creates quite a decent looking table with lots of options.
+
+## Reactable
+
+My personal favorite for interactive tables is `reactable`. The [documentation](https://glin.github.io/reactable/index.html) is excellent, so check it out if you're interested.
+
+```{r reactable_table}
 reactable::reactable(
   data = gapminder,
   filterable = TRUE,
@@ -119,11 +182,16 @@ reactable::reactable(
   outlined = TRUE,
   bordered = TRUE,
   compact = TRUE,
-  striped = TRUE
+  striped = TRUE,
+  showPageSizeOptions = TRUE
 )
 ```
 
+I find the options for customization here much more intuitive than `DT`, and the documentation is much easier to use.
+
 # Plots
+
+## Static Plots
 
 We haven't really covered plots, but you really just throw your code in the chunk and it will appear.
 
@@ -140,7 +208,24 @@ gapminder %>%
   )
 ```
 
-What about an interactive plot?
+We can change the alignment, size, and resolution of our plot in the chunk options:
+
+```{r plot_with_options, fig.align='center', out.width="75%", fig.cap='Caption Goes Here'}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point() +
+  theme_classic() +
+  labs(
+    x = 'GDP per Capita',
+    y = 'Life Expectancy',
+    title = 'Life Expectancy against GDP per Capita'
+  )
+```
+
+## Interactive Plots
+
+What about an interactive plot? We can use the very popular `plotly` package to do this. It is native to python, but the `plotly` R package gives us an easy way to access it. It has its own syntax, but you can also use the `ggplotly()` function to convert a ggplot object to a plotly object.
 
 ```{r}
 plot <- gapminder %>% 
@@ -168,3 +253,15 @@ plot <- gapminder %>%
 ggplotly(plot, tooltip = 'text')
 ```
 
+Note that you can hover over points to see more information from out `text` field, and also move, zoom, select, and download a static image of the plot.
+
+# Optional Resources
+
+-   Cheatsheet: [R Markdown Cheatsheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf)
+-   Cheatsheet: [Data Visualization with ggplot2](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+-   DataCamp Course: [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2)
+-   DataCamp Course: [Reporting with R Markdown](https://app.datacamp.com/learn/courses/reporting-with-rmarkdown)
+-   Ebook: [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+-   Ebook: [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+-   Ebook: [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/)
+-   Ebook: [Interactive Web-Based Data Visualization with R, plotly, and shiny](https://plotly-r.com/index.html)
