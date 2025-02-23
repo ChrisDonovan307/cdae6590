@@ -7,70 +7,103 @@
 pacman::p_load(
   dplyr,
   AER,
-  MASS,
-  gapminder,
   performance,
-  ggplot2
+  lmtest,
+  skedastic,
+  flextable,
+  stargazer,
+  writexl,
+  broom
 )
 
-get_res_plots <- function(model) {
-  par(mfrow = c(2, 2))
-  plot(model)
-  par(mfrow = c(1, 1))
-}
-
-# data(Boston)
-# dat <- Boston
-# get_str(dat)
-
-dat <- gapminder
+options(scipen = 999)
 
 
 
-# Explore -----------------------------------------------------------------
+# WLS ---------------------------------------------------------------------
 
 
-get_str(dat)
-lm <- lm(lifeExp ~ log(gdpPercap) + pop + year + continent, data = dat)
-lm <- lm(lifeExp ~ gdpPercap + year + continent, data = dat)
+# Data from Food Systems Countdown Initiative
+
+# Paper:
+# https://www.nature.com/articles/s43016-024-01109-4#Sec12
+
+# GitHub Repository
+# https://github.com/KateSchneider-FoodPol/FSCI_2024Interactions_Replication
+
+# Load data from Figure 1 - trends over time
+github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/datasets/fsci_data.rds'
+con <- gzcon(url(github_url, 'rb'))
+fsci <- readRDS(con)
+close(con)
+
+# Explore dataset
+str(fsci)
+# Note that we have many countries, many years, many variables
+
+# Explore all our variables
+unique(fsci$short_label)
+
+# Filter to a single variable - undernourishment
+df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
+str(df)
+
+
+## Unweighted
+lm <- lm(normvalue ~ year + FSCI_region, data = df)
 summary(lm)
-get_res_plots(lm)
+# Reference group is Central Asia
+
+# Check model
 performance::check_model(lm)
 lmtest::bptest(lm)
+skedastic::breusch_pagan(lm)
+skedastic::white(lm)
 
-# WLS
-lm2 <- lm(lifeExp ~ gdpPercap + year + continent, data = dat, weights = 1/pop)
-lm2 <- lm(lifeExp ~ log(gdpPercap) + year + continent, data = dat, weights = 1/pop)
-summary(lm2)
-get_res_plots(lm2)
-performance::check_model(lm2)
-lmtest::bptest(lm2)
+## Weighted
+lm_wls <- lm(normvalue ~ year + FSCI_region, data = df, weights = weight)
+summary(lm_wls)
 
-dat %>%
-  filter(year == 2007) %>%
-  ggplot(aes(x = gdpPercap, y = lifeExp)) +
-  geom_point(size = 2) +
-  theme_classic()
-
-dat %>%
-  filter(year == 2007) %>%
-  ggplot(aes(x = log(gdpPercap), y = lifeExp)) +
-  geom_point(size = 2) +
-  theme_classic()
-
-# -------------------------------------------------------------------------
+# Check model
+performance::check_model(lm_wls)
+skedastic::breusch_pagan(lm_wls)
+skedastic::white(lm_wls)
 
 
-HousePrices
-data(HousePrices)
-dat <- HousePrices
-get_str(dat)
 
-lm <- lm(price ~ lotsize + bedrooms + bathrooms + garage, data = dat)
-lm <- lm(lotsize ~ price + stories + bedrooms + garage, data = dat)
-summary(lm)
-get_res_plots(lm)
-performance::check_model(lm)
-bptest(lm)
+# Exporting Results -------------------------------------------------------
 
-summary(lm, robust = TRUE)
+
+# First convert our regression output into a data frame
+wls_df <- broom::tidy(lm_wls) %>%
+  dplyr::mutate(across(where(is.numeric), ~ round(.x, 3)))
+wls_df
+
+
+## To CSV
+write.csv(wls_df, file = 'csv_wls.csv')
+
+
+## To Excel
+writexl::write_xlsx(wls_df, path = 'excel_wls.xlsx')
+
+
+## To Word
+flex_wls <- flextable::flextable(wls_df)
+flextable::save_as_docx(flex_wls, path = 'flex_wls.docx')
+
+# Add a caption and a footnote
+flex_wls_caption <- flex_wls %>%
+  flextable::set_caption(caption = 'This is our wicked caption.') %>%
+  flextable::footnote(i = 1, j = 1, value = as_paragraph('This is a footnote.'))
+flextable::save_as_docx(flex_wls_caption, path = 'flex_wls.docx')
+
+
+## To LateX
+stargazer::stargazer(
+  lm_wls,
+  type = 'latex',
+  out = 'latex_wls.tex',
+  notes = 'These are the notes.'
+)
+# Note that stargazer takes the model itself as an input, not the DF

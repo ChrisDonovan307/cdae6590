@@ -1,0 +1,170 @@
+---
+title: "Markdown Example"
+author: "Chris Donovan"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      smooth_scroll: true
+    toc_depth: 3
+    number_sections: 3
+    theme: readable
+---
+
+Use `CTRL/CMD + Shift + k` to preview your markdown.
+
+Above is the YAML (Yet Another Markup Language) header. It is a human-readable data serialization language. It sets some options for your markdown and gives you a nicely formatted preamble. It is currently set to some of my preferred settings, but feel free to play around with this and make it your own.
+
+We have it set here to output as html, but you can just as easily produce PDF or Word documents. There are a bunch of built-in themes that you can explore [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). I quite like the readable theme. 
+
+Below is a `code chunk`. You will notice that this one does not appear in the rendered document - this is because it is the `setup` chunk, and it has the option `include=FALSE` set. We use this to set options for chunk behavior, as well as loading packages and such.
+
+```{r setup, include=FALSE}
+# Set echo = TRUE for all code chunks in the document
+knitr::opts_chunk$set(echo = TRUE)
+
+# Load packages
+pacman::p_load(
+  dplyr,        # various data wrangling functions
+  here,         # set working directory for markdowns
+  snakecase,    # change between text styles
+  knitr,        # various markdown things
+  sjPlot,       # regressions as html output
+  reactable,    # interactive tables
+  gapminder,    # example dataset
+  ggplot2,      # graphing
+  plotly        # interactive plots
+)
+
+# I won't get into the 'here' package, but you will eventually want to figure out how to use it if you make a lot of markdowns!
+
+# Load dataset
+github_url <- 'https://raw.githubusercontent.com/ChrisDonovan307/cdae6590/refs/heads/main/datasets/fsci_data.rds'
+con <- gzcon(url(github_url, 'rb'))
+fsci <- readRDS(con)
+close(con)
+```
+
+# A Section Header
+
+The `#` above makes a header. A single `#` is the largest header, and extra `#`s are smaller headers.
+
+## Smaller Header
+
+This header is automatically numbered because of the YAML settings and the the double `#`. 
+
+# Code Chunks
+
+Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. If we want to run code, but not show it, we can use `echo = FALSE` in the chunk options.
+
+```{r echo=FALSE}
+df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
+```
+
+Otherwise, our code chunk will be visible. Let's show off our example regression from the FSCI paper.
+
+```{r raw_output}
+lm <- lm(normvalue ~ year + FSCI_region, data = df)
+summary(lm)
+```
+
+This shows our code and output, but it is not terribly clean looking.
+
+# Clean Regression Outputs
+
+To get a cleaner regression output, we can convert our regression output to a data frame, then use `knitr::kable()` to create a nice looking table. 
+
+```{r clean_output}
+lm_df <- broom::tidy(lm)
+knitr::kable(lm_df)
+```
+
+Extra steps to get the column names capitalized and the numbers rounded:
+
+```{r cleaner_output}
+lm_df_cleaner <- lm_df %>% 
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>% 
+  setNames(c(snakecase::to_title_case(names(.))))
+knitr::kable(lm_df_cleaner)
+```
+
+For a very clean plot with less work, try the `sjPlot` package:
+
+```{r fig.align='center'}
+sjPlot::tab_model(
+  lm, 
+  p.style = 'stars', 
+  digits = 2,
+  show.se = TRUE
+)
+```
+
+Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples. 
+
+# Interactive Table
+
+We've already seen how to make tables above. For static tables, `knitr::kable()` is a good choice. The `kableExtra` package is also a great extension to knitr, giving you tons of options for customization. See the [docs for examples](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
+
+For interactive tables, the `DT` package is a great option, but my personal favorite is `reactable`. The [documentation](https://glin.github.io/reactable/index.html) is excellent, so check it out if you're interested.
+
+Note that we are setting `echo=FALSE` here, so the code chunk will not show up. 
+
+```{r reactable_table, echo=FALSE}
+data(gapminder)
+reactable::reactable(
+  data = gapminder,
+  filterable = TRUE,
+  searchable = TRUE,
+  outlined = TRUE,
+  bordered = TRUE,
+  compact = TRUE,
+  striped = TRUE
+)
+```
+
+# Plots
+
+We haven't really covered plots, but you really just throw your code in the chunk and it will appear.
+
+```{r plot}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point() +
+  theme_classic() +
+  labs(
+    x = 'GDP per Capita',
+    y = 'Life Expectancy',
+    title = 'Life Expectancy against GDP per Capita'
+  )
+```
+
+What about an interactive plot?
+
+```{r}
+plot <- gapminder %>% 
+  filter(year == 2007) %>% 
+  ggplot(aes(
+    x = gdpPercap, 
+    y = lifeExp, 
+    color = continent,
+    size = pop,
+    text = paste0(
+      'Country: ', country, '\n',
+      'Continent: ', continent, '\n',
+      'Life Exp: ', lifeExp, '\n',
+      'Population: ', pop
+    )
+  )) +
+  geom_point() +
+  theme_classic() +
+  labs(
+    x = 'GDP per Capita',
+    y = 'Life Expectancy',
+    title = 'Life Expectancy against GDP per Capita'
+  )
+
+ggplotly(plot, tooltip = 'text')
+```
+
