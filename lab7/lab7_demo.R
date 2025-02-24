@@ -92,17 +92,19 @@ writexl::write_xlsx(wls_df, path = 'excel_wls.xlsx')
 flex_wls <- flextable::flextable(wls_df)
 flextable::save_as_docx(flex_wls, path = 'flex_wls.docx')
 
-# Add a caption and a footnote
+# Add a caption and a footnote, fix formatting
 my_caption <- as_paragraph('Table 2. This is our wicked caption for our table.')
 my_footnote <- as_paragraph('This is a footnote where we explain some things.')
-flex_wls_caption <- flex_wls %>%
+
+flex_wls_clean <- flex_wls %>%
   flextable::set_caption(caption = my_caption) %>%
   flextable::footnote(i = 1, j = 1, value = my_footnote) %>%
   flextable::autofit()
-flextable::save_as_docx(flex_wls_caption, path = 'flex_wls_caption.docx')
+
+flextable::save_as_docx(flex_wls_clean, path = 'flex_wls_clean.docx')
 
 # Save in APA format
-flex_wls_apa <- theme_apa(flex_wls_caption)
+flex_wls_apa <- theme_apa(flex_wls_clean)
 flextable::save_as_docx(flex_wls_apa, path = 'flex_wls_apa.docx')
 
 

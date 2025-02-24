@@ -195,7 +195,34 @@ I find the options for customization here much more intuitive than `DT`, and the
 
 We haven't really covered plots, but you really just throw your code in the chunk and it will appear.
 
-```{r plot}
+### Base Plot
+
+Base plots with the `plot()` function are available in the base R package. It works great for simple plots, but more elaborate and pretty plots take much more work.
+
+```{r base_plot}
+gapminder_2007 <- gapminder[gapminder$year == 2007, ]
+plot(
+  x = gapminder_2007$gdpPercap,
+  y = gapminder_2007$lifeExp,
+  col = gapminder_2007$continent,
+  pch = 16,
+  cex = sqrt(gapminder_2007$pop) / 10000,
+  ylab = 'Life Expectancy',
+  xlab = 'GDP per Capita',
+  main = 'Life Expectancy against GDP per Capita'
+)
+
+legend(
+  "bottomright", legend = levels(gapminder_2007$continent),
+  col = 1:5, pch = 16, title = "Continent"
+)
+```
+
+### ggplot2
+
+The `ggplot2` package is one of the biggest strengths of R in my opinion. It is an excellent package for making pretty plots easily, with tons of extensions and extra packages for applications in mapping, chord diagrams, dendrograms, animations, etc. For a nice gallery of R graphs including example code, check out the [R Graph Gallery](https://r-graph-gallery.com/).
+
+```{r ggplot2}
 gapminder %>% 
   filter(year == 2007) %>% 
   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
@@ -257,8 +284,15 @@ Note that you can hover over points to see more information from out `text` fiel
 
 # Optional Resources
 
+Great quick references:
+
 -   Cheatsheet: [R Markdown Cheatsheet](https://rstudio.github.io/cheatsheets/rmarkdown.pdf)
 -   Cheatsheet: [Data Visualization with ggplot2](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+-   Example graphs with code: [R Graph Gallery](https://r-graph-gallery.com/)
+-   Gallery of Colors: [Colors in R](https://r-charts.com/colors/)
+
+If you want to dive deeper:
+
 -   DataCamp Course: [Introduction to Data Visualization with ggplot2](https://app.datacamp.com/learn/courses/introduction-to-data-visualization-with-ggplot2)
 -   DataCamp Course: [Reporting with R Markdown](https://app.datacamp.com/learn/courses/reporting-with-rmarkdown)
 -   Ebook: [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
