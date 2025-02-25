@@ -9,7 +9,6 @@ pacman::p_load(
   AER,
   performance,
   lmtest,
-  skedastic,
   flextable,
   stargazer,
   writexl,
@@ -57,8 +56,6 @@ summary(lm)
 # Check model
 performance::check_model(lm)
 lmtest::bptest(lm)
-skedastic::breusch_pagan(lm)
-skedastic::white(lm)
 
 ## Weighted
 lm_wls <- lm(normvalue ~ year + FSCI_region, data = df, weights = weight)
@@ -66,8 +63,7 @@ summary(lm_wls)
 
 # Check model
 performance::check_model(lm_wls)
-skedastic::breusch_pagan(lm_wls)
-skedastic::white(lm_wls)
+lmtest::bptest(lm)
 
 
 

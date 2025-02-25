@@ -27,7 +27,9 @@ pacman::p_load(
   reactable,    # more interactive tables
   gapminder,    # example dataset
   ggplot2,      # graphing
-  plotly        # interactive plots
+  plotly,       # interactive plots
+  stringr,      # functions for working with character strings
+  modelsummary  # pretty regression outputs
 )
 
 # I won't get into the 'here' package, but you will eventually want to figure out how to use it if you make a lot of markdowns!
@@ -46,11 +48,11 @@ close(con)
 
 Use `CTRL/CMD + Shift + k` to preview your markdown. Hit the `Visual` button, or use `CTRL/CMD + Shift + F4` to switch to visual mode, which will let you edit the formatted version in real time.
 
-At the top of the `.Rmd` file (not shown in rendered result) is the YAML (Yet Another Markup Language) header. It is a human-readable data serialization language. It sets some options for your markdown and gives you a nicely formatted preamble. It is currently set to some of my preferred settings, but feel free to play around with this and make it your own.
+At the top of the `.Rmd` file is the YAML (Yet Another Markup Language) header. It is a human-readable data serialization language. It sets some options for your markdown and gives you a nicely formatted preamble. It is currently arranged with some of my preferred settings, but feel free to play around with this and make it your own.
 
-We have it set here to output as html, but you can just as easily produce PDF or Word documents. There are a bunch of built-in themes that you can explore [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). I quite like the readable theme.
+We have it set here to output as html, but you can just as easily produce PDF or Word documents. Note that some outputs may come out differently (or not at all) when we render to different formats. There are a bunch of built-in themes that you can explore [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). 
 
-Below the YAML header in the `.Rmd` document you will find the first `code chunk`. You will notice that this one does not appear in the rendered document - this is because it is the `setup` chunk, and it has the option `include=FALSE` set. We use this to set options for chunk behavior, as well as loading packages and data and such.
+Below the YAML header in the `.Rmd` document you will find the first "code chunk". You will notice that this one does not appear in the rendered document - this is because it is the `setup` chunk, and it has the setting `include=FALSE`. We use this setup chunk to set options for chunk behavior, as well as loading packages and data and such. Note that the markdown will run in a totally separate environment, so you have to load all your data and packages within the `.Rmd` file. 
 
 # Syntax
 
@@ -76,13 +78,13 @@ Use double asterisks to **make font bold**.
 
 Note that you need a blank line between paragraphs to split up text. Starting on a new line is not enough.
 
-To make bullet points, use `-`:
+To make bullet points, use `-`
 
 -   A thing
 -   Another thing
     -   Sub thing
 
-To make numbered lists, use `n.`:
+To make numbered lists, use `1.`
 
 1.  First thing
 2.  Second thing
@@ -95,11 +97,11 @@ For multiple lines of verbatim code, use triple back ticks.
 x + 1 = y
 ```
 
-> To make block quotes, use `>` at the start of the line. Use these to emphasize a point.
+> To make block quotes, use `>` at the start of the line.
 
 # Code Chunks
 
-Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. After the `r` comes the chunk name. This is not required, but is convenient if we hit an error because it will tell us where the problem was.
+Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. After the `r` comes the chunk name. This is not required, but is convenient if we hit an error because it will tell us the name of the chunk where the error was. Otherwise, it will just say "error in chunk 14" or some such. 
 
 If we want to run code, but not show it, we can use `echo=FALSE` in the chunk options.
 
@@ -110,7 +112,7 @@ df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
 Otherwise, our code chunk will be visible. Let's show off our example regression from the FSCI paper.
 
 ```{r raw_output}
-lm <- lm(normvalue ~ year + FSCI_region, data = df)
+lm <- lm(normvalue ~ year + FSCI_region, data = df, weights = weight)
 summary(lm)
 ```
 
@@ -120,14 +122,14 @@ This shows our code and output, but it is not very nice to look at.
 
 ## Kable
 
-To get a cleaner regression output, we can convert our regression output to a data frame, then use `knitr::kable()` to create a nice looking table.
+To get a cleaner output, we can convert our regression results to a data frame, then use `knitr::kable()` to create a nice looking table.
 
 ```{r clean_output}
 lm_df <- broom::tidy(lm)
 knitr::kable(lm_df)
 ```
 
-Extra steps to get the column names capitalized and the numbers rounded:
+We can take some extra steps to get the column names capitalized and the numbers rounded:
 
 ```{r cleaner_output}
 lm_df_cleaner <- lm_df %>% 
@@ -138,12 +140,12 @@ knitr::kable(lm_df_cleaner)
 
 ## sjPlot
 
-For a very clean regresion table with less work, try the `sjPlot` package:
+For a very clean regression table with less work, try the `sjPlot` package:
 
 ```{r sjPlot}
 sjPlot::tab_model(
   lm, 
-  p.style = 'stars', 
+  p.style = 'numeric',
   digits = 2,
   show.se = TRUE,
   robust = TRUE,
@@ -151,7 +153,9 @@ sjPlot::tab_model(
 )
 ```
 
-Note that this function takes the lm model object itself, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
+Note that this function takes the `lm` object as an input, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
+
+A curious hiccup with this package is that the `show.fstat` argument does not work. If you want to see why, check out the code behind the function. You can do this either by placing the cursor on the function and hitting `F2` or by using `CTRL/CMD + left click` on the function. 
 
 # Interactive Tables
 
@@ -159,16 +163,14 @@ We've already seen how to make tables above. For static tables, `knitr::kable()`
 
 For interactive tables, there are a couple of different options.
 
-## DT Table
+## DT
 
-The `DT` package is a classic choices for interacitve tables. Note that we are setting `echo=FALSE` here, so the code chunk will not show up.
+The `DT` package is a classic choice for interactive tables. Note that we are setting `echo=FALSE` here, so the code chunk will not be visible.
 
 ```{r DT_table, echo=FALSE}
 data(gapminder)
 DT::datatable(gapminder)
 ```
-
-This takes almost no code, and creates quite a decent looking table with lots of options.
 
 ## Reactable
 
@@ -197,10 +199,13 @@ We haven't really covered plots, but you really just throw your code in the chun
 
 ### Base Plot
 
-Base plots with the `plot()` function are available in the base R package. It works great for simple plots, but more elaborate and pretty plots take much more work.
+Base plots with the `plot()` function are available in base R. It can do just about anything. I personally find that it works great for simple plots, but more elaborate and pretty plots take more work.
 
 ```{r base_plot}
+# Filter gapminder to the year 2007 only
 gapminder_2007 <- gapminder[gapminder$year == 2007, ]
+
+# Plot gapminder data
 plot(
   x = gapminder_2007$gdpPercap,
   y = gapminder_2007$lifeExp,
@@ -209,12 +214,16 @@ plot(
   cex = sqrt(gapminder_2007$pop) / 10000,
   ylab = 'Life Expectancy',
   xlab = 'GDP per Capita',
-  main = 'Life Expectancy against GDP per Capita'
+  main = 'Life Expectancy against GDP per Capita (2007)'
 )
 
+# Add a legend to the plot above
 legend(
-  "bottomright", legend = levels(gapminder_2007$continent),
-  col = 1:5, pch = 16, title = "Continent"
+  "bottomright", 
+  legend = levels(gapminder_2007$continent),
+  col = 1:5, 
+  pch = 16, 
+  title = "Continent"
 )
 ```
 
@@ -223,50 +232,49 @@ legend(
 The `ggplot2` package is one of the biggest strengths of R in my opinion. It is an excellent package for making pretty plots easily, with tons of extensions and extra packages for applications in mapping, chord diagrams, dendrograms, animations, etc. For a nice gallery of R graphs including example code, check out the [R Graph Gallery](https://r-graph-gallery.com/).
 
 ```{r ggplot2}
-gapminder %>% 
-  filter(year == 2007) %>% 
-  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+# Save this plot to an object so we can use it again later
+gapminder_static <- gapminder %>% 
+  dplyr::filter(year == 2007) %>% 
+  ggplot2::ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
   geom_point() +
   theme_classic() +
   labs(
     x = 'GDP per Capita',
     y = 'Life Expectancy',
-    title = 'Life Expectancy against GDP per Capita'
+    title = 'Life Expectancy against GDP per Capita (2007)'
   )
+
+# Show plot created above
+gapminder_static
 ```
 
 We can change the alignment, size, and resolution of our plot in the chunk options:
 
-```{r plot_with_options, fig.align='center', out.width="75%", fig.cap='Caption Goes Here'}
-gapminder %>% 
-  filter(year == 2007) %>% 
-  ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
-  geom_point() +
-  theme_classic() +
-  labs(
-    x = 'GDP per Capita',
-    y = 'Life Expectancy',
-    title = 'Life Expectancy against GDP per Capita'
-  )
+```{r plot_with_options, fig.align='center', out.width="60%", fig.cap='Caption Goes Here'}
+# Show same plot from last chunk but with different settings
+gapminder_static
 ```
 
 ## Interactive Plots
 
 What about an interactive plot? We can use the very popular `plotly` package to do this. It is native to python, but the `plotly` R package gives us an easy way to access it. It has its own syntax, but you can also use the `ggplotly()` function to convert a ggplot object to a plotly object.
 
-```{r}
-plot <- gapminder %>% 
-  filter(year == 2007) %>% 
-  ggplot(aes(
-    x = gdpPercap, 
-    y = lifeExp, 
+```{r plotly}
+# This time we'll save the plot to an object that we can call later
+gapminder_interactive <- gapminder %>%
+  dplyr::filter(year == 2007) %>%
+  ggplot2::ggplot(aes(
+    x = gdpPercap,
+    y = lifeExp,
     color = continent,
     size = pop,
     text = paste0(
       'Country: ', country, '\n',
       'Continent: ', continent, '\n',
-      'Life Exp: ', lifeExp, '\n',
-      'Population: ', pop
+      'GDP per capita: $',
+      stringr::str_squish(format(round(gdpPercap, 0), big.mark = ',')), '\n',
+      'Life Exp: ', round(lifeExp, 1), ' years\n',
+      'Population: ', format(pop, big.mark = ',')
     )
   )) +
   geom_point() +
@@ -274,10 +282,11 @@ plot <- gapminder %>%
   labs(
     x = 'GDP per Capita',
     y = 'Life Expectancy',
-    title = 'Life Expectancy against GDP per Capita'
+    title = 'Life Expectancy against GDP per Capita (2007)'
   )
 
-ggplotly(plot, tooltip = 'text')
+# Use ggplotly function on the plot object we made above
+plotly::ggplotly(gapminder_interactive, tooltip = 'text')
 ```
 
 Note that you can hover over points to see more information from out `text` field, and also move, zoom, select, and download a static image of the plot.
