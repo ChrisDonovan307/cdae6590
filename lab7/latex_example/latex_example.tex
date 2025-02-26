@@ -1,0 +1,74 @@
+% ===========================================
+% Preamble ==================================
+% ===========================================
+
+\documentclass[11pt]{article}
+
+% \renewcommand{\figurename}{Fig.} % This is an alternative to calling figurename=Fig. in the caption call
+
+% General formatting
+\usepackage{authblk} % center a list of authors
+\usepackage{setspace} % for double spacing
+\usepackage[margin=1in]{geometry} % margins, probably other things
+
+% Figures
+\usepackage{graphicx} % to import images
+
+% Tables
+\usepackage[table,xcdraw]{xcolor} 
+\usepackage{booktabs} % for pretty tables
+\usepackage{float} % more options for determing where figures go
+\usepackage{longtable} % spread tables across multiple pages
+\usepackage{multicol} % options for multi column tables
+% \usepackage{threeparttablex}
+
+% Captions
+\usepackage[labelfont=bf, figurename=Fig.]{caption} % Make figure number bold, no double spacing, Fig instead of Figure
+% \usepackage[labelfont=bf, font=doublespacing]{caption} % Make figure number bold, double space captions
+% \captionsetup{justification=raggedright, singlelinecheck=false} % Add this line to left-align captions
+
+% Citations
+% \usepackage[natbib=true,backend=biber,sorting=nyt,style=apa]{biblatex}
+% \renewcommand*{\bibfont}{\fontsize{10}{12}\selectfont}
+% \renewcommand{\arraystretch}{1.5}
+
+% References
+% \addbibresource{bibs/rebl_bib.bib}
+
+% Formatting of hyperlinks
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% Front matter:
+% \title{Lab X}
+
+% ===========================================
+% Document starts here ======================
+% ===========================================
+
+\begin{document}
+% \maketitle
+% \doublespacing  % double spaces the entire document, except tables
+
+\begin{center}
+    {\huge Example LateX Document} \\
+    \vspace{0.5em}
+    {\large CDAE 6590} \\
+\end{center}
+
+\noindent
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../../latex_wls.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+

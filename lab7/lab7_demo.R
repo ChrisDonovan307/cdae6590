@@ -47,8 +47,13 @@ unique(fsci$short_label)
 df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
 str(df)
 
+# Remove ampersands from out region names (problematic in some cases)
+unique(df$FSCI_region)
+df$FSCI_region <- gsub('&', 'and', df$FSCI_region)
+unique(df$FSCI_region)
 
-## Unweighted
+
+## Unweighted regression
 lm <- lm(normvalue ~ year + FSCI_region, data = df)
 summary(lm)
 # Reference group is Central Asia
@@ -105,10 +110,13 @@ flextable::save_as_docx(flex_wls_apa, path = 'flex_wls_apa.docx')
 
 
 ## To LateX
+lm_wls
 stargazer::stargazer(
   lm_wls,
   type = 'latex',
   out = 'latex_wls.tex',
-  notes = 'These are the notes.'
+  notes = 'These are the notes.',
+  font.size = 'footnotesize',
+  covariate.labels = gsub("FSCI_region", "", names(coef(lm_wls)))
 )
 # Note that stargazer takes the model itself as an input, not the DF
