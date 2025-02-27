@@ -23,13 +23,13 @@ pacman::p_load(
   snakecase,    # change between text styles
   knitr,        # various markdown things
   sjPlot,       # regressions as html output
+  stargazer,    # more regression tables
   DT,           # interactive tables
   reactable,    # more interactive tables
   gapminder,    # example dataset
   ggplot2,      # graphing
   plotly,       # interactive plots
-  stringr,      # functions for working with character strings
-  modelsummary  # pretty regression outputs
+  stringr       # functions for working with character strings
 )
 
 # I won't get into the 'here' package, but you will eventually want to figure out how to use it if you make a lot of markdowns!
@@ -106,6 +106,10 @@ Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` t
 If we want to run code, but not show it, we can use `echo=FALSE` in the chunk options.
 
 ```{r echo_demo, echo=FALSE}
+# Remove ampersands
+fsci$FSCI_region <- gsub('&', 'and', fsci$FSCI_region)
+
+# Reduce to one variable
 df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
 ```
 
@@ -146,16 +150,41 @@ For a very clean regression table with less work, try the `sjPlot` package:
 sjPlot::tab_model(
   lm, 
   p.style = 'numeric',
-  digits = 2,
+  digits = 3,
   show.se = TRUE,
   robust = TRUE,
-  show.reflvl = TRUE
+  show.reflvl = TRUE,
+  dv.labels = 'Undernourishment',
+  pred.labels = gsub("FSCI_region", "", names(coef(lm)))
 )
 ```
 
 Note that this function takes the `lm` object as an input, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
 
 A curious hiccup with this package is that the `show.fstat` argument does not work. If you want to see why, check out the code behind the function. You can do this either by placing the cursor on the function and hitting `F2` or by using `CTRL/CMD + left click` on the function. 
+
+## stargazer
+
+The `stargazer` package is quite popular in econometrics. You can find a nice tutorial [here](https://www.jakeruss.com/cheatsheets/stargazer/), or a quick paper and demo arguing why you should use it from the author [here](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf). It's a pretty nice package for easily displaying regressions in LaTeX, but I wouldn't personally recommend it for non-LaTeX applications.
+
+Here we will show how you can put two models together in the same table.
+
+```{r stargazer, results='asis'}
+# Get another regression
+df2 <- fsci[fsci$short_label == 'Access to safe water', ]
+lm2 <- lm(normvalue ~ year + FSCI_region, data = df2, weights = weight)
+
+stargazer::stargazer(
+  lm,
+  lm2,
+  type = 'html',
+  font.size = 'footnotesize',
+  column.labels = c('Undernourishment', 'Safe Water'),
+  dep.var.labels.include = FALSE,
+  covariate.labels = gsub("FSCI_region", "", names(coef(lm)))
+)
+```
+Note that we put the `results='asis'` option into the chunk header. This is how we can get latex to show up properly as an html markdown. 
 
 # Interactive Tables
 

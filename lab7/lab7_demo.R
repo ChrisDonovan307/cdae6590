@@ -110,7 +110,6 @@ flextable::save_as_docx(flex_wls_apa, path = 'flex_wls_apa.docx')
 
 
 ## To LateX
-lm_wls
 stargazer::stargazer(
   lm_wls,
   type = 'latex',
