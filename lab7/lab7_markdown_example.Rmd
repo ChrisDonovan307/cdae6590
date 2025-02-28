@@ -103,9 +103,10 @@ x + 1 = y
 
 Here we will explore some proper code chunks. You can use `CTRL/CMD + ALT + I` to create a new chunk. After the `r` comes the chunk name. This is not required, but is convenient if we hit an error because it will tell us the name of the chunk where the error was. Otherwise, it will just say "error in chunk 14" or some such. 
 
-If we want to run code, but not show it, we can use `echo=FALSE` in the chunk options.
+We will be using data from [Schneider et al. 2024](https://www.nature.com/articles/s43016-024-01109-4). The code and data are available on a [GitHub repository](https://github.com/KateSchneider-FoodPol/FSCI_2024Interactions_Replication). While we're at it, all the scripts and data for this course are [available in a repository as well](https://github.com/ChrisDonovan307/cdae6590). 
+Let's start by cleaning up our data a little bit in this first code chunk:
 
-```{r echo_demo, echo=FALSE}
+```{r echo_demo}
 # Remove ampersands
 fsci$FSCI_region <- gsub('&', 'and', fsci$FSCI_region)
 
@@ -113,14 +114,16 @@ fsci$FSCI_region <- gsub('&', 'and', fsci$FSCI_region)
 df <- fsci[fsci$short_label == 'Prevalence of undernourishment', ]
 ```
 
-Otherwise, our code chunk will be visible. Let's show off our example regression from the FSCI paper.
+If we want to run our code but not show the code block, we can set the `echo=FALSE`option in the chunk header. Otherwise, our code chunk will be visible. Let's show off our example regression from the FSCI paper.
 
-```{r raw_output}
+```{r raw_output, echo=FALSE}
 lm <- lm(normvalue ~ year + FSCI_region, data = df, weights = weight)
 summary(lm)
 ```
 
-This shows our code and output, but it is not very nice to look at.
+This shows our output, but not the code chunk. 
+
+We can see our regression output much like we do when we run it in a script, but it is not terribly nice to look at here.
 
 # Regression Outputs
 
@@ -142,6 +145,8 @@ lm_df_cleaner <- lm_df %>%
 knitr::kable(lm_df_cleaner)
 ```
 
+There are many more options available in the `kable` and `kableExtra` packages for building static tables. This is probably the most powerful set of table packages I've found. See the [docs for examples](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
+
 ## sjPlot
 
 For a very clean regression table with less work, try the `sjPlot` package:
@@ -159,7 +164,7 @@ sjPlot::tab_model(
 )
 ```
 
-Note that this function takes the `lm` object as an input, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). This is where you really learn how to use a package. It is written by the author, with abundant vignettes and examples.
+Note that this function takes the `lm` object as an input, not a data frame. It is designed to work with regression models and provides a ton of options for displaying them. Check out the documentation [here](https://strengejacke.github.io/sjPlot/index.html). 
 
 A curious hiccup with this package is that the `show.fstat` argument does not work. If you want to see why, check out the code behind the function. You can do this either by placing the cursor on the function and hitting `F2` or by using `CTRL/CMD + left click` on the function. 
 
@@ -167,7 +172,7 @@ A curious hiccup with this package is that the `show.fstat` argument does not wo
 
 The `stargazer` package is quite popular in econometrics. You can find a nice tutorial [here](https://www.jakeruss.com/cheatsheets/stargazer/), or a quick paper and demo arguing why you should use it from the author [here](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf). It's a pretty nice package for easily displaying regressions in LaTeX, but I wouldn't personally recommend it for non-LaTeX applications.
 
-Here we will show how you can put two models together in the same table.
+Here we will put two models together in the same table:
 
 ```{r stargazer, results='asis'}
 # Get another regression
@@ -184,11 +189,13 @@ stargazer::stargazer(
   covariate.labels = gsub("FSCI_region", "", names(coef(lm)))
 )
 ```
+
 Note that we put the `results='asis'` option into the chunk header. This is how we can get latex to show up properly as an html markdown. 
 
 # Interactive Tables
 
-We've already seen how to make tables above. For static tables, `knitr::kable()` is a good choice. The `kableExtra` package is also a great extension to knitr, giving you tons of options for customization. See the [docs for examples](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf).
+We've already seen how to make tables above. For static tables, `knitr::kable()` is a good choice. 
+
 
 For interactive tables, there are a couple of different options.
 
@@ -221,6 +228,8 @@ reactable::reactable(
 I find the options for customization here much more intuitive than `DT`, and the documentation is much easier to use.
 
 # Plots
+
+An excellent reference for graphs is the [R Graph Gallery](https://r-graph-gallery.com/), which has lots of examples to explore and accompanying code for each figure.
 
 ## Static Plots
 

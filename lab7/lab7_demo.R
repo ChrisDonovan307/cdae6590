@@ -12,22 +12,22 @@ pacman::p_load(
   flextable,
   stargazer,
   writexl,
-  broom
+  broom,
+  gapminder,
+  ggplot2
 )
 
 options(scipen = 999)
 
 
 
-# WLS ---------------------------------------------------------------------
+# Weighted Least Squares (WLS) --------------------------------------------
 
 
-# Data from Food Systems Countdown Initiative
+# Dataset from the Food Systems Countdown Initiative
+# Paper: https://www.nature.com/articles/s43016-024-01109-4#Sec12
 
-# Paper:
-# https://www.nature.com/articles/s43016-024-01109-4#Sec12
-
-# GitHub Repository
+# GitHub repository:
 # https://github.com/KateSchneider-FoodPol/FSCI_2024Interactions_Replication
 
 # Load data from Figure 1 - trends over time
@@ -72,7 +72,7 @@ lmtest::bptest(lm)
 
 
 
-# Exporting Results -------------------------------------------------------
+# Exporting Regression Outputs --------------------------------------------
 
 
 # First convert our regression output into a data frame
@@ -119,3 +119,81 @@ stargazer::stargazer(
   covariate.labels = gsub("FSCI_region", "", names(coef(lm_wls)))
 )
 # Note that stargazer takes the model itself as an input, not the DF
+
+
+
+# Exporting Plots ---------------------------------------------------------
+
+
+# Filter gapminder to the year 2007 only
+gapminder_2007 <- gapminder[gapminder$year == 2007, ]
+
+
+## Snipping
+# For a quick and dirty plot, you can just use your computer's snip feature!
+
+
+## Export with GUI
+# Click on the Export button toward the top left of the plot window
+
+
+## Save base plot to png
+# Define png output
+png(
+  filename = 'gapminder_plot.png',
+  width = 600,
+  height = 500,
+  units = 'px',
+  res = 72
+)
+
+# Create plot
+plot(
+  x = gapminder_2007$gdpPercap,
+  y = gapminder_2007$lifeExp,
+  col = gapminder_2007$continent,
+  pch = 16,
+  cex = sqrt(gapminder_2007$pop) / 10000,
+  ylab = 'Life Expectancy',
+  xlab = 'GDP per Capita',
+  main = 'Life Expectancy against GDP per Capita (2007)'
+)
+
+# Add a legend to existing plot
+legend(
+  "bottomright",
+  legend = levels(gapminder_2007$continent),
+  col = 1:5,
+  pch = 16,
+  title = "Continent"
+)
+
+# Turn off graphing device
+dev.off()
+
+
+## Save ggplot2 to png
+# Save a plot to an object
+gapminder_plot <- gapminder %>%
+  dplyr::filter(year == 2007) %>%
+  ggplot2::ggplot(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point() +
+  theme_classic() +
+  labs(
+    x = 'GDP per Capita',
+    y = 'Life Expectancy',
+    title = 'Life Expectancy against GDP per Capita (2007)'
+  )
+
+# Print it to check it out (not required for saving it)
+gapminder_plot
+
+# Save the plot object to a .png file
+ggsave(
+  filename = 'gapminder_ggplot2.png',
+  plot = gapminder_plot,
+  width = 600,
+  height = 500,
+  units = 'px',
+  dpi = 300
+)
