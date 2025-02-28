@@ -125,8 +125,22 @@ stargazer::stargazer(
 # Exporting Plots ---------------------------------------------------------
 
 
-# Filter gapminder to the year 2007 only
+## Make a plot
+# First, filter gapminder to the year 2007 only
+str(gapminder)
 gapminder_2007 <- gapminder[gapminder$year == 2007, ]
+
+# Make base plot
+plot(
+  x = gapminder_2007$gdpPercap,
+  y = gapminder_2007$lifeExp,
+  col = gapminder_2007$continent,
+  pch = 16,
+  cex = sqrt(gapminder_2007$pop) / 10000,
+  ylab = 'Life Expectancy',
+  xlab = 'GDP per Capita',
+  main = 'Life Expectancy against GDP per Capita (2007)'
+)
 
 
 ## Snipping
@@ -137,7 +151,7 @@ gapminder_2007 <- gapminder[gapminder$year == 2007, ]
 # Click on the Export button toward the top left of the plot window
 
 
-## Save base plot to png
+## Save base plot to png. Advantages to doing this programmatically.
 # Define png output
 png(
   filename = 'gapminder_plot.png',
@@ -184,9 +198,6 @@ gapminder_plot <- gapminder %>%
     y = 'Life Expectancy',
     title = 'Life Expectancy against GDP per Capita (2007)'
   )
-
-# Print it to check it out (not required for saving it)
-gapminder_plot
 
 # Save the plot object to a .png file
 ggsave(
