@@ -138,7 +138,7 @@ library(ggplot2)
 library(dplyr)
 library(GGally)
 library(lmtest)
-library(VIF)
+library(DescTools)
 
 
 
