@@ -40,8 +40,8 @@ head(world_bank_pop, 10)[, 1:6]
 ## Pivot longer to group the year columns
 long <- tidyr::pivot_longer(
   world_bank_pop,
-  cols = '2000':'2017',
-  # cols = starts_with('2'),
+  # cols = '2000':'2017',
+  cols = starts_with('2'),
   names_to = 'year',
   values_to = 'value'
 )
@@ -115,7 +115,8 @@ summary(model_pooled)
 
 
 ## Chow test
-pooltest(fatal_rate ~ beertax, data = Fatalities, model = 'pooling')
+plm::pooltest(fatal_rate ~ beertax, data = Fatalities, model = 'pooling')
+# REvisit chow test
 
 
 

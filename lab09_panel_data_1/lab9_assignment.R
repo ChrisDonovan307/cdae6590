@@ -13,11 +13,6 @@ pacman::p_load(
 
 options(scipen = 999)
 
-# Load Gasoline and Cigar datasets
-data(Gasoline, package = 'plm')
-str(Gasoline)
-?plm::Gasoline
-
 data(Cigar, package = 'plm')
 str(Cigar)
 ?plm::Cigar
