@@ -9,98 +9,41 @@ pacman::p_load(
   AER,
   plm,
   tidyr,
-  ggplot2
+  ggplot2,
+  wooldridge
 )
 
 options(scipen = 999)
 
-
-
-
-# -------------------------------------------------------------------------
-
-
-data(Crime)
-str(Crime)
-
-summary(lm(crmrte ~ taxpc + density + avgsen, data = Crime))
-
-# pool test
-plm::pooltest(fatal_rate ~ beertax, data = Fatalities, model = 'pooling')
-
-plm::pooltest(crmrte ~ taxpc + density + avgsen, data = Crime, model = 'pooling')
-plm::pooltest(crmrte ~ taxpc + density + avgsen, data = Crime, model = 'within')
-
-# Compare to models
-pooling <- plm::plm(
-  crmrte ~ taxpc + density + avgsen,
-  data = Crime,
-  model = 'pooling'
-)
-
-within <- plm::plm(
-  crmrte ~ taxpc + density + avgsen,
-  data = Crime,
-  model = 'within'
-)
-
-# Compare to manual demeaning
-demean <- Crime %>%
-  group_by(county) %>%
-  mutate(mean_crime = mean(crmrte),
-         mean_prob = mean(prbarr)) %>%
-  mutate(demeaned_crime = crmrte - mean_crime,
-         demeaned_prob = prbarr - mean_prob)
-str(demean)
-
-# Do it both ways, will be the same
-orig_data <- plm::plm(crmrte ~ prbarr, data = Crime, model = 'within')
-de_mean <- plm::plm(demeaned_crime ~ demeaned_prob, data = demean)
-summary(orig_data)
-summary(de_mean)
-# An increase of prob of arrest by 100% >> crime per person drops by 0.002
-
-plm::pooltest(pooling, within)
-plm::pooltest(within, pooling)
-
-
-# Compare to LSDV - lose this
-summary(plm::plm(crmrte ~ prbarr + county, data = Crime))
-summary(plm::plm(crmrte ~ prbarr + factor(county), data = Crime))
-# Same? why doesnt it chagne DF and R2
-
-
-
-
-
-
-
-
-
-data("Gasoline", package = "plm")
-form <- lgaspcar ~ lincomep + lrpmg + lcarpcap
-gasw <- plm(form, data = Gasoline, model = "within")
-gasp <- plm(form, data = Gasoline, model = "pooling")
-gasnp <- pvcm(form, data = Gasoline, model = "within")
-
-# First two identical to last two
-pooltest(gasw, gasnp)
-pooltest(gasp, gasnp)
-
-pooltest(form, data = Gasoline, effect = "individual", model = "within")
-pooltest(form, data = Gasoline, effect = "individual", model = "pooling")
-
-
-
-# Process -----------------------------------------------------------------
-
-
 data(crime4, package = "wooldridge")
+
+# Examples from:
+# https://scpoecon.github.io/ScPoEconometrics/panel-data.html
+# https://nickch-k.github.io/EconometricsSlides/Week_06/Week_06_1_Within_Variation_and_Fixed_Effects.html#8
+
+# Data from Wooldridge package, open source companion to
+# Introductory Econometrics: A Modern Approach
+
+
+
+# Explore Data ------------------------------------------------------------
+
+
+# Check out variables
+str(crime4)
+
+# This is similar to the Crime dataset
+?Crime
+# crmrte: crimes committed per person
+# prbarr: probability of being arrested for a crime
+
+# Reduce to a few counties for clarity
 crime = crime4 %>%
   filter(county %in% c(1, 3, 145, 23), prbarr < 0.5)
+str(crime)
 
-# Points only
-css %>%
+# Plot points by county
+crime %>%
   ggplot(aes(x = prbarr, y = crmrte, color = factor(county))) +
     geom_point(size = 3) +
     theme_classic() +
@@ -112,9 +55,10 @@ css %>%
 
 
 
-## Pooling -----------------------------------------------------------------
+# Pooling -----------------------------------------------------------------
 
 
+# Pooling across years - plain OLS
 pooling <- plm::plm(
   crmrte ~ prbarr,
   data = crime,
@@ -122,6 +66,7 @@ pooling <- plm::plm(
 )
 summary(pooling)
 
+# Plot regression line onto pooled points
 crime %>%
   ggplot(aes(x = prbarr, y = crmrte)) +
     geom_point(size = 3) +
@@ -131,23 +76,10 @@ crime %>%
 
 
 
-
-## First Difference --------------------------------------------------------
-
-
-difference <- plm::plm(
-  crmrte ~ prbarr,
-  data = crime,
-  model = 'fd'
-)
-summary(difference)
+# Fixed Effects -----------------------------------------------------------
 
 
-
-## Fixed Effects -----------------------------------------------------------
-
-
-# Fixed effects model
+# Fixed effects model (within)
 within <- plm::plm(
   crmrte ~ prbarr,
   data = crime,
@@ -166,10 +98,11 @@ crime %>%
       y = 'Crime Rate',
       color = 'County'
     )
-# Show animation
+# Neat animation:
+# https://nickch-k.github.io/EconometricsSlides/Week_06/Week_06_1_Within_Variation_and_Fixed_Effects.html#12
 
 
-## Test whether there are fixed effects
+## Compare to pooled model to see whether fixed effects are appropriate
 plm::pFtest(within, pooling)
 # plm::pooltest(pooling, within)
 # null: no individual effects
@@ -179,18 +112,39 @@ plm::pFtest(within, pooling)
 # Help decide whether to use FD or FE
 pbgtest(crmrte ~ prbarr, data = crime)
 # null: no serial correlation present
+# If serial correlation is present, first differencing is better
 
 
 
-## Random Effects ----------------------------------------------------------
+# First Difference --------------------------------------------------------
 
 
+# First difference model to compare to fixed effects
+difference <- plm::plm(
+  crmrte ~ prbarr,
+  data = crime,
+  model = 'fd'
+)
+summary(difference)
+
+
+
+# Random Effects ----------------------------------------------------------
+
+
+# RE model - assumes alpha_i uncorrelated with Xs
+# Allows for explanatory variables that are constant over time
+# Includes composite error term not accounted for in OLS
+# Uses feasible GLS to estimate theta_hat, between 0 (pooled) and 1 (FE)
 random <- plm::plm(
   crmrte ~ prbarr,
   data = crime,
   model = 'random'
 )
 summary(random)
+# Idiosyncratic effect - across individuals and time
+# Individual effect - within county
+# Note value of theta
 
 
 ## Hausman test - compare fixed effects to random
@@ -198,3 +152,6 @@ phtest(within, random)
 # Null: x_it uncorrelated with alpha_i
 # If significant, reject, there are unobserved effects, use FE
 # If not significant, fail to reject, assume no unobserved effects, use RE
+
+# Helpful diagram on selecting between FE and RE
+# https://en.wikipedia.org/wiki/Durbin%E2%80%93Wu%E2%80%93Hausman_test
