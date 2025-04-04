@@ -20,7 +20,7 @@ df <- Kmenta %>%
     food_cons = Q,
     food_price_ratio = P,
     disp_income = D,
-    lagged_ratio = 'F', # F is a reserved namespace, best to avoid it
+    lagged_ratio = F, # F is a reserved namespace. Best to avoid it in general
     years = A
   )
 str(df)
@@ -32,15 +32,17 @@ str(df)
 
 # 1. Run a plain OLS regression for demand:
 #   Q (food consumption) is dependent variable
-#   P (food price ratio) is endogenous independent variable
-#   D (disposable income) is exogenous independent variable
-# (Being exogenous or endogenous doesn't matter until the next part - this is
-# not supposed to be a trick question. Just do regular OLS)
+#   P (food price ratio) is an independent variable (endogenous)
+#   D (disposable income) is an independent variable (exogenous)
+# Just regular OLS here - exogenous/endogenous doesn't matter yet
 
 
 # 2a. Run the same demand model as 2SLS regression with ivreg::ivreg(), but add:
 #   F (ratio of last yr farm prices to consumer prices) as exogenous instrument
 #   A (years) as exogenous instrument
+# These two variables will be instruments for P (food price ratio). Recall the
+# syntax requirements for exogenous regressors, or check ?ivreg and go to the
+# details section for a refresher
 
 
 # 2b. What do the results of the three diagnostic tests suggest?

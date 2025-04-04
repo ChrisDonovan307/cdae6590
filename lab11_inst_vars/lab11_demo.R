@@ -10,7 +10,21 @@ pacman::p_load(
   plm,
   wooldridge,
   AER,
-  ivreg
+  ivreg,
+  conflicted
+)
+
+# Check conflicting function names
+conflicted::conflict_scout()
+# Both AER and ivreg packages have an ivreg function
+
+# Conflicted package won't let you use an ambiguous function
+# filter(iris, Species == 'setosa')
+
+# Set winners for those conflicts
+conflicts_prefer(
+  ivreg::ivreg(),
+  dplyr::filter()
 )
 
 options(scipen = 999)
@@ -21,9 +35,8 @@ options(scipen = 999)
 
 
 # Lists can help manage multiple objects like models in your environment.
-# Use same data from last week:
+# Use same data from last week as an example:
 data(crime4, package = 'wooldridge')
-crime <- crime4
 
 
 
@@ -33,19 +46,19 @@ crime <- crime4
 # So far, we have been assigning every model object manually
 pooling <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'pooling'
 )
 
 within <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'within'
 )
 
 random <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'random'
 )
 # We now have 3 objects to manage. This works, but does not scale well.
@@ -61,20 +74,20 @@ models <- list()
 # Save model to an element in the list with $, just like with a df
 models$pooling <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'pooling'
 )
 
 models$within <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'within'
 )
 
 # We can also do it with double brackets
 models[['random']] <- plm::plm(
   crmrte ~ prbarr,
-  data = crime,
+  data = crime4,
   model = 'random'
 )
 
@@ -90,6 +103,9 @@ summary(models[['within']])
 # or by index
 summary(models[[3]])
 
+# Get a summary of all three models at once
+lapply(models, summary)
+
 # This is better, but still includes a lot of copy and pasting
 
 
@@ -97,17 +113,18 @@ summary(models[[3]])
 ## Make a Function ---------------------------------------------------------
 
 
-# Make a function to run plm
+# Make our own function to run plm
 run_plm <- function(x) {
   plm::plm(
     crmrte ~ prbarr,
-    data = crime,
+    data = crime4,
     model = x
   )
 }
 
 # Run one type of model
-summary(run_plm('within'))
+within <- run_plm('within')
+summary(within)
 
 # Get a vector of the model names
 model_types <- c('pooling', 'within', 'random')
@@ -119,12 +136,22 @@ models <- lapply(model_types, run_plm)
 # Get a summary of all three models at once
 lapply(models, summary)
 
+# Get residuals from all three models
+res <- lapply(models, \(x) x$residuals)
+str(res)
+
+
+# Before moving on, remove objects from environment. Usually better to restart R
+# though, because that will re-run rprofile, renviron, project settings, etc.
+rm(list = ls())
+
 
 
 # IVs and 2SLS ------------------------------------------------------------
 
 
-# Examples from Hanck et al. (2024) Introduction to Econometrics
+# Examples from Hanck et al. (2024) Introduction to Econometrics, which are
+# based on examples from Wooldridge
 # https://www.econometrics-with-r.org/12-ivr.html
 
 
@@ -135,15 +162,20 @@ lapply(models, summary)
 ## Check out dataset
 data("CigarettesSW", package = 'AER')
 str(CigarettesSW)
+?CigarettesSW
 # packs: packs per capita
-# price: average price including sales tax
-# tax: average state, federal, and average local excise tax
-# taxs: average excise tax, including sales tax
+# price: average price of cigarettes, including sales tax
+# tax: average state, federal, and local excise tax
+# taxs: average excise taxes, including sales tax
 
 
 ## Data wrangling
-# Get real per capita prices, sales tax, real income, and cigarette tax
-# then keep only the year 1995
+# Add variables:
+#   rprice is real (cpi adjusted) price of cigarettes
+#   salestax is sales tax
+#   rincome is real (cpi adjusted) income per capita
+#   cigtax is real cigarette-specific taxes
+# Then filter to only the year 1995
 df <- CigarettesSW %>%
   mutate(
     rprice = price / cpi,
@@ -172,18 +204,28 @@ summary(ols)
 
 
 ## 2SLS the manual way
+
+# Use salestax as an instrument for rprice. Salestax should be related to real
+# price of cigarettes, but not to the number of packs consumed per capita
+
 # First stage regression - regress endogenous var onto instrument
-# Reduced form equation
+# Reduced form equation - endogenous vars in terms of exogenous
 stage_1 <- lm(log(rprice) ~ salestax, data = df)
 summary(stage_1)
 
 # Save predicted (fitted) values
 str(stage_1)
 y2_hat <- stage_1$fitted.values
+print(y2_hat)
 
 # Stage 2 regression - regress dependent var on predicted values
 stage_2 <- lm(log(df$packs) ~ y2_hat)
 summary(stage_2)
+
+# Animation:
+# https://nickch-k.github.io/EconometricsSlides/Week_08/Week_08_Instrumental_Variables.html#8
+
+# Model diagram
 
 
 
@@ -200,12 +242,10 @@ wu_hausman <- lm(log(packs) ~ log(rprice) + stage_1$residuals, data = df)
 summary(wu_hausman)
 # Null is exogeneity
 
-# Alternative method
-car::lht(wu_hausman, c("stage_1$residuals = 0"))
-
 
 ## Sargan test
 # Null is exogeneity
+# Only use when q > 1
 
 
 
@@ -215,14 +255,14 @@ car::lht(wu_hausman, c("stage_1$residuals = 0"))
 # 2SLS using ivreg::ivreg
 tsls <- ivreg::ivreg(log(packs) ~ log(rprice) | salestax, data = df)
 summary(tsls)
+# Same test results as above
 
 # Compare our manual 2-stage model to ivreg
 summary(stage_2)
 summary(tsls)
-# Coefficient is same here as with stage_2, but not standard errors
-# Note Sargan test
+# What is the same, what is different?
 
-# Compare to ols estimation
+# Compare to OLS estimation
 summary(ols)
 summary(tsls)
 
@@ -232,14 +272,14 @@ summary(tsls)
 
 
 # Add rincome (exogenous) and cigtax (instrument).
-# Now we have 1 more instrument than we need.
+# Now we have 1 more instrument than we need (q = 2)
 # Note that ALL exogenous variables go after the | (not just instruments)
 tsls2 <- ivreg(
   log(packs) ~ log(rprice) + log(rincome) | log(rincome) + salestax + cigtax,
   data = df
 )
 summary(tsls2)
-# sargan test: null is that instruments are endogenous (when q >= 2)
+# Sargan test: null is that instruments are endogenous (when q >= 2)
 
 
 # Compare to ols
