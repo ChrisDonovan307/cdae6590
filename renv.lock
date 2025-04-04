@@ -2800,6 +2800,16 @@
       ],
       "Hash": "cc2d62c76458d425210d1eb1478b30b4"
     },
+    "wooldridge": {
+      "Package": "wooldridge",
+      "Version": "1.4-4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "9c64b0d56be6e699a56b60b61033e326"
+    },
     "writexl": {
       "Package": "writexl",
       "Version": "1.5.1",
