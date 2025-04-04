@@ -4,11 +4,13 @@
 # Housekeeping ------------------------------------------------------------
 
 
+if (!require('pacman')) install.packages('pacman')
 pacman::p_load(
   dplyr,
   plm,
   wooldridge,
-  AER
+  AER,
+  ivreg
 )
 
 options(scipen = 999)
@@ -18,15 +20,17 @@ options(scipen = 999)
 # Using lists -------------------------------------------------------------
 
 
+# Lists can help manage multiple objects like models in your environment.
+# Use same data from last week:
 data(crime4, package = 'wooldridge')
 crime <- crime4
-# Do same wrangling as before
 
 
 
 ## Manual ------------------------------------------------------------------
 
 
+# So far, we have been assigning every model object manually
 pooling <- plm::plm(
   crmrte ~ prbarr,
   data = crime,
@@ -44,17 +48,17 @@ random <- plm::plm(
   data = crime,
   model = 'random'
 )
-# This works, but does not scale well
+# We now have 3 objects to manage. This works, but does not scale well.
 
 
 
 ## List --------------------------------------------------------------------
 
 
-# Initiate an empty list
+# Lists make this easier. Instantiate an empty list:
 models <- list()
 
-# Save model to an element in the list with $
+# Save model to an element in the list with $, just like with a df
 models$pooling <- plm::plm(
   crmrte ~ prbarr,
   data = crime,
@@ -75,6 +79,7 @@ models[['random']] <- plm::plm(
 )
 
 # Check out the list
+str(models, max.level = 1)
 str(models)
 names(models)
 
@@ -104,8 +109,11 @@ run_plm <- function(x) {
 # Run one type of model
 summary(run_plm('within'))
 
-# Run all three models
+# Get a vector of the model names
 model_types <- c('pooling', 'within', 'random')
+print(model_types)
+
+# Run all 3 models at once
 models <- lapply(model_types, run_plm)
 
 # Get a summary of all three models at once
@@ -135,7 +143,7 @@ str(CigarettesSW)
 
 ## Data wrangling
 # Get real per capita prices, sales tax, real income, and cigarette tax
-# Then subset to 1995
+# then keep only the year 1995
 df <- CigarettesSW %>%
   mutate(
     rprice = price / cpi,
@@ -182,17 +190,22 @@ summary(stage_2)
 ## Assumptions -------------------------------------------------------------
 
 
-## Check weak instruments
-summary(lm(log(rprice) ~ salestax, data = c1995))
+## Check for weak instruments
+summary(lm(log(rprice) ~ salestax, data = df))
 # Null is no correlation between exogenous and endogenous
 
 
 ## Check exogeneity (Wu Hausman)
 wu_hausman <- lm(log(packs) ~ log(rprice) + stage_1$residuals, data = df)
-lht(wu_hausman, c("stage_1$residuals = 0"))
+summary(wu_hausman)
 # Null is exogeneity
 
+# Alternative method
+car::lht(wu_hausman, c("stage_1$residuals = 0"))
 
+
+## Sargan test
+# Null is exogeneity
 
 
 
@@ -202,21 +215,25 @@ lht(wu_hausman, c("stage_1$residuals = 0"))
 # 2SLS using ivreg::ivreg
 tsls <- ivreg::ivreg(log(packs) ~ log(rprice) | salestax, data = df)
 summary(tsls)
-# Coefficient is same here as with stage_2
-# Standard errors are not the same (does not account for error in first model)
-# Note Sargan test (overidentification)
 
-# Compare to ols
+# Compare our manual 2-stage model to ivreg
+summary(stage_2)
+summary(tsls)
+# Coefficient is same here as with stage_2, but not standard errors
+# Note Sargan test
+
+# Compare to ols estimation
 summary(ols)
+summary(tsls)
 
 
 
 ## Multivariate ------------------------------------------------------------
 
 
-# Add rincome (exogenous) and cigtax (instrument)
-# Note that ALL exogenous variables go after the |, even if they are not
-# instruments. This is why rincome is repeated
+# Add rincome (exogenous) and cigtax (instrument).
+# Now we have 1 more instrument than we need.
+# Note that ALL exogenous variables go after the | (not just instruments)
 tsls2 <- ivreg(
   log(packs) ~ log(rprice) + log(rincome) | log(rincome) + salestax + cigtax,
   data = df
@@ -224,4 +241,9 @@ tsls2 <- ivreg(
 summary(tsls2)
 # sargan test: null is that instruments are endogenous (when q >= 2)
 
+
+# Compare to ols
+ols2 <- lm(log(packs) ~ log(rprice) + log(rincome), data = df)
+summary(ols2)
+summary(tsls2)
 
