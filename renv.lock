@@ -625,6 +625,19 @@
       "Repository": "CRAN",
       "Hash": "5d8225445acb167abf7797de48b2ee3c"
     },
+    "conflicted": {
+      "Package": "conflicted",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cli",
+        "memoise",
+        "rlang"
+      ],
+      "Hash": "bb097fccb22d156624fd07cd2894ddb6"
+    },
     "cowplot": {
       "Package": "cowplot",
       "Version": "1.1.3",
@@ -1363,6 +1376,21 @@
         "utils"
       ],
       "Hash": "8954069286b4b2b0d023d1b288dce978"
+    },
+    "ivreg": {
+      "Package": "ivreg",
+      "Version": "0.6-5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "Formula",
+        "MASS",
+        "R",
+        "car",
+        "lmtest",
+        "stats"
+      ],
+      "Hash": "f5d740038de505b0f825a2e541032a4c"
     },
     "janitor": {
       "Package": "janitor",
