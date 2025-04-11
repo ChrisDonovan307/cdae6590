@@ -9,90 +9,154 @@ pacman::p_load(
   dplyr,
   systemfit,
   wooldridge,
-  ivreg
+  ivreg,
+  lavaan
 )
 
 data('mroz', package = 'wooldridge')
+?mroz
 
-
-
-# -------------------------------------------------------------------------
-
-
-# keep only working women
+# Filter to working in labor force
 mroz <- filter(mroz, inlf == 1)
+str(mroz)
+
+# Wooldridge example 16.3
+# Equation 1: hours ~ lwage + educ + age + kidslt6 + nwifeinc
+# Equation 2: lwage ~ hours + educ + exper + exper^2
 
 
 
-## HOURS -------------------------------------------------------------------
+# Eq 1: Hours -------------------------------------------------------------
 
 
-# Regression for hours using OLS estimation
-model1 <- lm(hours ~ lwage + educ + age + kidslt6 + nwifeinc, mroz)
-summary(model1)
+# OLS
+hours_ols <- lm(hours ~ lwage + educ + age + kidslt6 + nwifeinc, mroz)
+summary(hours_ols)
 
 # Regression for hours using 2SLS estimation
-# lwage is instrumented by variables from the other equation
-model2 <- ivreg(
+hours_2sls <- ivreg::ivreg(
   hours ~ lwage + educ + age + kidslt6 + nwifeinc |
     . - lwage + exper + expersq,
   data = mroz
 )
-summary(model2)
+summary(hours_2sls)
 
 
 
-## LWAGE -------------------------------------------------------------------
+# Eq 2: Wages -------------------------------------------------------------
 
 
-# Regression for lwage using OLS estimation
-model3 <- lm(lwage ~ hours + educ + exper + expersq, mroz)
-summary(model3)
+# Wage equation using OLS
+wages_ols <- lm(lwage ~ hours + educ + exper + expersq, mroz)
+summary(wages_ols)
 
-# Regression for lwage using 2SLS estimation
-# hours is instrumented by variables from the other equation
-model4 <- ivreg(lwage ~ hours + educ + exper + expersq |
+# Wage equation with 2SLS
+wages_2sls <- ivreg(lwage ~ hours + educ + exper + expersq |
                   ~ . - hours + age + kidslt6 + nwifeinc,
                 data = mroz)
-summary(model4, diagnostics = TRUE)
+summary(wages_2sls, diagnostics = TRUE)
 
 
 
-# SYSTEMFIT ---------------------------------------------------------------
+# Simultaneous ------------------------------------------------------------
 
 
+# Save both formulas as a named list
+system <- list(
+  hoursEq = hours ~ lwage + educ + age + kidslt6 + nwifeinc,
+  wagesEq = lwage ~ hours + educ + exper + expersq
+)
 
-hours_eq <- hours ~ lwage + educ + age + kidslt6 + nwifeinc
-lwage_eq <- lwage ~ hours + educ + exper + expersq
-system <- list(hours = hours_eq, lwage = lwage_eq)
+# Save the formula for the instruments (starting with ~)
 instruments <- ~ educ + age + kidslt6 + nwifeinc + exper + expersq
 
-model <- systemfit(
+# Solve simultaneous equations
+sim <- systemfit(
   formula = system,
   inst = instruments,
   method = '2SLS',
   data = mroz
 )
-summary(model)
+summary(sim)
+
+# Compare to separate models
+summary(hours_2sls)
+summary(wages_2sls)
+summary(sim)
 
 
 
-# Testing for rank condition ----------------------------------------------
+# Rank Condition ----------------------------------------------------------
 
 
-# Testing for rank condition involves estimating the reduced form equation
-# and testing for significance of the instrument variables.
+## Test for Rank Condition of wages
+# Reduced form equation
+wages_reduced <- lm(
+  lwage ~ educ + age + kidslt6 + nwifeinc + exper + expersq,
+  mroz
+)
 
-# Reduced form equation for lwage, identifying equation for hours
-model5 <- lm(lwage ~ educ + age + kidslt6 + nwifeinc + exper + expersq, mroz)
-test <- lm(lwage ~ educ + age + kidslt6 + nwifeinc, mroz)
-# Could use update
-summary(model5)
-anova(model5, test)
-linearHypothesis(model5, c("exper = 0", "expersq = 0"))
+# And again without instrumental variables
+wages_no_exo <- lm(lwage ~ educ + age + kidslt6 + nwifeinc, mroz)
+summary(wages_no_exo)
 
-# Reduced form equation for hours, identifying equation for lwage
-model6 <- lm(hours ~ educ + age + kidslt6 + nwifeinc + exper + expersq, mroz)
-summary(model6)
-linearHypothesis(model6, c("age = 0", "kidslt6 = 0", "nwifeinc = 0"))
+# Another way to do it with update()
+wages_no_exo <- update(wages_reduced, ~ . - exper - expersq)
+summary(wages_no_exo)
 
+# F test
+anova(wages_reduced, wages_no_exo)
+
+# Another way to do the the same thing:
+linearHypothesis(wages_reduced, c("exper = 0", "expersq = 0"))
+
+
+## Test for Rank Condition of hours
+# Reduced form equation for hours
+hours_reduced <- lm(hours ~ educ + age + kidslt6 + nwifeinc + exper + expersq, mroz)
+hours_no_exo <- lm(hours ~ educ + exper + expersq, mroz)
+anova(hours_reduced, hours_no_exo)
+
+
+
+# Path Analysis -----------------------------------------------------------
+
+
+# Path analysis is a system of regressions estimated simultaneously
+# It is half of a structural equation model (SEM)
+# The other half is the measurement portion for latent variables
+
+# Define structural model
+model <-'lwage ~ educ + exper + unem
+         exper ~ age
+         educ ~ motheduc + fatheduc + age'
+
+# Fit model with sem
+fit <- sem(model, data = mroz)
+summary(fit, standardized = TRUE, fit.measures = TRUE)
+
+# Extract fit info and residuals
+inspect(fit, 'R2')
+fitMeasures(fit)
+lavResiduals(fit)
+
+# Plot it
+lavaanPlot(
+  model = fit,
+  node_options = list(shape = "box", fontname = "Helvetica"),
+  edge_options = list(color = "grey"),
+  coefs = FALSE
+)
+
+# Calculate indirect effects
+model <-'lwage ~ b*educ + exper + unem
+         exper ~ age
+         educ ~ a*motheduc + fatheduc + age
+         motheduc_educ := a
+         educ_wage := b
+         indirect := a*b'
+fit <- sem(model, data = mroz)
+summary(fit, standardized = TRUE, fit.measures = TRUE)
+
+# Check modification indices
+modificationindices(fit)
