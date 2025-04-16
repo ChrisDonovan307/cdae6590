@@ -4,3 +4,4 @@ base_pay/explore_regressions.R
 base_pay/midterm.R
 *testing.R
 *test.R
+.Renviron
