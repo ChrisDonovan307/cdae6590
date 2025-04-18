@@ -110,7 +110,7 @@ plm::pFtest(within, pooling)
 
 ## Test whether there is serial correlation of idiosyncratic errors
 # Help decide whether to use FD or FE
-pbgtest(crmrte ~ prbarr, data = crime)
+plm::pbgtest(crmrte ~ prbarr, data = crime)
 # null: no serial correlation present
 # If serial correlation is present, first differencing is better
 
