@@ -154,7 +154,7 @@ saveRDS(out, 'temp/nassqs_out.rds')
 # Wrangle -----------------------------------------------------------------
 
 
-# dat <- readRDS('temp/nassqs_out.rds')
+dat <- readRDS('temp/nassqs_out.rds')
 practices <- read.csv('temp/practices.csv')
 income <- read.csv('temp/income.csv')
 
