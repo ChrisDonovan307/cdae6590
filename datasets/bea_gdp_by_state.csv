@@ -1,0 +1,1110 @@
+"SASUMMARY State annual summary statistics: personal income, GDP, consumer spending, price indexes, and employment"
+"SASUMMARY State annual summary statistics: personal income, GDP, consumer spending, price indexes, and employment"
+State or DC
+GeoFips,GeoName,LineCode,Description,2024
+00000,United States,,Real dollar statistics,
+00000,United States,1,"  Real GDP (millions of chained 2017 dollars) 1",23305023.0
+00000,United States,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+00000,United States,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+00000,United States,,Current dollar statistics (millions of dollars),
+00000,United States,4,"  Gross domestic product (GDP)",29184890.0
+00000,United States,5,"  Personal income",24632679.6
+00000,United States,6,"  Disposable personal income",21602789.6
+00000,United States,7,"  Personal consumption expenditures",(NA)
+00000,United States,,Real per capita dollar statistics (constant 2017 dollars),
+00000,United States,8,"  Real per capita personal income 4",(NA)
+00000,United States,9,"  Real per capita PCE 5",(NA)
+00000,United States,,Per capita current dollar statistics,
+00000,United States,10,"  Per capita personal income 6",72425
+00000,United States,11,"  Per capita disposable personal income 7",63517
+00000,United States,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+00000,United States,,Price indexes,
+00000,United States,13,"  Regional price parities (RPPs) 9",(NA)
+00000,United States,14,"  Implicit regional price deflator 10",(NA)
+00000,United States,,Employment,
+00000,United States,15,"  Total employment (number of jobs)",(NA)
+01000,Alabama,,Real dollar statistics,
+01000,Alabama,1,"  Real GDP (millions of chained 2017 dollars) 1",252664.5
+01000,Alabama,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+01000,Alabama,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+01000,Alabama,,Current dollar statistics (millions of dollars),
+01000,Alabama,4,"  Gross domestic product (GDP)",321237.6
+01000,Alabama,5,"  Personal income",292359.5
+01000,Alabama,6,"  Disposable personal income",263858.4
+01000,Alabama,7,"  Personal consumption expenditures",(NA)
+01000,Alabama,,Real per capita dollar statistics (constant 2017 dollars),
+01000,Alabama,8,"  Real per capita personal income 4",(NA)
+01000,Alabama,9,"  Real per capita PCE 5",(NA)
+01000,Alabama,,Per capita current dollar statistics,
+01000,Alabama,10,"  Per capita personal income 6",56684
+01000,Alabama,11,"  Per capita disposable personal income 7",51158
+01000,Alabama,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+01000,Alabama,,Price indexes,
+01000,Alabama,13,"  Regional price parities (RPPs) 9",(NA)
+01000,Alabama,14,"  Implicit regional price deflator 10",(NA)
+01000,Alabama,,Employment,
+01000,Alabama,15,"  Total employment (number of jobs)",(NA)
+02000,Alaska,,Real dollar statistics,
+02000,Alaska,1,"  Real GDP (millions of chained 2017 dollars) 1",54881.0
+02000,Alaska,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+02000,Alaska,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+02000,Alaska,,Current dollar statistics (millions of dollars),
+02000,Alaska,4,"  Gross domestic product (GDP)",69969.0
+02000,Alaska,5,"  Personal income",55692.9
+02000,Alaska,6,"  Disposable personal income",51311.7
+02000,Alaska,7,"  Personal consumption expenditures",(NA)
+02000,Alaska,,Real per capita dollar statistics (constant 2017 dollars),
+02000,Alaska,8,"  Real per capita personal income 4",(NA)
+02000,Alaska,9,"  Real per capita PCE 5",(NA)
+02000,Alaska,,Per capita current dollar statistics,
+02000,Alaska,10,"  Per capita personal income 6",75247
+02000,Alaska,11,"  Per capita disposable personal income 7",69328
+02000,Alaska,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+02000,Alaska,,Price indexes,
+02000,Alaska,13,"  Regional price parities (RPPs) 9",(NA)
+02000,Alaska,14,"  Implicit regional price deflator 10",(NA)
+02000,Alaska,,Employment,
+02000,Alaska,15,"  Total employment (number of jobs)",(NA)
+04000,Arizona,,Real dollar statistics,
+04000,Arizona,1,"  Real GDP (millions of chained 2017 dollars) 1",433763.2
+04000,Arizona,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+04000,Arizona,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+04000,Arizona,,Current dollar statistics (millions of dollars),
+04000,Arizona,4,"  Gross domestic product (GDP)",552167.0
+04000,Arizona,5,"  Personal income",488730.4
+04000,Arizona,6,"  Disposable personal income",439281.6
+04000,Arizona,7,"  Personal consumption expenditures",(NA)
+04000,Arizona,,Real per capita dollar statistics (constant 2017 dollars),
+04000,Arizona,8,"  Real per capita personal income 4",(NA)
+04000,Arizona,9,"  Real per capita PCE 5",(NA)
+04000,Arizona,,Per capita current dollar statistics,
+04000,Arizona,10,"  Per capita personal income 6",64456
+04000,Arizona,11,"  Per capita disposable personal income 7",57935
+04000,Arizona,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+04000,Arizona,,Price indexes,
+04000,Arizona,13,"  Regional price parities (RPPs) 9",(NA)
+04000,Arizona,14,"  Implicit regional price deflator 10",(NA)
+04000,Arizona,,Employment,
+04000,Arizona,15,"  Total employment (number of jobs)",(NA)
+05000,Arkansas,,Real dollar statistics,
+05000,Arkansas,1,"  Real GDP (millions of chained 2017 dollars) 1",148208.5
+05000,Arkansas,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+05000,Arkansas,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+05000,Arkansas,,Current dollar statistics (millions of dollars),
+05000,Arkansas,4,"  Gross domestic product (GDP)",188723.1
+05000,Arkansas,5,"  Personal income",184259.4
+05000,Arkansas,6,"  Disposable personal income",166778.9
+05000,Arkansas,7,"  Personal consumption expenditures",(NA)
+05000,Arkansas,,Real per capita dollar statistics (constant 2017 dollars),
+05000,Arkansas,8,"  Real per capita personal income 4",(NA)
+05000,Arkansas,9,"  Real per capita PCE 5",(NA)
+05000,Arkansas,,Per capita current dollar statistics,
+05000,Arkansas,10,"  Per capita personal income 6",59663
+05000,Arkansas,11,"  Per capita disposable personal income 7",54003
+05000,Arkansas,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+05000,Arkansas,,Price indexes,
+05000,Arkansas,13,"  Regional price parities (RPPs) 9",(NA)
+05000,Arkansas,14,"  Implicit regional price deflator 10",(NA)
+05000,Arkansas,,Employment,
+05000,Arkansas,15,"  Total employment (number of jobs)",(NA)
+06000,California,,Real dollar statistics,
+06000,California,1,"  Real GDP (millions of chained 2017 dollars) 1",3365083.3
+06000,California,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+06000,California,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+06000,California,,Current dollar statistics (millions of dollars),
+06000,California,4,"  Gross domestic product (GDP)",4103123.6
+06000,California,5,"  Personal income",3372090.5
+06000,California,6,"  Disposable personal income",2868064.1
+06000,California,7,"  Personal consumption expenditures",(NA)
+06000,California,,Real per capita dollar statistics (constant 2017 dollars),
+06000,California,8,"  Real per capita personal income 4",(NA)
+06000,California,9,"  Real per capita PCE 5",(NA)
+06000,California,,Per capita current dollar statistics,
+06000,California,10,"  Per capita personal income 6",85518
+06000,California,11,"  Per capita disposable personal income 7",72736
+06000,California,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+06000,California,,Price indexes,
+06000,California,13,"  Regional price parities (RPPs) 9",(NA)
+06000,California,14,"  Implicit regional price deflator 10",(NA)
+06000,California,,Employment,
+06000,California,15,"  Total employment (number of jobs)",(NA)
+08000,Colorado,,Real dollar statistics,
+08000,Colorado,1,"  Real GDP (millions of chained 2017 dollars) 1",445302.4
+08000,Colorado,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+08000,Colorado,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+08000,Colorado,,Current dollar statistics (millions of dollars),
+08000,Colorado,4,"  Gross domestic product (GDP)",553322.5
+08000,Colorado,5,"  Personal income",492711.9
+08000,Colorado,6,"  Disposable personal income",431183.6
+08000,Colorado,7,"  Personal consumption expenditures",(NA)
+08000,Colorado,,Real per capita dollar statistics (constant 2017 dollars),
+08000,Colorado,8,"  Real per capita personal income 4",(NA)
+08000,Colorado,9,"  Real per capita PCE 5",(NA)
+08000,Colorado,,Per capita current dollar statistics,
+08000,Colorado,10,"  Per capita personal income 6",82705
+08000,Colorado,11,"  Per capita disposable personal income 7",72377
+08000,Colorado,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+08000,Colorado,,Price indexes,
+08000,Colorado,13,"  Regional price parities (RPPs) 9",(NA)
+08000,Colorado,14,"  Implicit regional price deflator 10",(NA)
+08000,Colorado,,Employment,
+08000,Colorado,15,"  Total employment (number of jobs)",(NA)
+09000,Connecticut,,Real dollar statistics,
+09000,Connecticut,1,"  Real GDP (millions of chained 2017 dollars) 1",294027.6
+09000,Connecticut,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+09000,Connecticut,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+09000,Connecticut,,Current dollar statistics (millions of dollars),
+09000,Connecticut,4,"  Gross domestic product (GDP)",365723.1
+09000,Connecticut,5,"  Personal income",342644.6
+09000,Connecticut,6,"  Disposable personal income",289669.2
+09000,Connecticut,7,"  Personal consumption expenditures",(NA)
+09000,Connecticut,,Real per capita dollar statistics (constant 2017 dollars),
+09000,Connecticut,8,"  Real per capita personal income 4",(NA)
+09000,Connecticut,9,"  Real per capita PCE 5",(NA)
+09000,Connecticut,,Per capita current dollar statistics,
+09000,Connecticut,10,"  Per capita personal income 6",93235
+09000,Connecticut,11,"  Per capita disposable personal income 7",78820
+09000,Connecticut,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+09000,Connecticut,,Price indexes,
+09000,Connecticut,13,"  Regional price parities (RPPs) 9",(NA)
+09000,Connecticut,14,"  Implicit regional price deflator 10",(NA)
+09000,Connecticut,,Employment,
+09000,Connecticut,15,"  Total employment (number of jobs)",(NA)
+10000,Delaware,,Real dollar statistics,
+10000,Delaware,1,"  Real GDP (millions of chained 2017 dollars) 1",79652.7
+10000,Delaware,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+10000,Delaware,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+10000,Delaware,,Current dollar statistics (millions of dollars),
+10000,Delaware,4,"  Gross domestic product (GDP)",103253.3
+10000,Delaware,5,"  Personal income",72879.1
+10000,Delaware,6,"  Disposable personal income",63984.0
+10000,Delaware,7,"  Personal consumption expenditures",(NA)
+10000,Delaware,,Real per capita dollar statistics (constant 2017 dollars),
+10000,Delaware,8,"  Real per capita personal income 4",(NA)
+10000,Delaware,9,"  Real per capita PCE 5",(NA)
+10000,Delaware,,Per capita current dollar statistics,
+10000,Delaware,10,"  Per capita personal income 6",69282
+10000,Delaware,11,"  Per capita disposable personal income 7",60826
+10000,Delaware,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+10000,Delaware,,Price indexes,
+10000,Delaware,13,"  Regional price parities (RPPs) 9",(NA)
+10000,Delaware,14,"  Implicit regional price deflator 10",(NA)
+10000,Delaware,,Employment,
+10000,Delaware,15,"  Total employment (number of jobs)",(NA)
+11000,District of Columbia,,Real dollar statistics,
+11000,District of Columbia,1,"  Real GDP (millions of chained 2017 dollars) 1",148020.1
+11000,District of Columbia,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+11000,District of Columbia,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+11000,District of Columbia,,Current dollar statistics (millions of dollars),
+11000,District of Columbia,4,"  Gross domestic product (GDP)",186165.0
+11000,District of Columbia,5,"  Personal income",76006.9
+11000,District of Columbia,6,"  Disposable personal income",63722.5
+11000,District of Columbia,7,"  Personal consumption expenditures",(NA)
+11000,District of Columbia,,Real per capita dollar statistics (constant 2017 dollars),
+11000,District of Columbia,8,"  Real per capita personal income 4",(NA)
+11000,District of Columbia,9,"  Real per capita PCE 5",(NA)
+11000,District of Columbia,,Per capita current dollar statistics,
+11000,District of Columbia,10,"  Per capita personal income 6",108233
+11000,District of Columbia,11,"  Per capita disposable personal income 7",90740
+11000,District of Columbia,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+11000,District of Columbia,,Price indexes,
+11000,District of Columbia,13,"  Regional price parities (RPPs) 9",(NA)
+11000,District of Columbia,14,"  Implicit regional price deflator 10",(NA)
+11000,District of Columbia,,Employment,
+11000,District of Columbia,15,"  Total employment (number of jobs)",(NA)
+12000,Florida,,Real dollar statistics,
+12000,Florida,1,"  Real GDP (millions of chained 2017 dollars) 1",1339618.6
+12000,Florida,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+12000,Florida,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+12000,Florida,,Current dollar statistics (millions of dollars),
+12000,Florida,4,"  Gross domestic product (GDP)",1705564.9
+12000,Florida,5,"  Personal income",1645165.7
+12000,Florida,6,"  Disposable personal income",1458874.6
+12000,Florida,7,"  Personal consumption expenditures",(NA)
+12000,Florida,,Real per capita dollar statistics (constant 2017 dollars),
+12000,Florida,8,"  Real per capita personal income 4",(NA)
+12000,Florida,9,"  Real per capita PCE 5",(NA)
+12000,Florida,,Per capita current dollar statistics,
+12000,Florida,10,"  Per capita personal income 6",70390
+12000,Florida,11,"  Per capita disposable personal income 7",62419
+12000,Florida,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+12000,Florida,,Price indexes,
+12000,Florida,13,"  Regional price parities (RPPs) 9",(NA)
+12000,Florida,14,"  Implicit regional price deflator 10",(NA)
+12000,Florida,,Employment,
+12000,Florida,15,"  Total employment (number of jobs)",(NA)
+13000,Georgia,,Real dollar statistics,
+13000,Georgia,1,"  Real GDP (millions of chained 2017 dollars) 1",701072.8
+13000,Georgia,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+13000,Georgia,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+13000,Georgia,,Current dollar statistics (millions of dollars),
+13000,Georgia,4,"  Gross domestic product (GDP)",882534.5
+13000,Georgia,5,"  Personal income",697613.8
+13000,Georgia,6,"  Disposable personal income",614881.5
+13000,Georgia,7,"  Personal consumption expenditures",(NA)
+13000,Georgia,,Real per capita dollar statistics (constant 2017 dollars),
+13000,Georgia,8,"  Real per capita personal income 4",(NA)
+13000,Georgia,9,"  Real per capita PCE 5",(NA)
+13000,Georgia,,Per capita current dollar statistics,
+13000,Georgia,10,"  Per capita personal income 6",62393
+13000,Georgia,11,"  Per capita disposable personal income 7",54994
+13000,Georgia,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+13000,Georgia,,Price indexes,
+13000,Georgia,13,"  Regional price parities (RPPs) 9",(NA)
+13000,Georgia,14,"  Implicit regional price deflator 10",(NA)
+13000,Georgia,,Employment,
+13000,Georgia,15,"  Total employment (number of jobs)",(NA)
+15000,Hawaii,,Real dollar statistics,
+15000,Hawaii,1,"  Real GDP (millions of chained 2017 dollars) 1",90280.2
+15000,Hawaii,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+15000,Hawaii,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+15000,Hawaii,,Current dollar statistics (millions of dollars),
+15000,Hawaii,4,"  Gross domestic product (GDP)",115627.2
+15000,Hawaii,5,"  Personal income",100536.6
+15000,Hawaii,6,"  Disposable personal income",88272.1
+15000,Hawaii,7,"  Personal consumption expenditures",(NA)
+15000,Hawaii,,Real per capita dollar statistics (constant 2017 dollars),
+15000,Hawaii,8,"  Real per capita personal income 4",(NA)
+15000,Hawaii,9,"  Real per capita PCE 5",(NA)
+15000,Hawaii,,Per capita current dollar statistics,
+15000,Hawaii,10,"  Per capita personal income 6",69520
+15000,Hawaii,11,"  Per capita disposable personal income 7",61040
+15000,Hawaii,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+15000,Hawaii,,Price indexes,
+15000,Hawaii,13,"  Regional price parities (RPPs) 9",(NA)
+15000,Hawaii,14,"  Implicit regional price deflator 10",(NA)
+15000,Hawaii,,Employment,
+15000,Hawaii,15,"  Total employment (number of jobs)",(NA)
+16000,Idaho,,Real dollar statistics,
+16000,Idaho,1,"  Real GDP (millions of chained 2017 dollars) 1",99603.0
+16000,Idaho,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+16000,Idaho,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+16000,Idaho,,Current dollar statistics (millions of dollars),
+16000,Idaho,4,"  Gross domestic product (GDP)",128132.1
+16000,Idaho,5,"  Personal income",123771.9
+16000,Idaho,6,"  Disposable personal income",110277.1
+16000,Idaho,7,"  Personal consumption expenditures",(NA)
+16000,Idaho,,Real per capita dollar statistics (constant 2017 dollars),
+16000,Idaho,8,"  Real per capita personal income 4",(NA)
+16000,Idaho,9,"  Real per capita PCE 5",(NA)
+16000,Idaho,,Per capita current dollar statistics,
+16000,Idaho,10,"  Per capita personal income 6",61836
+16000,Idaho,11,"  Per capita disposable personal income 7",55094
+16000,Idaho,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+16000,Idaho,,Price indexes,
+16000,Idaho,13,"  Regional price parities (RPPs) 9",(NA)
+16000,Idaho,14,"  Implicit regional price deflator 10",(NA)
+16000,Idaho,,Employment,
+16000,Idaho,15,"  Total employment (number of jobs)",(NA)
+17000,Illinois,,Real dollar statistics,
+17000,Illinois,1,"  Real GDP (millions of chained 2017 dollars) 1",895342.5
+17000,Illinois,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+17000,Illinois,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+17000,Illinois,,Current dollar statistics (millions of dollars),
+17000,Illinois,4,"  Gross domestic product (GDP)",1137243.6
+17000,Illinois,5,"  Personal income",943054.6
+17000,Illinois,6,"  Disposable personal income",821465.3
+17000,Illinois,7,"  Personal consumption expenditures",(NA)
+17000,Illinois,,Real per capita dollar statistics (constant 2017 dollars),
+17000,Illinois,8,"  Real per capita personal income 4",(NA)
+17000,Illinois,9,"  Real per capita PCE 5",(NA)
+17000,Illinois,,Per capita current dollar statistics,
+17000,Illinois,10,"  Per capita personal income 6",74197
+17000,Illinois,11,"  Per capita disposable personal income 7",64631
+17000,Illinois,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+17000,Illinois,,Price indexes,
+17000,Illinois,13,"  Regional price parities (RPPs) 9",(NA)
+17000,Illinois,14,"  Implicit regional price deflator 10",(NA)
+17000,Illinois,,Employment,
+17000,Illinois,15,"  Total employment (number of jobs)",(NA)
+18000,Indiana,,Real dollar statistics,
+18000,Indiana,1,"  Real GDP (millions of chained 2017 dollars) 1",419472.8
+18000,Indiana,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+18000,Indiana,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+18000,Indiana,,Current dollar statistics (millions of dollars),
+18000,Indiana,4,"  Gross domestic product (GDP)",527381.1
+18000,Indiana,5,"  Personal income",441783.2
+18000,Indiana,6,"  Disposable personal income",394223.7
+18000,Indiana,7,"  Personal consumption expenditures",(NA)
+18000,Indiana,,Real per capita dollar statistics (constant 2017 dollars),
+18000,Indiana,8,"  Real per capita personal income 4",(NA)
+18000,Indiana,9,"  Real per capita PCE 5",(NA)
+18000,Indiana,,Per capita current dollar statistics,
+18000,Indiana,10,"  Per capita personal income 6",63802
+18000,Indiana,11,"  Per capita disposable personal income 7",56934
+18000,Indiana,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+18000,Indiana,,Price indexes,
+18000,Indiana,13,"  Regional price parities (RPPs) 9",(NA)
+18000,Indiana,14,"  Implicit regional price deflator 10",(NA)
+18000,Indiana,,Employment,
+18000,Indiana,15,"  Total employment (number of jobs)",(NA)
+19000,Iowa,,Real dollar statistics,
+19000,Iowa,1,"  Real GDP (millions of chained 2017 dollars) 1",201096.8
+19000,Iowa,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+19000,Iowa,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+19000,Iowa,,Current dollar statistics (millions of dollars),
+19000,Iowa,4,"  Gross domestic product (GDP)",257020.8
+19000,Iowa,5,"  Personal income",206072.4
+19000,Iowa,6,"  Disposable personal income",185114.4
+19000,Iowa,7,"  Personal consumption expenditures",(NA)
+19000,Iowa,,Real per capita dollar statistics (constant 2017 dollars),
+19000,Iowa,8,"  Real per capita personal income 4",(NA)
+19000,Iowa,9,"  Real per capita PCE 5",(NA)
+19000,Iowa,,Per capita current dollar statistics,
+19000,Iowa,10,"  Per capita personal income 6",63573
+19000,Iowa,11,"  Per capita disposable personal income 7",57108
+19000,Iowa,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+19000,Iowa,,Price indexes,
+19000,Iowa,13,"  Regional price parities (RPPs) 9",(NA)
+19000,Iowa,14,"  Implicit regional price deflator 10",(NA)
+19000,Iowa,,Employment,
+19000,Iowa,15,"  Total employment (number of jobs)",(NA)
+20000,Kansas,,Real dollar statistics,
+20000,Kansas,1,"  Real GDP (millions of chained 2017 dollars) 1",185720.9
+20000,Kansas,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+20000,Kansas,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+20000,Kansas,,Current dollar statistics (millions of dollars),
+20000,Kansas,4,"  Gross domestic product (GDP)",234673.2
+20000,Kansas,5,"  Personal income",202115.4
+20000,Kansas,6,"  Disposable personal income",180414.3
+20000,Kansas,7,"  Personal consumption expenditures",(NA)
+20000,Kansas,,Real per capita dollar statistics (constant 2017 dollars),
+20000,Kansas,8,"  Real per capita personal income 4",(NA)
+20000,Kansas,9,"  Real per capita PCE 5",(NA)
+20000,Kansas,,Per capita current dollar statistics,
+20000,Kansas,10,"  Per capita personal income 6",68038
+20000,Kansas,11,"  Per capita disposable personal income 7",60733
+20000,Kansas,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+20000,Kansas,,Price indexes,
+20000,Kansas,13,"  Regional price parities (RPPs) 9",(NA)
+20000,Kansas,14,"  Implicit regional price deflator 10",(NA)
+20000,Kansas,,Employment,
+20000,Kansas,15,"  Total employment (number of jobs)",(NA)
+21000,Kentucky,,Real dollar statistics,
+21000,Kentucky,1,"  Real GDP (millions of chained 2017 dollars) 1",229885.4
+21000,Kentucky,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+21000,Kentucky,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+21000,Kentucky,,Current dollar statistics (millions of dollars),
+21000,Kentucky,4,"  Gross domestic product (GDP)",293021.0
+21000,Kentucky,5,"  Personal income",263950.7
+21000,Kentucky,6,"  Disposable personal income",237254.0
+21000,Kentucky,7,"  Personal consumption expenditures",(NA)
+21000,Kentucky,,Real per capita dollar statistics (constant 2017 dollars),
+21000,Kentucky,8,"  Real per capita personal income 4",(NA)
+21000,Kentucky,9,"  Real per capita PCE 5",(NA)
+21000,Kentucky,,Per capita current dollar statistics,
+21000,Kentucky,10,"  Per capita personal income 6",57526
+21000,Kentucky,11,"  Per capita disposable personal income 7",51708
+21000,Kentucky,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+21000,Kentucky,,Price indexes,
+21000,Kentucky,13,"  Regional price parities (RPPs) 9",(NA)
+21000,Kentucky,14,"  Implicit regional price deflator 10",(NA)
+21000,Kentucky,,Employment,
+21000,Kentucky,15,"  Total employment (number of jobs)",(NA)
+22000,Louisiana,,Real dollar statistics,
+22000,Louisiana,1,"  Real GDP (millions of chained 2017 dollars) 1",256422.3
+22000,Louisiana,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+22000,Louisiana,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+22000,Louisiana,,Current dollar statistics (millions of dollars),
+22000,Louisiana,4,"  Gross domestic product (GDP)",327782.1
+22000,Louisiana,5,"  Personal income",281987.1
+22000,Louisiana,6,"  Disposable personal income",256671.3
+22000,Louisiana,7,"  Personal consumption expenditures",(NA)
+22000,Louisiana,,Real per capita dollar statistics (constant 2017 dollars),
+22000,Louisiana,8,"  Real per capita personal income 4",(NA)
+22000,Louisiana,9,"  Real per capita PCE 5",(NA)
+22000,Louisiana,,Per capita current dollar statistics,
+22000,Louisiana,10,"  Per capita personal income 6",61332
+22000,Louisiana,11,"  Per capita disposable personal income 7",55826
+22000,Louisiana,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+22000,Louisiana,,Price indexes,
+22000,Louisiana,13,"  Regional price parities (RPPs) 9",(NA)
+22000,Louisiana,14,"  Implicit regional price deflator 10",(NA)
+22000,Louisiana,,Employment,
+22000,Louisiana,15,"  Total employment (number of jobs)",(NA)
+23000,Maine,,Real dollar statistics,
+23000,Maine,1,"  Real GDP (millions of chained 2017 dollars) 1",77477.5
+23000,Maine,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+23000,Maine,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+23000,Maine,,Current dollar statistics (millions of dollars),
+23000,Maine,4,"  Gross domestic product (GDP)",98606.0
+23000,Maine,5,"  Personal income",95722.5
+23000,Maine,6,"  Disposable personal income",85342.4
+23000,Maine,7,"  Personal consumption expenditures",(NA)
+23000,Maine,,Real per capita dollar statistics (constant 2017 dollars),
+23000,Maine,8,"  Real per capita personal income 4",(NA)
+23000,Maine,9,"  Real per capita PCE 5",(NA)
+23000,Maine,,Per capita current dollar statistics,
+23000,Maine,10,"  Per capita personal income 6",68129
+23000,Maine,11,"  Per capita disposable personal income 7",60741
+23000,Maine,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+23000,Maine,,Price indexes,
+23000,Maine,13,"  Regional price parities (RPPs) 9",(NA)
+23000,Maine,14,"  Implicit regional price deflator 10",(NA)
+23000,Maine,,Employment,
+23000,Maine,15,"  Total employment (number of jobs)",(NA)
+24000,Maryland,,Real dollar statistics,
+24000,Maryland,1,"  Real GDP (millions of chained 2017 dollars) 1",432192.7
+24000,Maryland,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+24000,Maryland,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+24000,Maryland,,Current dollar statistics (millions of dollars),
+24000,Maryland,4,"  Gross domestic product (GDP)",542765.8
+24000,Maryland,5,"  Personal income",491898.3
+24000,Maryland,6,"  Disposable personal income",421238.3
+24000,Maryland,7,"  Personal consumption expenditures",(NA)
+24000,Maryland,,Real per capita dollar statistics (constant 2017 dollars),
+24000,Maryland,8,"  Real per capita personal income 4",(NA)
+24000,Maryland,9,"  Real per capita PCE 5",(NA)
+24000,Maryland,,Per capita current dollar statistics,
+24000,Maryland,10,"  Per capita personal income 6",78538
+24000,Maryland,11,"  Per capita disposable personal income 7",67256
+24000,Maryland,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+24000,Maryland,,Price indexes,
+24000,Maryland,13,"  Regional price parities (RPPs) 9",(NA)
+24000,Maryland,14,"  Implicit regional price deflator 10",(NA)
+24000,Maryland,,Employment,
+24000,Maryland,15,"  Total employment (number of jobs)",(NA)
+25000,Massachusetts,,Real dollar statistics,
+25000,Massachusetts,1,"  Real GDP (millions of chained 2017 dollars) 1",633617.6
+25000,Massachusetts,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+25000,Massachusetts,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+25000,Massachusetts,,Current dollar statistics (millions of dollars),
+25000,Massachusetts,4,"  Gross domestic product (GDP)",780666.2
+25000,Massachusetts,5,"  Personal income",670282.6
+25000,Massachusetts,6,"  Disposable personal income",561994.0
+25000,Massachusetts,7,"  Personal consumption expenditures",(NA)
+25000,Massachusetts,,Real per capita dollar statistics (constant 2017 dollars),
+25000,Massachusetts,8,"  Real per capita personal income 4",(NA)
+25000,Massachusetts,9,"  Real per capita PCE 5",(NA)
+25000,Massachusetts,,Per capita current dollar statistics,
+25000,Massachusetts,10,"  Per capita personal income 6",93927
+25000,Massachusetts,11,"  Per capita disposable personal income 7",78753
+25000,Massachusetts,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+25000,Massachusetts,,Price indexes,
+25000,Massachusetts,13,"  Regional price parities (RPPs) 9",(NA)
+25000,Massachusetts,14,"  Implicit regional price deflator 10",(NA)
+25000,Massachusetts,,Employment,
+25000,Massachusetts,15,"  Total employment (number of jobs)",(NA)
+26000,Michigan,,Real dollar statistics,
+26000,Michigan,1,"  Real GDP (millions of chained 2017 dollars) 1",566033.3
+26000,Michigan,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+26000,Michigan,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+26000,Michigan,,Current dollar statistics (millions of dollars),
+26000,Michigan,4,"  Gross domestic product (GDP)",706615.8
+26000,Michigan,5,"  Personal income",641085.2
+26000,Michigan,6,"  Disposable personal income",572794.0
+26000,Michigan,7,"  Personal consumption expenditures",(NA)
+26000,Michigan,,Real per capita dollar statistics (constant 2017 dollars),
+26000,Michigan,8,"  Real per capita personal income 4",(NA)
+26000,Michigan,9,"  Real per capita PCE 5",(NA)
+26000,Michigan,,Per capita current dollar statistics,
+26000,Michigan,10,"  Per capita personal income 6",63221
+26000,Michigan,11,"  Per capita disposable personal income 7",56486
+26000,Michigan,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+26000,Michigan,,Price indexes,
+26000,Michigan,13,"  Regional price parities (RPPs) 9",(NA)
+26000,Michigan,14,"  Implicit regional price deflator 10",(NA)
+26000,Michigan,,Employment,
+26000,Michigan,15,"  Total employment (number of jobs)",(NA)
+27000,Minnesota,,Real dollar statistics,
+27000,Minnesota,1,"  Real GDP (millions of chained 2017 dollars) 1",395307.1
+27000,Minnesota,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+27000,Minnesota,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+27000,Minnesota,,Current dollar statistics (millions of dollars),
+27000,Minnesota,4,"  Gross domestic product (GDP)",500851.4
+27000,Minnesota,5,"  Personal income",434157.3
+27000,Minnesota,6,"  Disposable personal income",377471.9
+27000,Minnesota,7,"  Personal consumption expenditures",(NA)
+27000,Minnesota,,Real per capita dollar statistics (constant 2017 dollars),
+27000,Minnesota,8,"  Real per capita personal income 4",(NA)
+27000,Minnesota,9,"  Real per capita PCE 5",(NA)
+27000,Minnesota,,Per capita current dollar statistics,
+27000,Minnesota,10,"  Per capita personal income 6",74943
+27000,Minnesota,11,"  Per capita disposable personal income 7",65158
+27000,Minnesota,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+27000,Minnesota,,Price indexes,
+27000,Minnesota,13,"  Regional price parities (RPPs) 9",(NA)
+27000,Minnesota,14,"  Implicit regional price deflator 10",(NA)
+27000,Minnesota,,Employment,
+27000,Minnesota,15,"  Total employment (number of jobs)",(NA)
+28000,Mississippi,,Real dollar statistics,
+28000,Mississippi,1,"  Real GDP (millions of chained 2017 dollars) 1",122438.1
+28000,Mississippi,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+28000,Mississippi,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+28000,Mississippi,,Current dollar statistics (millions of dollars),
+28000,Mississippi,4,"  Gross domestic product (GDP)",157491.0
+28000,Mississippi,5,"  Personal income",153089.4
+28000,Mississippi,6,"  Disposable personal income",141179.3
+28000,Mississippi,7,"  Personal consumption expenditures",(NA)
+28000,Mississippi,,Real per capita dollar statistics (constant 2017 dollars),
+28000,Mississippi,8,"  Real per capita personal income 4",(NA)
+28000,Mississippi,9,"  Real per capita PCE 5",(NA)
+28000,Mississippi,,Per capita current dollar statistics,
+28000,Mississippi,10,"  Per capita personal income 6",52017
+28000,Mississippi,11,"  Per capita disposable personal income 7",47970
+28000,Mississippi,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+28000,Mississippi,,Price indexes,
+28000,Mississippi,13,"  Regional price parities (RPPs) 9",(NA)
+28000,Mississippi,14,"  Implicit regional price deflator 10",(NA)
+28000,Mississippi,,Employment,
+28000,Mississippi,15,"  Total employment (number of jobs)",(NA)
+29000,Missouri,,Real dollar statistics,
+29000,Missouri,1,"  Real GDP (millions of chained 2017 dollars) 1",356653.4
+29000,Missouri,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+29000,Missouri,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+29000,Missouri,,Current dollar statistics (millions of dollars),
+29000,Missouri,4,"  Gross domestic product (GDP)",451201.4
+29000,Missouri,5,"  Personal income",404330.9
+29000,Missouri,6,"  Disposable personal income",360852.2
+29000,Missouri,7,"  Personal consumption expenditures",(NA)
+29000,Missouri,,Real per capita dollar statistics (constant 2017 dollars),
+29000,Missouri,8,"  Real per capita personal income 4",(NA)
+29000,Missouri,9,"  Real per capita PCE 5",(NA)
+29000,Missouri,,Per capita current dollar statistics,
+29000,Missouri,10,"  Per capita personal income 6",64740
+29000,Missouri,11,"  Per capita disposable personal income 7",57778
+29000,Missouri,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+29000,Missouri,,Price indexes,
+29000,Missouri,13,"  Regional price parities (RPPs) 9",(NA)
+29000,Missouri,14,"  Implicit regional price deflator 10",(NA)
+29000,Missouri,,Employment,
+29000,Missouri,15,"  Total employment (number of jobs)",(NA)
+30000,Montana,,Real dollar statistics,
+30000,Montana,1,"  Real GDP (millions of chained 2017 dollars) 1",58519.7
+30000,Montana,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+30000,Montana,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+30000,Montana,,Current dollar statistics (millions of dollars),
+30000,Montana,4,"  Gross domestic product (GDP)",75999.2
+30000,Montana,5,"  Personal income",76894.1
+30000,Montana,6,"  Disposable personal income",67397.2
+30000,Montana,7,"  Personal consumption expenditures",(NA)
+30000,Montana,,Real per capita dollar statistics (constant 2017 dollars),
+30000,Montana,8,"  Real per capita personal income 4",(NA)
+30000,Montana,9,"  Real per capita PCE 5",(NA)
+30000,Montana,,Per capita current dollar statistics,
+30000,Montana,10,"  Per capita personal income 6",67615
+30000,Montana,11,"  Per capita disposable personal income 7",59264
+30000,Montana,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+30000,Montana,,Price indexes,
+30000,Montana,13,"  Regional price parities (RPPs) 9",(NA)
+30000,Montana,14,"  Implicit regional price deflator 10",(NA)
+30000,Montana,,Employment,
+30000,Montana,15,"  Total employment (number of jobs)",(NA)
+31000,Nebraska,,Real dollar statistics,
+31000,Nebraska,1,"  Real GDP (millions of chained 2017 dollars) 1",145909.4
+31000,Nebraska,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+31000,Nebraska,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+31000,Nebraska,,Current dollar statistics (millions of dollars),
+31000,Nebraska,4,"  Gross domestic product (GDP)",185411.0
+31000,Nebraska,5,"  Personal income",144111.4
+31000,Nebraska,6,"  Disposable personal income",129232.4
+31000,Nebraska,7,"  Personal consumption expenditures",(NA)
+31000,Nebraska,,Real per capita dollar statistics (constant 2017 dollars),
+31000,Nebraska,8,"  Real per capita personal income 4",(NA)
+31000,Nebraska,9,"  Real per capita PCE 5",(NA)
+31000,Nebraska,,Per capita current dollar statistics,
+31000,Nebraska,10,"  Per capita personal income 6",71859
+31000,Nebraska,11,"  Per capita disposable personal income 7",64440
+31000,Nebraska,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+31000,Nebraska,,Price indexes,
+31000,Nebraska,13,"  Regional price parities (RPPs) 9",(NA)
+31000,Nebraska,14,"  Implicit regional price deflator 10",(NA)
+31000,Nebraska,,Employment,
+31000,Nebraska,15,"  Total employment (number of jobs)",(NA)
+32000,Nevada,,Real dollar statistics,
+32000,Nevada,1,"  Real GDP (millions of chained 2017 dollars) 1",200921.3
+32000,Nevada,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+32000,Nevada,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+32000,Nevada,,Current dollar statistics (millions of dollars),
+32000,Nevada,4,"  Gross domestic product (GDP)",260728.4
+32000,Nevada,5,"  Personal income",224333.7
+32000,Nevada,6,"  Disposable personal income",198297.8
+32000,Nevada,7,"  Personal consumption expenditures",(NA)
+32000,Nevada,,Real per capita dollar statistics (constant 2017 dollars),
+32000,Nevada,8,"  Real per capita personal income 4",(NA)
+32000,Nevada,9,"  Real per capita PCE 5",(NA)
+32000,Nevada,,Per capita current dollar statistics,
+32000,Nevada,10,"  Per capita personal income 6",68657
+32000,Nevada,11,"  Per capita disposable personal income 7",60689
+32000,Nevada,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+32000,Nevada,,Price indexes,
+32000,Nevada,13,"  Regional price parities (RPPs) 9",(NA)
+32000,Nevada,14,"  Implicit regional price deflator 10",(NA)
+32000,Nevada,,Employment,
+32000,Nevada,15,"  Total employment (number of jobs)",(NA)
+33000,New Hampshire,,Real dollar statistics,
+33000,New Hampshire,1,"  Real GDP (millions of chained 2017 dollars) 1",96501.1
+33000,New Hampshire,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+33000,New Hampshire,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+33000,New Hampshire,,Current dollar statistics (millions of dollars),
+33000,New Hampshire,4,"  Gross domestic product (GDP)",121189.4
+33000,New Hampshire,5,"  Personal income",116778.3
+33000,New Hampshire,6,"  Disposable personal income",103165.9
+33000,New Hampshire,7,"  Personal consumption expenditures",(NA)
+33000,New Hampshire,,Real per capita dollar statistics (constant 2017 dollars),
+33000,New Hampshire,8,"  Real per capita personal income 4",(NA)
+33000,New Hampshire,9,"  Real per capita PCE 5",(NA)
+33000,New Hampshire,,Per capita current dollar statistics,
+33000,New Hampshire,10,"  Per capita personal income 6",82878
+33000,New Hampshire,11,"  Per capita disposable personal income 7",73218
+33000,New Hampshire,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+33000,New Hampshire,,Price indexes,
+33000,New Hampshire,13,"  Regional price parities (RPPs) 9",(NA)
+33000,New Hampshire,14,"  Implicit regional price deflator 10",(NA)
+33000,New Hampshire,,Employment,
+33000,New Hampshire,15,"  Total employment (number of jobs)",(NA)
+34000,New Jersey,,Real dollar statistics,
+34000,New Jersey,1,"  Real GDP (millions of chained 2017 dollars) 1",678968.4
+34000,New Jersey,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+34000,New Jersey,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+34000,New Jersey,,Current dollar statistics (millions of dollars),
+34000,New Jersey,4,"  Gross domestic product (GDP)",846587.5
+34000,New Jersey,5,"  Personal income",798742.1
+34000,New Jersey,6,"  Disposable personal income",692547.7
+34000,New Jersey,7,"  Personal consumption expenditures",(NA)
+34000,New Jersey,,Real per capita dollar statistics (constant 2017 dollars),
+34000,New Jersey,8,"  Real per capita personal income 4",(NA)
+34000,New Jersey,9,"  Real per capita PCE 5",(NA)
+34000,New Jersey,,Per capita current dollar statistics,
+34000,New Jersey,10,"  Per capita personal income 6",84071
+34000,New Jersey,11,"  Per capita disposable personal income 7",72893
+34000,New Jersey,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+34000,New Jersey,,Price indexes,
+34000,New Jersey,13,"  Regional price parities (RPPs) 9",(NA)
+34000,New Jersey,14,"  Implicit regional price deflator 10",(NA)
+34000,New Jersey,,Employment,
+34000,New Jersey,15,"  Total employment (number of jobs)",(NA)
+35000,New Mexico,,Real dollar statistics,
+35000,New Mexico,1,"  Real GDP (millions of chained 2017 dollars) 1",112800.8
+35000,New Mexico,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+35000,New Mexico,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+35000,New Mexico,,Current dollar statistics (millions of dollars),
+35000,New Mexico,4,"  Gross domestic product (GDP)",140542.0
+35000,New Mexico,5,"  Personal income",122814.5
+35000,New Mexico,6,"  Disposable personal income",110629.1
+35000,New Mexico,7,"  Personal consumption expenditures",(NA)
+35000,New Mexico,,Real per capita dollar statistics (constant 2017 dollars),
+35000,New Mexico,8,"  Real per capita personal income 4",(NA)
+35000,New Mexico,9,"  Real per capita PCE 5",(NA)
+35000,New Mexico,,Per capita current dollar statistics,
+35000,New Mexico,10,"  Per capita personal income 6",57652
+35000,New Mexico,11,"  Per capita disposable personal income 7",51932
+35000,New Mexico,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+35000,New Mexico,,Price indexes,
+35000,New Mexico,13,"  Regional price parities (RPPs) 9",(NA)
+35000,New Mexico,14,"  Implicit regional price deflator 10",(NA)
+35000,New Mexico,,Employment,
+35000,New Mexico,15,"  Total employment (number of jobs)",(NA)
+36000,New York,,Real dollar statistics,
+36000,New York,1,"  Real GDP (millions of chained 2017 dollars) 1",1834560.8
+36000,New York,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+36000,New York,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+36000,New York,,Current dollar statistics (millions of dollars),
+36000,New York,4,"  Gross domestic product (GDP)",2297028.0
+36000,New York,5,"  Personal income",1703276.0
+36000,New York,6,"  Disposable personal income",1413508.8
+36000,New York,7,"  Personal consumption expenditures",(NA)
+36000,New York,,Real per capita dollar statistics (constant 2017 dollars),
+36000,New York,8,"  Real per capita personal income 4",(NA)
+36000,New York,9,"  Real per capita PCE 5",(NA)
+36000,New York,,Per capita current dollar statistics,
+36000,New York,10,"  Per capita personal income 6",85733
+36000,New York,11,"  Per capita disposable personal income 7",71148
+36000,New York,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+36000,New York,,Price indexes,
+36000,New York,13,"  Regional price parities (RPPs) 9",(NA)
+36000,New York,14,"  Implicit regional price deflator 10",(NA)
+36000,New York,,Employment,
+36000,New York,15,"  Total employment (number of jobs)",(NA)
+37000,North Carolina,,Real dollar statistics,
+37000,North Carolina,1,"  Real GDP (millions of chained 2017 dollars) 1",661947.8
+37000,North Carolina,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+37000,North Carolina,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+37000,North Carolina,,Current dollar statistics (millions of dollars),
+37000,North Carolina,4,"  Gross domestic product (GDP)",839122.2
+37000,North Carolina,5,"  Personal income",716388.7
+37000,North Carolina,6,"  Disposable personal income",637450.0
+37000,North Carolina,7,"  Personal consumption expenditures",(NA)
+37000,North Carolina,,Real per capita dollar statistics (constant 2017 dollars),
+37000,North Carolina,8,"  Real per capita personal income 4",(NA)
+37000,North Carolina,9,"  Real per capita PCE 5",(NA)
+37000,North Carolina,,Per capita current dollar statistics,
+37000,North Carolina,10,"  Per capita personal income 6",64855
+37000,North Carolina,11,"  Per capita disposable personal income 7",57709
+37000,North Carolina,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+37000,North Carolina,,Price indexes,
+37000,North Carolina,13,"  Regional price parities (RPPs) 9",(NA)
+37000,North Carolina,14,"  Implicit regional price deflator 10",(NA)
+37000,North Carolina,,Employment,
+37000,North Carolina,15,"  Total employment (number of jobs)",(NA)
+38000,North Dakota,,Real dollar statistics,
+38000,North Dakota,1,"  Real GDP (millions of chained 2017 dollars) 1",59916.0
+38000,North Dakota,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+38000,North Dakota,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+38000,North Dakota,,Current dollar statistics (millions of dollars),
+38000,North Dakota,4,"  Gross domestic product (GDP)",75399.4
+38000,North Dakota,5,"  Personal income",56529.5
+38000,North Dakota,6,"  Disposable personal income",50894.9
+38000,North Dakota,7,"  Personal consumption expenditures",(NA)
+38000,North Dakota,,Real per capita dollar statistics (constant 2017 dollars),
+38000,North Dakota,8,"  Real per capita personal income 4",(NA)
+38000,North Dakota,9,"  Real per capita PCE 5",(NA)
+38000,North Dakota,,Per capita current dollar statistics,
+38000,North Dakota,10,"  Per capita personal income 6",70966
+38000,North Dakota,11,"  Per capita disposable personal income 7",63893
+38000,North Dakota,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+38000,North Dakota,,Price indexes,
+38000,North Dakota,13,"  Regional price parities (RPPs) 9",(NA)
+38000,North Dakota,14,"  Implicit regional price deflator 10",(NA)
+38000,North Dakota,,Employment,
+38000,North Dakota,15,"  Total employment (number of jobs)",(NA)
+39000,Ohio,,Real dollar statistics,
+39000,Ohio,1,"  Real GDP (millions of chained 2017 dollars) 1",727262.4
+39000,Ohio,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+39000,Ohio,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+39000,Ohio,,Current dollar statistics (millions of dollars),
+39000,Ohio,4,"  Gross domestic product (GDP)",927740.1
+39000,Ohio,5,"  Personal income",763206.6
+39000,Ohio,6,"  Disposable personal income",681509.7
+39000,Ohio,7,"  Personal consumption expenditures",(NA)
+39000,Ohio,,Real per capita dollar statistics (constant 2017 dollars),
+39000,Ohio,8,"  Real per capita personal income 4",(NA)
+39000,Ohio,9,"  Real per capita PCE 5",(NA)
+39000,Ohio,,Per capita current dollar statistics,
+39000,Ohio,10,"  Per capita personal income 6",64225
+39000,Ohio,11,"  Per capita disposable personal income 7",57350
+39000,Ohio,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+39000,Ohio,,Price indexes,
+39000,Ohio,13,"  Regional price parities (RPPs) 9",(NA)
+39000,Ohio,14,"  Implicit regional price deflator 10",(NA)
+39000,Ohio,,Employment,
+39000,Ohio,15,"  Total employment (number of jobs)",(NA)
+40000,Oklahoma,,Real dollar statistics,
+40000,Oklahoma,1,"  Real GDP (millions of chained 2017 dollars) 1",212783.8
+40000,Oklahoma,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+40000,Oklahoma,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+40000,Oklahoma,,Current dollar statistics (millions of dollars),
+40000,Oklahoma,4,"  Gross domestic product (GDP)",265779.1
+40000,Oklahoma,5,"  Personal income",256621.5
+40000,Oklahoma,6,"  Disposable personal income",234752.1
+40000,Oklahoma,7,"  Personal consumption expenditures",(NA)
+40000,Oklahoma,,Real per capita dollar statistics (constant 2017 dollars),
+40000,Oklahoma,8,"  Real per capita personal income 4",(NA)
+40000,Oklahoma,9,"  Real per capita PCE 5",(NA)
+40000,Oklahoma,,Per capita current dollar statistics,
+40000,Oklahoma,10,"  Per capita personal income 6",62661
+40000,Oklahoma,11,"  Per capita disposable personal income 7",57321
+40000,Oklahoma,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+40000,Oklahoma,,Price indexes,
+40000,Oklahoma,13,"  Regional price parities (RPPs) 9",(NA)
+40000,Oklahoma,14,"  Implicit regional price deflator 10",(NA)
+40000,Oklahoma,,Employment,
+40000,Oklahoma,15,"  Total employment (number of jobs)",(NA)
+41000,Oregon,,Real dollar statistics,
+41000,Oregon,1,"  Real GDP (millions of chained 2017 dollars) 1",265146.9
+41000,Oregon,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+41000,Oregon,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+41000,Oregon,,Current dollar statistics (millions of dollars),
+41000,Oregon,4,"  Gross domestic product (GDP)",331028.6
+41000,Oregon,5,"  Personal income",301993.7
+41000,Oregon,6,"  Disposable personal income",260973.5
+41000,Oregon,7,"  Personal consumption expenditures",(NA)
+41000,Oregon,,Real per capita dollar statistics (constant 2017 dollars),
+41000,Oregon,8,"  Real per capita personal income 4",(NA)
+41000,Oregon,9,"  Real per capita PCE 5",(NA)
+41000,Oregon,,Per capita current dollar statistics,
+41000,Oregon,10,"  Per capita personal income 6",70685
+41000,Oregon,11,"  Per capita disposable personal income 7",61084
+41000,Oregon,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+41000,Oregon,,Price indexes,
+41000,Oregon,13,"  Regional price parities (RPPs) 9",(NA)
+41000,Oregon,14,"  Implicit regional price deflator 10",(NA)
+41000,Oregon,,Employment,
+41000,Oregon,15,"  Total employment (number of jobs)",(NA)
+42000,Pennsylvania,,Real dollar statistics,
+42000,Pennsylvania,1,"  Real GDP (millions of chained 2017 dollars) 1",818529.4
+42000,Pennsylvania,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+42000,Pennsylvania,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+42000,Pennsylvania,,Current dollar statistics (millions of dollars),
+42000,Pennsylvania,4,"  Gross domestic product (GDP)",1024206.3
+42000,Pennsylvania,5,"  Personal income",930521.0
+42000,Pennsylvania,6,"  Disposable personal income",819691.4
+42000,Pennsylvania,7,"  Personal consumption expenditures",(NA)
+42000,Pennsylvania,,Real per capita dollar statistics (constant 2017 dollars),
+42000,Pennsylvania,8,"  Real per capita personal income 4",(NA)
+42000,Pennsylvania,9,"  Real per capita PCE 5",(NA)
+42000,Pennsylvania,,Per capita current dollar statistics,
+42000,Pennsylvania,10,"  Per capita personal income 6",71148
+42000,Pennsylvania,11,"  Per capita disposable personal income 7",62674
+42000,Pennsylvania,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+42000,Pennsylvania,,Price indexes,
+42000,Pennsylvania,13,"  Regional price parities (RPPs) 9",(NA)
+42000,Pennsylvania,14,"  Implicit regional price deflator 10",(NA)
+42000,Pennsylvania,,Employment,
+42000,Pennsylvania,15,"  Total employment (number of jobs)",(NA)
+44000,Rhode Island,,Real dollar statistics,
+44000,Rhode Island,1,"  Real GDP (millions of chained 2017 dollars) 1",65281.5
+44000,Rhode Island,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+44000,Rhode Island,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+44000,Rhode Island,,Current dollar statistics (millions of dollars),
+44000,Rhode Island,4,"  Gross domestic product (GDP)",82492.5
+44000,Rhode Island,5,"  Personal income",77790.7
+44000,Rhode Island,6,"  Disposable personal income",68861.2
+44000,Rhode Island,7,"  Personal consumption expenditures",(NA)
+44000,Rhode Island,,Real per capita dollar statistics (constant 2017 dollars),
+44000,Rhode Island,8,"  Real per capita personal income 4",(NA)
+44000,Rhode Island,9,"  Real per capita PCE 5",(NA)
+44000,Rhode Island,,Per capita current dollar statistics,
+44000,Rhode Island,10,"  Per capita personal income 6",69936
+44000,Rhode Island,11,"  Per capita disposable personal income 7",61908
+44000,Rhode Island,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+44000,Rhode Island,,Price indexes,
+44000,Rhode Island,13,"  Regional price parities (RPPs) 9",(NA)
+44000,Rhode Island,14,"  Implicit regional price deflator 10",(NA)
+44000,Rhode Island,,Employment,
+44000,Rhode Island,15,"  Total employment (number of jobs)",(NA)
+45000,South Carolina,,Real dollar statistics,
+45000,South Carolina,1,"  Real GDP (millions of chained 2017 dollars) 1",273324.6
+45000,South Carolina,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+45000,South Carolina,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+45000,South Carolina,,Current dollar statistics (millions of dollars),
+45000,South Carolina,4,"  Gross domestic product (GDP)",349965.4
+45000,South Carolina,5,"  Personal income",328701.7
+45000,South Carolina,6,"  Disposable personal income",293767.0
+45000,South Carolina,7,"  Personal consumption expenditures",(NA)
+45000,South Carolina,,Real per capita dollar statistics (constant 2017 dollars),
+45000,South Carolina,8,"  Real per capita personal income 4",(NA)
+45000,South Carolina,9,"  Real per capita PCE 5",(NA)
+45000,South Carolina,,Per capita current dollar statistics,
+45000,South Carolina,10,"  Per capita personal income 6",59995
+45000,South Carolina,11,"  Per capita disposable personal income 7",53619
+45000,South Carolina,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+45000,South Carolina,,Price indexes,
+45000,South Carolina,13,"  Regional price parities (RPPs) 9",(NA)
+45000,South Carolina,14,"  Implicit regional price deflator 10",(NA)
+45000,South Carolina,,Employment,
+45000,South Carolina,15,"  Total employment (number of jobs)",(NA)
+46000,South Dakota,,Real dollar statistics,
+46000,South Dakota,1,"  Real GDP (millions of chained 2017 dollars) 1",57498.1
+46000,South Dakota,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+46000,South Dakota,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+46000,South Dakota,,Current dollar statistics (millions of dollars),
+46000,South Dakota,4,"  Gross domestic product (GDP)",75179.5
+46000,South Dakota,5,"  Personal income",68387.2
+46000,South Dakota,6,"  Disposable personal income",62709.7
+46000,South Dakota,7,"  Personal consumption expenditures",(NA)
+46000,South Dakota,,Real per capita dollar statistics (constant 2017 dollars),
+46000,South Dakota,8,"  Real per capita personal income 4",(NA)
+46000,South Dakota,9,"  Real per capita PCE 5",(NA)
+46000,South Dakota,,Per capita current dollar statistics,
+46000,South Dakota,10,"  Per capita personal income 6",73959
+46000,South Dakota,11,"  Per capita disposable personal income 7",67818
+46000,South Dakota,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+46000,South Dakota,,Price indexes,
+46000,South Dakota,13,"  Regional price parities (RPPs) 9",(NA)
+46000,South Dakota,14,"  Implicit regional price deflator 10",(NA)
+46000,South Dakota,,Employment,
+46000,South Dakota,15,"  Total employment (number of jobs)",(NA)
+47000,Tennessee,,Real dollar statistics,
+47000,Tennessee,1,"  Real GDP (millions of chained 2017 dollars) 1",432266.2
+47000,Tennessee,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+47000,Tennessee,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+47000,Tennessee,,Current dollar statistics (millions of dollars),
+47000,Tennessee,4,"  Gross domestic product (GDP)",549708.5
+47000,Tennessee,5,"  Personal income",469137.8
+47000,Tennessee,6,"  Disposable personal income",429141.4
+47000,Tennessee,7,"  Personal consumption expenditures",(NA)
+47000,Tennessee,,Real per capita dollar statistics (constant 2017 dollars),
+47000,Tennessee,8,"  Real per capita personal income 4",(NA)
+47000,Tennessee,9,"  Real per capita PCE 5",(NA)
+47000,Tennessee,,Per capita current dollar statistics,
+47000,Tennessee,10,"  Per capita personal income 6",64908
+47000,Tennessee,11,"  Per capita disposable personal income 7",59374
+47000,Tennessee,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+47000,Tennessee,,Price indexes,
+47000,Tennessee,13,"  Regional price parities (RPPs) 9",(NA)
+47000,Tennessee,14,"  Implicit regional price deflator 10",(NA)
+47000,Tennessee,,Employment,
+47000,Tennessee,15,"  Total employment (number of jobs)",(NA)
+48000,Texas,,Real dollar statistics,
+48000,Texas,1,"  Real GDP (millions of chained 2017 dollars) 1",2172368.5
+48000,Texas,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+48000,Texas,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+48000,Texas,,Current dollar statistics (millions of dollars),
+48000,Texas,4,"  Gross domestic product (GDP)",2709392.9
+48000,Texas,5,"  Personal income",2125967.4
+48000,Texas,6,"  Disposable personal income",1927969.3
+48000,Texas,7,"  Personal consumption expenditures",(NA)
+48000,Texas,,Real per capita dollar statistics (constant 2017 dollars),
+48000,Texas,8,"  Real per capita personal income 4",(NA)
+48000,Texas,9,"  Real per capita PCE 5",(NA)
+48000,Texas,,Per capita current dollar statistics,
+48000,Texas,10,"  Per capita personal income 6",67942
+48000,Texas,11,"  Per capita disposable personal income 7",61615
+48000,Texas,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+48000,Texas,,Price indexes,
+48000,Texas,13,"  Regional price parities (RPPs) 9",(NA)
+48000,Texas,14,"  Implicit regional price deflator 10",(NA)
+48000,Texas,,Employment,
+48000,Texas,15,"  Total employment (number of jobs)",(NA)
+49000,Utah,,Real dollar statistics,
+49000,Utah,1,"  Real GDP (millions of chained 2017 dollars) 1",235715.5
+49000,Utah,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+49000,Utah,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+49000,Utah,,Current dollar statistics (millions of dollars),
+49000,Utah,4,"  Gross domestic product (GDP)",300903.8
+49000,Utah,5,"  Personal income",232791.7
+49000,Utah,6,"  Disposable personal income",203076.7
+49000,Utah,7,"  Personal consumption expenditures",(NA)
+49000,Utah,,Real per capita dollar statistics (constant 2017 dollars),
+49000,Utah,8,"  Real per capita personal income 4",(NA)
+49000,Utah,9,"  Real per capita PCE 5",(NA)
+49000,Utah,,Per capita current dollar statistics,
+49000,Utah,10,"  Per capita personal income 6",66443
+49000,Utah,11,"  Per capita disposable personal income 7",57962
+49000,Utah,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+49000,Utah,,Price indexes,
+49000,Utah,13,"  Regional price parities (RPPs) 9",(NA)
+49000,Utah,14,"  Implicit regional price deflator 10",(NA)
+49000,Utah,,Employment,
+49000,Utah,15,"  Total employment (number of jobs)",(NA)
+50000,Vermont,,Real dollar statistics,
+50000,Vermont,1,"  Real GDP (millions of chained 2017 dollars) 1",36041.3
+50000,Vermont,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+50000,Vermont,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+50000,Vermont,,Current dollar statistics (millions of dollars),
+50000,Vermont,4,"  Gross domestic product (GDP)",45707.2
+50000,Vermont,5,"  Personal income",45450.5
+50000,Vermont,6,"  Disposable personal income",40365.1
+50000,Vermont,7,"  Personal consumption expenditures",(NA)
+50000,Vermont,,Real per capita dollar statistics (constant 2017 dollars),
+50000,Vermont,8,"  Real per capita personal income 4",(NA)
+50000,Vermont,9,"  Real per capita PCE 5",(NA)
+50000,Vermont,,Per capita current dollar statistics,
+50000,Vermont,10,"  Per capita personal income 6",70086
+50000,Vermont,11,"  Per capita disposable personal income 7",62245
+50000,Vermont,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+50000,Vermont,,Price indexes,
+50000,Vermont,13,"  Regional price parities (RPPs) 9",(NA)
+50000,Vermont,14,"  Implicit regional price deflator 10",(NA)
+50000,Vermont,,Employment,
+50000,Vermont,15,"  Total employment (number of jobs)",(NA)
+51000,Virginia,,Real dollar statistics,
+51000,Virginia,1,"  Real GDP (millions of chained 2017 dollars) 1",616057.7
+51000,Virginia,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+51000,Virginia,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+51000,Virginia,,Current dollar statistics (millions of dollars),
+51000,Virginia,4,"  Gross domestic product (GDP)",764474.8
+51000,Virginia,5,"  Personal income",679282.0
+51000,Virginia,6,"  Disposable personal income",592457.6
+51000,Virginia,7,"  Personal consumption expenditures",(NA)
+51000,Virginia,,Real per capita dollar statistics (constant 2017 dollars),
+51000,Virginia,8,"  Real per capita personal income 4",(NA)
+51000,Virginia,9,"  Real per capita PCE 5",(NA)
+51000,Virginia,,Per capita current dollar statistics,
+51000,Virginia,10,"  Per capita personal income 6",77093
+51000,Virginia,11,"  Per capita disposable personal income 7",67239
+51000,Virginia,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+51000,Virginia,,Price indexes,
+51000,Virginia,13,"  Regional price parities (RPPs) 9",(NA)
+51000,Virginia,14,"  Implicit regional price deflator 10",(NA)
+51000,Virginia,,Employment,
+51000,Virginia,15,"  Total employment (number of jobs)",(NA)
+53000,Washington,,Real dollar statistics,
+53000,Washington,1,"  Real GDP (millions of chained 2017 dollars) 1",702034.4
+53000,Washington,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+53000,Washington,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+53000,Washington,,Current dollar statistics (millions of dollars),
+53000,Washington,4,"  Gross domestic product (GDP)",854683.3
+53000,Washington,5,"  Personal income",667990.6
+53000,Washington,6,"  Disposable personal income",586614.4
+53000,Washington,7,"  Personal consumption expenditures",(NA)
+53000,Washington,,Real per capita dollar statistics (constant 2017 dollars),
+53000,Washington,8,"  Real per capita personal income 4",(NA)
+53000,Washington,9,"  Real per capita PCE 5",(NA)
+53000,Washington,,Per capita current dollar statistics,
+53000,Washington,10,"  Per capita personal income 6",83938
+53000,Washington,11,"  Per capita disposable personal income 7",73712
+53000,Washington,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+53000,Washington,,Price indexes,
+53000,Washington,13,"  Regional price parities (RPPs) 9",(NA)
+53000,Washington,14,"  Implicit regional price deflator 10",(NA)
+53000,Washington,,Employment,
+53000,Washington,15,"  Total employment (number of jobs)",(NA)
+54000,West Virginia,,Real dollar statistics,
+54000,West Virginia,1,"  Real GDP (millions of chained 2017 dollars) 1",83653.6
+54000,West Virginia,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+54000,West Virginia,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+54000,West Virginia,,Current dollar statistics (millions of dollars),
+54000,West Virginia,4,"  Gross domestic product (GDP)",107660.1
+54000,West Virginia,5,"  Personal income",97592.5
+54000,West Virginia,6,"  Disposable personal income",88668.0
+54000,West Virginia,7,"  Personal consumption expenditures",(NA)
+54000,West Virginia,,Real per capita dollar statistics (constant 2017 dollars),
+54000,West Virginia,8,"  Real per capita personal income 4",(NA)
+54000,West Virginia,9,"  Real per capita PCE 5",(NA)
+54000,West Virginia,,Per capita current dollar statistics,
+54000,West Virginia,10,"  Per capita personal income 6",55138
+54000,West Virginia,11,"  Per capita disposable personal income 7",50095
+54000,West Virginia,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+54000,West Virginia,,Price indexes,
+54000,West Virginia,13,"  Regional price parities (RPPs) 9",(NA)
+54000,West Virginia,14,"  Implicit regional price deflator 10",(NA)
+54000,West Virginia,,Employment,
+54000,West Virginia,15,"  Total employment (number of jobs)",(NA)
+55000,Wisconsin,,Real dollar statistics,
+55000,Wisconsin,1,"  Real GDP (millions of chained 2017 dollars) 1",354075.9
+55000,Wisconsin,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+55000,Wisconsin,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+55000,Wisconsin,,Current dollar statistics (millions of dollars),
+55000,Wisconsin,4,"  Gross domestic product (GDP)",451285.3
+55000,Wisconsin,5,"  Personal income",402880.7
+55000,Wisconsin,6,"  Disposable personal income",358242.6
+55000,Wisconsin,7,"  Personal consumption expenditures",(NA)
+55000,Wisconsin,,Real per capita dollar statistics (constant 2017 dollars),
+55000,Wisconsin,8,"  Real per capita personal income 4",(NA)
+55000,Wisconsin,9,"  Real per capita PCE 5",(NA)
+55000,Wisconsin,,Per capita current dollar statistics,
+55000,Wisconsin,10,"  Per capita personal income 6",67586
+55000,Wisconsin,11,"  Per capita disposable personal income 7",60098
+55000,Wisconsin,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+55000,Wisconsin,,Price indexes,
+55000,Wisconsin,13,"  Regional price parities (RPPs) 9",(NA)
+55000,Wisconsin,14,"  Implicit regional price deflator 10",(NA)
+55000,Wisconsin,,Employment,
+55000,Wisconsin,15,"  Total employment (number of jobs)",(NA)
+56000,Wyoming,,Real dollar statistics,
+56000,Wyoming,1,"  Real GDP (millions of chained 2017 dollars) 1",40516.2
+56000,Wyoming,2,"  Real personal income (millions of constant (2017) dollars) 2",(NA)
+56000,Wyoming,3,"  Real PCE (millions of constant (2017) dollars) 3",(NA)
+56000,Wyoming,,Current dollar statistics (millions of dollars),
+56000,Wyoming,4,"  Gross domestic product (GDP)",52946.1
+56000,Wyoming,5,"  Personal income",50502.8
+56000,Wyoming,6,"  Disposable personal income",44692.0
+56000,Wyoming,7,"  Personal consumption expenditures",(NA)
+56000,Wyoming,,Real per capita dollar statistics (constant 2017 dollars),
+56000,Wyoming,8,"  Real per capita personal income 4",(NA)
+56000,Wyoming,9,"  Real per capita PCE 5",(NA)
+56000,Wyoming,,Per capita current dollar statistics,
+56000,Wyoming,10,"  Per capita personal income 6",85945
+56000,Wyoming,11,"  Per capita disposable personal income 7",76056
+56000,Wyoming,12,"  Per capita personal consumption expenditures (PCE) 8",(NA)
+56000,Wyoming,,Price indexes,
+56000,Wyoming,13,"  Regional price parities (RPPs) 9",(NA)
+56000,Wyoming,14,"  Implicit regional price deflator 10",(NA)
+56000,Wyoming,,Employment,
+56000,Wyoming,15,"  Total employment (number of jobs)",(NA)
+
+Legend/Footnotes
+"1. Chained (2017) dollar series are calculated as the product of the chain-type quantity index and the 2017 current-dollar value of the corresponding series, divided by 100. Because the formula for the chain-type quantity indexes uses weights of more than one period, the corresponding chained-dollar estimates are usually not additive. The difference between the United States and sum-of-states reflects federal military and civilian activity located overseas, as well as the differences in source data used to estimate GDP by industry and the expenditures measure of real GDP."
+2. Real personal income for states is personal income divided by the RPPs and the national PCE price index. The result is a constant dollar (using 2017 as the base year) estimate of real personal income. Calculations are performed on unrounded data.
+3. Real personal consumption expenditures for states are personal consumption expenditures divided by the RPPs and the national PCE price index. The result is a constant dollar (using 2017 as the base year) estimate of real personal consumption expenditures. Calculations are performed on unrounded data.
+4. Real per capita personal income for states is real personal income divided by total midyear population.
+5. Real per capita personal consumption expenditures for states are real personal consumption expenditures divided by total midyear population.
+6. Per capita personal income is total personal income divided by total midyear population.
+7. Per capita disposable personal income is total disposable personal income divided by total midyear population.
+8. Per capita personal consumption expenditures (PCE) are PCE divided by total midyear population.
+9. Regional price parities (RPPs) measure price level differences across regions for one time period. Each annual set of RPPs is estimated relative to the US average for that year and thus cannot be compared meaningfully across years (see the IRPD for an adjustment that enables regional time-to-time comparisons).
+10. Implicit regional price deflators (IRPDs) are derived as the product of two terms--the regional price parity and the U.S. PCE price index.  The year to-year change in the IRPDs is an indirect measure of regional inflation.
+(NA) In the latest year (NA) indicates the statistic has not yet been published. (NA) in early years indicates the statistic is not available due to source data or methodological reasons.
+"  Last updated: March 28, 2025."
